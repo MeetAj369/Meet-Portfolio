@@ -1,0 +1,25 @@
+.statsSection { padding:var(--section-padding); background:var(--bg-secondary); position:relative; overflow:hidden; }
+.statsSection::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:800px; height:400px; background:radial-gradient(ellipse,rgba(99,102,241,.05) 0%,transparent 70%); pointer-events:none; }
+.header { text-align:center; margin-bottom:60px; }
+.eyebrow { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.15em; color:var(--accent-primary); margin-bottom:12px; text-transform:uppercase; }
+.title { font-size:clamp(1.8rem,4vw,2.6rem); font-weight:800; color:var(--text-primary); margin-bottom:12px; letter-spacing:-.02em; }
+.subtitle { font-size:1rem; color:var(--text-secondary); }
+.statsGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.statCard {
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:32px 24px;
+  text-align:center;
+  transition:transform var(--t-normal),box-shadow var(--t-normal),border-color var(--t-normal);
+  position:relative;
+  overflow:hidden;
+}
+.statCard::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent-gradient); opacity:0; transition:opacity var(--t-normal); }
+.statCard:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:var(--border-hover); }
+.statCard:hover::before { opacity:1; }
+.iconWrap { width:56px; height:56px; border-radius:var(--radius-md); background:var(--accent-gradient); display:flex; align-items:center; justify-content:center; margin:0 auto 18px; color:#fff; box-shadow:0 4px 18px rgba(99,102,241,.35); }
+.statValue { font-size:2.2rem; font-weight:800; background:var(--accent-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; margin-bottom:10px; }
+.statLabel { font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--text-secondary); }
+@media (max-width:768px) { .statsGrid { grid-template-columns:repeat(2,1fr); gap:14px; } .statCard { padding:24px 16px; } }
+@media (max-width:480px) { .statsGrid { grid-template-columns:1fr; } }

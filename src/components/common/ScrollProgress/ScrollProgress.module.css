@@ -1,0 +1,17 @@
+.progressContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--progress-height, 4px);
+  z-index: 1000; /* Above navbar */
+  background: transparent;
+  pointer-events: none;
+}
+
+.progressBar {
+  height: 100%;
+  background: var(--accent-gradient, linear-gradient(90deg, var(--accent-primary), var(--accent-secondary)));
+  transition: width 0.1s ease-out;
+  border-radius: 0 2px 2px 0;
+}

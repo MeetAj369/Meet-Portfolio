@@ -1,0 +1,69 @@
+.container {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+.left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  background: var(--accent-gradient, linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.line {
+  height: 4px;
+  width: 0;
+  background: var(--accent-gradient, linear-gradient(90deg, var(--accent-primary), var(--accent-secondary)));
+  border-radius: var(--radius-full, 999px);
+  margin-bottom: 1rem;
+  animation: expandLine 1s ease-out forwards;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@keyframes expandLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+}

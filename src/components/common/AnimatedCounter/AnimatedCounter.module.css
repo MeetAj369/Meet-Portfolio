@@ -1,0 +1,18 @@
+.counter {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  background: var(--accent-gradient, linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .counter {
+    font-size: 2.5rem;
+  }
+}
