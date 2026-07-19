@@ -10,7 +10,7 @@ const Loader = ({ isLoading }) => {
         <div className={styles.ring1}></div>
         <div className={styles.ring2}></div>
         <img 
-          src="./uploads/logo.png" 
+          src="/Meet-Portfolio/uploads/logo.png" 
           alt="Loading Meet Chauhan Portfolio..." 
           className={styles.logo} 
           onError={(e) => {

@@ -8,7 +8,7 @@ export const personalInfo = {
   phone: '+91 91064 77426',
   linkedin: 'https://www.linkedin.com/in/meetaj0369/',
   github: 'https://github.com/MeetAj369',
-  resumePath: './uploads/Meet_Chauhan_Resume.pdf',
+  resumePath: '/Meet-Portfolio/uploads/Meet_Chauhan_Resume.pdf',
   about: `I am an aspiring Software Engineer passionate about Full Stack Development, Artificial Intelligence, Machine Learning, and solving real-world problems. I enjoy building practical web applications using JavaScript, PHP, Java, SQL, and Python while continuously improving my software engineering skills. Beyond academics, I actively build personal projects, explore emerging technologies, and complete technical certifications to strengthen my development journey.`,
   roles: ['Software Engineer', 'React Developer', 'Full Stack Developer', 'Python Developer', 'AI Enthusiast', 'Problem Solver'],
   currentlyLearning: ['ReactJS', 'Python', 'Modern JavaScript', 'AI/ML', 'Node.js'],

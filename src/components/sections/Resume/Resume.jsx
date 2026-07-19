@@ -3,7 +3,7 @@ import { Eye, Download, FileText, Briefcase, GraduationCap, Award } from 'lucide
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 import styles from './Resume.module.css';
 
-const RESUME_URL = './uploads/Meet_Chauhan_Resume.pdf';
+const RESUME_URL = '/Meet-Portfolio/uploads/Meet_Chauhan_Resume.pdf';
 
 const highlights = [
   { icon: Briefcase, label: 'Full Stack', desc: 'Web Development' },

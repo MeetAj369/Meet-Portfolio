@@ -17,7 +17,7 @@ const Footer = () => {
           <div className={styles.footerBrand}>
             <a href="/" className={styles.footerLogoWrap} aria-label="Go to Home">
               <img
-                src="./uploads/logo.png"
+                src="/Meet-Portfolio/uploads/logo.png"
                 alt="Meet Chauhan Logo"
                 className={styles.footerLogoImg}
                 onError={(e) => { e.target.style.display = 'none'; }}
