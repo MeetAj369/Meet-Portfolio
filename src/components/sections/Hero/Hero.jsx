@@ -62,7 +62,7 @@ const Hero = () => {
             <button className={styles.btnPrimary} onClick={() => scrollTo('projects')}>
               View Projects <ArrowRight size={17} />
             </button>
-            <a href="/uploads/Meet_Chauhan_Resume.pdf" download="Meet_Chauhan_Resume.pdf" className={styles.btnSecondary}>
+            <a href="./uploads/Meet_Chauhan_Resume.pdf" download="Meet_Chauhan_Resume.pdf" className={styles.btnSecondary}>
               <Download size={17} /> Resume
             </a>
             <button className={styles.btnGhost} onClick={() => scrollTo('contact')}>
@@ -90,13 +90,13 @@ const Hero = () => {
             <div className={styles.ring2} />
             <div className={styles.glow} />
             <img
-              src="/uploads/Photo.png"
+              src="./uploads/Photo.png"
               alt="Meet Chauhan"
               className={styles.photo}
               onError={(e) => {
                 if (!e.target.dataset.triedJpg) {
                   e.target.dataset.triedJpg = 'true';
-                  e.target.src = '/uploads/photo.jpg';
+                  e.target.src = './uploads/photo.jpg';
                 } else {
                   e.target.style.display = 'none';
                   if (e.target.nextElementSibling) e.target.nextElementSibling.style.display = 'flex';

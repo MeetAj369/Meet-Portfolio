@@ -30,7 +30,7 @@ const Navbar = ({ theme, toggleTheme, activeSection, scrollDirection, scrollPosi
       <div className={`container ${styles.inner}`}>
         <button className={styles.logo} onClick={() => handleNav('hero')} aria-label="Go to top">
           <img
-            src="/uploads/logo.png"
+            src="./uploads/logo.png"
             alt="Meet Chauhan Logo"
             className={styles.logoImage}
             onError={(e) => {
