@@ -6,10 +6,10 @@ import styles from './Resume.module.css';
 const RESUME_URL = '/Meet-Portfolio/uploads/Meet_Chauhan_Resume.pdf';
 
 const highlights = [
-  { icon: Briefcase, label: 'Full Stack', desc: 'Web Development' },
-  { icon: GraduationCap, label: 'BCA', desc: 'CVMU, Gujarat' },
-  { icon: Award, label: '8+', desc: 'Certifications' },
-  { icon: FileText, label: '10+', desc: 'Projects Built' },
+  { icon: Briefcase, label: 'Full Stack', desc: 'ReactJS / NodeJS / Python' },
+  { icon: GraduationCap, label: 'BCA (8.67)', desc: 'Charutar Vidya Mandal Univ' },
+  { icon: Award, label: '5+ Core', desc: 'AI, ML & Web Certs' },
+  { icon: FileText, label: 'TechSprint', desc: 'Hackathon & Enterprise Apps' },
 ];
 
 const Resume = () => {

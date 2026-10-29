@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './AnimatedCounter.module.css';
 
 const AnimatedCounter = ({ target, value, suffix = '+', duration = 2000 }) => {
-  const finalTarget = parseInt(target ?? value ?? 0, 10);
+  const rawTarget = target ?? value ?? 0;
+  const isFloat = rawTarget.toString().includes('.');
+  const finalTarget = parseFloat(rawTarget);
   const [count, setCount] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
   const counterRef = useRef(null);
@@ -24,15 +26,24 @@ const AnimatedCounter = ({ target, value, suffix = '+', duration = 2000 }) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
       const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-      setCount(Math.floor(eased * finalTarget));
+      if (isFloat) {
+        setCount((eased * finalTarget).toFixed(2));
+      } else {
+        setCount(Math.floor(eased * finalTarget));
+      }
       if (progress < 1) requestAnimationFrame(step);
-      else setCount(finalTarget);
+      else setCount(isFloat ? finalTarget.toFixed(2) : finalTarget);
     };
     const raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
-  }, [hasStarted, finalTarget, duration]);
+  }, [hasStarted, finalTarget, duration, isFloat]);
 
-  return <span ref={counterRef} className={styles.counter}>{count.toLocaleString()}{suffix}</span>;
+  return (
+    <span ref={counterRef} className={styles.counter}>
+      {isFloat ? count : Number(count).toLocaleString()}
+      {suffix}
+    </span>
+  );
 };
 
 export default AnimatedCounter;

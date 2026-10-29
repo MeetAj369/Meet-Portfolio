@@ -3,9 +3,10 @@ export const education = [
     id: 1,
     degree: 'Bachelor of Computer Applications (BCA)',
     institution: 'Charutar Vidya Mandal University',
-    location: 'Gujarat, India',
-    period: '2024 — 2027',
-    description: 'Studying computer science fundamentals, software engineering, data structures, algorithms, database management, and web development.',
+    location: 'Anand, Gujarat, India',
+    period: 'June 2024 — June 2027',
+    grade: 'CGPA: 8.67 / 10.0',
+    description: 'Pursuing comprehensive curriculum in computer applications, full stack development, relational database systems (MySQL/PostgreSQL), data structures, algorithms, and software engineering principles.',
     current: true,
     icon: 'GraduationCap'
   },
@@ -15,7 +16,8 @@ export const education = [
     institution: 'London South Bank University',
     location: 'London, UK',
     period: '2023',
-    description: 'Completed foundation programme building a strong academic base in computing, mathematics, and analytical thinking.',
+    grade: 'Completed',
+    description: 'Completed foundational computing program building solid analytical, mathematical, and algorithmic problem-solving competencies.',
     current: false,
     icon: 'School'
   }

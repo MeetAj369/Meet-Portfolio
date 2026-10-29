@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Monitor, Server, Wrench, Database, Brain, Sparkles, Layers } from 'lucide-react';
+import { Monitor, Server, Wrench, Database, Brain, Sparkles, Layers, Code } from 'lucide-react';
 import styles from './Skills.module.css';
 import { skillCategories } from '../../../data/skills';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
@@ -11,7 +11,8 @@ const ICON_MAP = {
   Database,
   Brain,
   Sparkles,
-  Layers
+  Layers,
+  Code
 };
 
 const Skills = () => {
@@ -51,9 +52,14 @@ const Skills = () => {
 
   const getCategoryIcon = (id) => {
     switch (id) {
+      case 'languages': return <Code size={18} />;
+      case 'web':
       case 'frontend': return <Monitor size={18} />;
       case 'backend': return <Server size={18} />;
+      case 'database': return <Database size={18} />;
       case 'tools': return <Wrench size={18} />;
+      case 'ai': return <Brain size={18} />;
+      case 'soft': return <Sparkles size={18} />;
       default: return <Layers size={18} />;
     }
   };

@@ -53,9 +53,9 @@ const Hero = () => {
           </div>
 
           <p className={styles.bio}>
-            Aspiring Software Engineer passionate about Full Stack Development,
-            AI/ML, and building scalable web applications. Currently pursuing
-            BCA at CVMU, Gujarat, India.
+            Full Stack &amp; Frontend Developer passionate about building high-performance
+            web applications, enterprise platforms, and AI-powered systems. BCA undergraduate
+            (CGPA: 8.67) at Charutar Vidya Mandal University, Anand, Gujarat.
           </p>
 
           <div className={styles.cta}>
@@ -107,10 +107,10 @@ const Hero = () => {
               <span>MC</span>
             </div>
           </div>
-          <div className={`${styles.chip} ${styles.c1}`}>⚛️ React.js</div>
-          <div className={`${styles.chip} ${styles.c2}`}>🐍 Python</div>
-          <div className={`${styles.chip} ${styles.c3}`}>🤖 AI / ML</div>
-          <div className={`${styles.chip} ${styles.c4}`}>💻 Full Stack</div>
+          <div className={`${styles.chip} ${styles.c1}`}>⚛️ React & Next.js</div>
+          <div className={`${styles.chip} ${styles.c2}`}>🐍 Python & FastAPI</div>
+          <div className={`${styles.chip} ${styles.c3}`}>🤖 AI & Claude</div>
+          <div className={`${styles.chip} ${styles.c4}`}>💻 Full Stack & SQL</div>
         </div>
       </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, BookOpen, MapPin } from 'lucide-react';
+import { GraduationCap, BookOpen, MapPin, Award } from 'lucide-react';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 import { education } from '../../../data/education';
@@ -17,7 +17,7 @@ const Education = () => {
   return (
     <section id="education" className={styles.educationSection} ref={revealRef}>
       <div className="container">
-        <SectionTitle title="Education" subtitle="Academic background" />
+        <SectionTitle title="Education" subtitle="Academic background & qualifications" />
         
         <div className={styles.educationTimeline}>
           {education.map((item, index) => {
@@ -32,9 +32,14 @@ const Education = () => {
                 <div className={styles.eduContent}>
                   <div className={styles.eduHeader}>
                     <h3 className={styles.eduDegree}>{item.degree}</h3>
-                    {item.current && (
-                      <span className={styles.currentBadge}>Current</span>
-                    )}
+                    <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+                      {item.grade && (
+                        <span className={styles.gradeBadge}>{item.grade}</span>
+                      )}
+                      {item.current && (
+                        <span className={styles.currentBadge}>Current</span>
+                      )}
+                    </div>
                   </div>
                   
                   <div className={styles.eduInstitution}>
@@ -65,6 +70,3 @@ const Education = () => {
 };
 
 export default Education;
-
-
-

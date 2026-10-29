@@ -53,7 +53,7 @@ const About = () => {
               <div className={styles.infoCard}>
                 <div className={styles.iconWrapper}><GraduationCap className={styles.icon} /></div>
                 <span className={styles.label}>Education</span>
-                <span className={styles.value}>BCA, CVU</span>
+                <span className={styles.value}>BCA (CGPA: 8.67), CVMU</span>
               </div>
               <div className={styles.infoCard}>
                 <div className={styles.iconWrapper}><Mail className={styles.icon} /></div>
@@ -63,7 +63,7 @@ const About = () => {
               <div className={styles.infoCard}>
                 <div className={styles.iconWrapper}><Circle fill="currentColor" className={`${styles.icon} ${styles.statusIcon}`} /></div>
                 <span className={styles.label}>Status</span>
-                <span className={styles.value}>Available for opportunities</span>
+                <span className={styles.value}>Available for Internships & Jobs</span>
               </div>
             </div>
           </div>
@@ -84,7 +84,7 @@ const About = () => {
               <div className={styles.timelineDot}></div>
               <div className={styles.timelineContent}>
                 <span className={styles.year}>2024</span>
-                <span className={styles.event}>Started BCA at CVU & Projects</span>
+                <span className={styles.event}>Started BCA at CVMU (CGPA: 8.67)</span>
               </div>
             </div>
             <div className={styles.timelineLine}></div>
@@ -92,15 +92,15 @@ const About = () => {
               <div className={styles.timelineDot}></div>
               <div className={styles.timelineContent}>
                 <span className={styles.year}>2025</span>
-                <span className={styles.event}>Certifications, AI & Modern Tech</span>
+                <span className={styles.event}>TechSprint 2.0 Hackathon & Enterprise Systems</span>
               </div>
             </div>
             <div className={styles.timelineLine}></div>
             <div className={styles.timelineItem}>
               <div className={styles.timelineDot}></div>
               <div className={styles.timelineContent}>
-                <span className={styles.year}>Future</span>
-                <span className={styles.event}>Software Engineer</span>
+                <span className={styles.year}>2026</span>
+                <span className={styles.event}>AI / ML Certifications & Full Stack Innovations</span>
               </div>
             </div>
           </div>

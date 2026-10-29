@@ -15,7 +15,7 @@ const Footer = () => {
         <div className={styles.footerGrid}>
           {/* Brand Column */}
           <div className={styles.footerBrand}>
-            <a href="/" className={styles.footerLogoWrap} aria-label="Go to Home">
+            <button onClick={() => scrollToSection('hero')} className={styles.footerLogoWrap} aria-label="Go to Home" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
               <img
                 src="/Meet-Portfolio/uploads/logo.png"
                 alt="Meet Chauhan Logo"
@@ -23,9 +23,9 @@ const Footer = () => {
                 onError={(e) => { e.target.style.display = 'none'; }}
               />
               <div className={styles.name}>Meet Chauhan</div>
-            </a>
+            </button>
             <p className={styles.tagline}>
-              Aspiring Software Engineer crafting modern, responsive web experiences.
+              Full Stack &amp; Frontend Developer crafting scalable web applications and intelligent systems.
             </p>
             <div className={styles.footerSocial}>
               {linkedinLink && (
