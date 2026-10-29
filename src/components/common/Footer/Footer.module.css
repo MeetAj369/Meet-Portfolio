@@ -17,18 +17,18 @@
   margin-bottom: 8px;
 }
 .footerLogoImg {
-  height: 32px;
+  height: 28px;
   width: auto;
   object-fit: contain;
+  display: block;
 }
 
-[data-theme="dark"] .footerLogoImg {
-  mix-blend-mode: screen;
+[data-theme="dark"] .footerLogoLight {
+  display: none !important;
 }
 
-[data-theme="light"] .footerLogoImg {
-  filter: invert(1);
-  mix-blend-mode: multiply;
+[data-theme="light"] .footerLogoDark {
+  display: none !important;
 }
 .name {
   font-family: var(--font-heading, 'Space Grotesk', sans-serif);

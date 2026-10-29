@@ -26,6 +26,7 @@ import Statistics from './components/sections/Statistics/Statistics';
 import Resume from './components/sections/Resume/Resume';
 import Contact from './components/sections/Contact/Contact';
 import QuickActions from './components/common/QuickActions/QuickActions';
+import AIAssistant from './components/common/AIAssistant/AIAssistant';
 
 /* App styles */
 import styles from './App.module.css';
@@ -96,8 +97,11 @@ function App() {
       {/* Footer */}
       <Footer />
 
-      {/* Mobile Quick Action Pill */}
-      <QuickActions />
+      {/* Mobile Quick Action Pill (shown on mobile when scrolled) */}
+      <QuickActions visible={scrollPosition > 450} />
+
+      {/* Meet AI Personal Assistant */}
+      <AIAssistant />
 
       {/* Back to top */}
       <BackToTop visible={scrollPosition > 500} />

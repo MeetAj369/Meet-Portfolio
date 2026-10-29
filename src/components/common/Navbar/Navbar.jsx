@@ -30,18 +30,15 @@ const Navbar = ({ theme, toggleTheme, activeSection, scrollDirection, scrollPosi
       <div className={`container ${styles.inner}`}>
         <button className={styles.logo} onClick={() => handleNav('hero')} aria-label="Go to top">
           <img
-            src="/Meet-Portfolio/uploads/logo.png"
+            src="/Meet-Portfolio/uploads/logo-dark.png"
             alt="Meet Chauhan Logo"
-            className={styles.logoImage}
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.nextElementSibling.style.display = 'flex';
-            }}
+            className={`${styles.logoImage} ${styles.logoDark}`}
           />
-          <div className={styles.logoFallback} style={{ display: 'none' }}>
-            <div className={styles.logoIcon}><span>MC</span></div>
-            <span className={styles.logoText}>Meet</span>
-          </div>
+          <img
+            src="/Meet-Portfolio/uploads/logo-light.png"
+            alt="Meet Chauhan Logo"
+            className={`${styles.logoImage} ${styles.logoLight}`}
+          />
         </button>
 
         <nav className={styles.desktopNav}>

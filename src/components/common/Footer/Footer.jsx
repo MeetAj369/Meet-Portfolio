@@ -17,10 +17,14 @@ const Footer = () => {
           <div className={styles.footerBrand}>
             <button onClick={() => scrollToSection('hero')} className={styles.footerLogoWrap} aria-label="Go to Home" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
               <img
-                src="/Meet-Portfolio/uploads/logo.png"
+                src="/Meet-Portfolio/uploads/logo-dark.png"
                 alt="Meet Chauhan Logo"
-                className={styles.footerLogoImg}
-                onError={(e) => { e.target.style.display = 'none'; }}
+                className={`${styles.footerLogoImg} ${styles.footerLogoDark}`}
+              />
+              <img
+                src="/Meet-Portfolio/uploads/logo-light.png"
+                alt="Meet Chauhan Logo"
+                className={`${styles.footerLogoImg} ${styles.footerLogoLight}`}
               />
               <div className={styles.name}>Meet Chauhan</div>
             </button>
