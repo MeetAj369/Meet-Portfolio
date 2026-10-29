@@ -68,11 +68,11 @@ const Hero = () => {
 
         {/* RIGHT */}
         <div className={styles.right}>
-          <div className={styles.photoFrame}>
+          <div className={styles.showcaseWrap}>
             {/* Ambient soft backlight */}
             <div className={styles.ambientGlow} aria-hidden="true" />
 
-            {/* Premium glassmorphic photo card */}
+            {/* Main Portrait Card - Clean and unblocked */}
             <div className={styles.photoCard}>
               <div className={styles.innerFrame}>
                 <img
@@ -94,29 +94,31 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Verified Developer status badge */}
+              {/* Status Badge attached cleanly to bottom of photo */}
               <div className={styles.statusBadge}>
                 <span className={styles.statusDot} />
                 <span className={styles.statusText}>Full Stack Developer</span>
               </div>
             </div>
 
-            {/* Floating tech badges with clean Lucide icons */}
-            <div className={`${styles.techChip} ${styles.chip1}`}>
-              <Code2 size={15} className={styles.chipIcon} />
-              <span>React & Next.js</span>
-            </div>
-            <div className={`${styles.techChip} ${styles.chip2}`}>
-              <Terminal size={15} className={styles.chipIcon} />
-              <span>Python & FastAPI</span>
-            </div>
-            <div className={`${styles.techChip} ${styles.chip3}`}>
-              <Sparkles size={15} className={styles.chipIcon} />
-              <span>AI & Claude</span>
-            </div>
-            <div className={`${styles.techChip} ${styles.chip4}`}>
-              <Database size={15} className={styles.chipIcon} />
-              <span>Full Stack & SQL</span>
+            {/* Tech Badges Tray - Positioned cleanly below photo, zero overlap */}
+            <div className={styles.techPillGrid}>
+              <div className={styles.techPill}>
+                <Code2 size={15} className={styles.pillIcon} />
+                <span>React & Next.js</span>
+              </div>
+              <div className={styles.techPill}>
+                <Terminal size={15} className={styles.pillIcon} />
+                <span>Python & FastAPI</span>
+              </div>
+              <div className={styles.techPill}>
+                <Sparkles size={15} className={styles.pillIcon} />
+                <span>AI & Claude</span>
+              </div>
+              <div className={styles.techPill}>
+                <Database size={15} className={styles.pillIcon} />
+                <span>Full Stack & SQL</span>
+              </div>
             </div>
           </div>
         </div>
