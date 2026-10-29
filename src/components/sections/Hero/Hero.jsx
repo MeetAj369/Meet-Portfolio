@@ -77,7 +77,7 @@ const Hero = () => {
             <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="GitHub">
               <GithubIcon size={19} />
             </a>
-            <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}`} target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="Email">
+            <a href={`mailto:${personalInfo.email}`} className={styles.socialBtn} aria-label="Send Email">
               <Mail size={19} />
             </a>
           </div>

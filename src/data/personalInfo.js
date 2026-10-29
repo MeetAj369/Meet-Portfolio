@@ -41,7 +41,7 @@ export const personalInfo = {
 export const socialLinks = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/meetaj0369/', icon: 'Linkedin' },
   { name: 'GitHub', url: 'https://github.com/MeetAj369', icon: 'Github' },
-  { name: 'Email', url: 'https://mail.google.com/mail/?view=cm&fs=1&to=meetaj369@gmail.com', icon: 'Mail' },
+  { name: 'Email', url: 'mailto:meetaj369@gmail.com', icon: 'Mail' },
   { name: 'Phone', url: 'tel:+919106477426', icon: 'Phone' },
 ];
 

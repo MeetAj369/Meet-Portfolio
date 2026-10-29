@@ -99,6 +99,13 @@
   border-color: #ef4444 !important;
 }
 
+.formBtnGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
 .submitBtn {
   background: var(--accent-gradient);
   color: white;
@@ -113,12 +120,44 @@
   justify-content: center;
   gap: 10px;
   transition: all var(--transition-normal, 0.3s ease);
-  margin-top: 8px;
+  text-decoration: none;
 }
 
 .submitBtn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-glow);
+}
+
+.secondarySubmitBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  padding: 12px 24px;
+  border-radius: var(--radius-lg, 12px);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all var(--transition-normal, 0.3s ease);
+  text-decoration: none;
+}
+
+.secondarySubmitBtn:hover {
+  background: var(--bg-secondary);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.successActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  margin-top: 8px;
 }
 
 .successMessage {
@@ -214,6 +253,12 @@ a.contactCard:hover {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+.contactCardText {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
 }
 
 .contactLabel {

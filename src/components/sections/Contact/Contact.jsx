@@ -18,6 +18,7 @@ const Contact = () => {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [lastEmailDetails, setLastEmailDetails] = useState(null);
 
   const linkedinLink = socialLinks.find(s => s.name === 'LinkedIn');
   const githubLink = socialLinks.find(s => s.name === 'GitHub');
@@ -40,36 +41,47 @@ const Contact = () => {
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
+    if (!formData.name.trim()) newErrors.name = 'Please enter your name';
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = 'Please enter your email address';
     } else if (!isValidEmail(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
     }
-    if (!formData.subject.trim()) newErrors.subject = 'Subject is required';
+    if (!formData.subject.trim()) newErrors.subject = 'Please enter a subject';
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters long';
+      newErrors.message = 'Please write a brief message';
+    } else if (formData.message.trim().length < 5) {
+      newErrors.message = 'Message must be at least 5 characters long';
     }
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSendEmail = (mode) => {
     const newErrors = validate();
     
-    if (Object.keys(newErrors).length === 0) {
-      // Draft email in user's default client
-      const mailtoUrl = `mailto:${personalInfo.email}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Hi Meet,\n\n${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`)}`;
-      window.location.href = mailtoUrl;
-
-      setSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setSubmitted(false), 8000);
-    } else {
+    if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
+      return;
     }
+
+    const subjectStr = formData.subject.trim() || 'Portfolio Inquiry';
+    const bodyStr = `Hi Meet,\n\n${formData.message.trim()}\n\n---\nSent by: ${formData.name.trim()}\nReply-to: ${formData.email.trim()}`;
+
+    const subject = encodeURIComponent(subjectStr);
+    const body = encodeURIComponent(bodyStr);
+
+    setLastEmailDetails({ subject, body });
+
+    if (mode === 'gmail') {
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}&su=${subject}&body=${body}`;
+      window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      const mailtoUrl = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
+      window.location.href = mailtoUrl;
+    }
+
+    setSubmitted(true);
+    setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
   return (
@@ -95,18 +107,39 @@ const Contact = () => {
                 </div>
                 <h3>Message Ready to Send!</h3>
                 <p>
-                  Your email client has been opened with your pre-filled message to <strong>{personalInfo.email}</strong>. 
-                  You can also contact me directly via LinkedIn or phone!
+                  Your email draft has been generated for <strong>{personalInfo.email}</strong>. 
+                  Choose an option below to open or re-send anytime:
                 </p>
-                <button 
-                  onClick={() => setSubmitted(false)} 
-                  className={styles.resetFormBtn}
-                >
-                  Send Another Message
-                </button>
+
+                <div className={styles.successActions}>
+                  {lastEmailDetails && (
+                    <>
+                      <a 
+                        href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}&su=${lastEmailDetails.subject}&body=${lastEmailDetails.body}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.submitBtn}
+                      >
+                        <ExternalLink size={16} /> Open in Gmail Web
+                      </a>
+                      <a 
+                        href={`mailto:${personalInfo.email}?subject=${lastEmailDetails.subject}&body=${lastEmailDetails.body}`}
+                        className={styles.secondarySubmitBtn}
+                      >
+                        <Mail size={16} /> Open in Mail App
+                      </a>
+                    </>
+                  )}
+                  <button 
+                    onClick={() => setSubmitted(false)} 
+                    className={styles.resetFormBtn}
+                  >
+                    Write New Message
+                  </button>
+                </div>
               </div>
             ) : (
-              <form className={styles.form} onSubmit={handleSubmit} noValidate>
+              <form className={styles.form} onSubmit={(e) => { e.preventDefault(); handleSendEmail('gmail'); }} noValidate>
                 <div className={styles.formGroup}>
                   <label htmlFor="name" className={styles.formLabel}>Your Name</label>
                   <input 
@@ -166,10 +199,26 @@ const Contact = () => {
                   {errors.message && <span className={styles.formError}>{errors.message}</span>}
                 </div>
                 
-                <button type="submit" className={styles.submitBtn}>
-                  <Send size={18} />
-                  <span>Send Message Directly</span>
-                </button>
+                <div className={styles.formBtnGroup}>
+                  <button 
+                    type="button" 
+                    onClick={() => handleSendEmail('gmail')} 
+                    className={styles.submitBtn}
+                    title="Open pre-filled draft directly in Gmail Web"
+                  >
+                    <ExternalLink size={18} />
+                    <span>Send via Gmail Web</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    onClick={() => handleSendEmail('mailto')} 
+                    className={styles.secondarySubmitBtn}
+                    title="Open in your default mail app (Outlook, Apple Mail, etc.)"
+                  >
+                    <Mail size={18} />
+                    <span>Send via Default Mail App</span>
+                  </button>
+                </div>
               </form>
             )}
           </div>
@@ -177,29 +226,37 @@ const Contact = () => {
           {/* Info Column */}
           <div className={`${styles.infoColumn} reveal`}>
             <div className={styles.contactInfo}>
-              {/* Email with copy button */}
-              <div className={styles.contactCard}>
+              {/* Email Card (Full card clickable as mailto, plus copy button) */}
+              <a 
+                href={`mailto:${personalInfo.email}`} 
+                className={styles.contactCard}
+                title="Click to compose an email"
+                aria-label={`Send direct email to ${personalInfo.email}`}
+              >
                 <div className={styles.contactIcon}><Mail size={20} color="white" /></div>
-                <div style={{ flex: 1 }}>
-                  <div className={styles.contactLabel}>Email Address</div>
-                  <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}`} target="_blank" rel="noopener noreferrer" className={styles.contactValueLink}>
-                    {personalInfo.email}
-                  </a>
+                <div className={styles.contactCardText}>
+                  <div className={styles.contactLabel}>Email Address (Click to Open)</div>
+                  <div className={styles.contactValue}>{personalInfo.email}</div>
                 </div>
                 <button 
+                  type="button"
                   onClick={handleCopyEmail} 
                   className={styles.copyBtn} 
-                  title="Copy email address"
+                  title="Copy email to clipboard"
                   aria-label="Copy email address"
                 >
                   {copied ? <Check size={16} color="#10b981" /> : <Copy size={16} />}
                 </button>
-              </div>
+              </a>
               
               {/* Phone */}
-              <a href={`tel:${personalInfo.phone.replace(/\s/g, '')}`} className={styles.contactCard}>
+              <a 
+                href={`tel:${personalInfo.phone.replace(/\s/g, '')}`} 
+                className={styles.contactCard}
+                title="Click to call"
+              >
                 <div className={styles.contactIcon}><Phone size={20} color="white" /></div>
-                <div>
+                <div className={styles.contactCardText}>
                   <div className={styles.contactLabel}>Phone / WhatsApp</div>
                   <div className={styles.contactValue}>{personalInfo.phone}</div>
                 </div>
@@ -208,31 +265,37 @@ const Contact = () => {
               {/* Location */}
               <div className={styles.contactCard}>
                 <div className={styles.contactIcon}><MapPin size={20} color="white" /></div>
-                <div>
+                <div className={styles.contactCardText}>
                   <div className={styles.contactLabel}>Location</div>
                   <div className={styles.contactValue}>{personalInfo.location}</div>
                 </div>
               </div>
             </div>
             
-            {/* Social Links */}
+            {/* Social & Quick Links */}
             <div className={styles.socialRow}>
+              <a 
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}`} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.socialBtn} 
+                aria-label="Open in Gmail Web"
+              >
+                <ExternalLink size={18} />
+                <span>Open in Gmail</span>
+              </a>
               {linkedinLink && (
                 <a href={linkedinLink.url} target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="LinkedIn">
-                  <LinkedinIcon size={20} />
+                  <LinkedinIcon size={18} />
                   <span>LinkedIn</span>
                 </a>
               )}
               {githubLink && (
                 <a href={githubLink.url} target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="GitHub">
-                  <GithubIcon size={20} />
+                  <GithubIcon size={18} />
                   <span>GitHub</span>
                 </a>
               )}
-              <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}`} target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="Gmail">
-                <ExternalLink size={18} />
-                <span>Open in Gmail</span>
-              </a>
             </div>
             
             {/* Availability & Status Card */}
