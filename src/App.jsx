@@ -97,8 +97,8 @@ function App() {
       {/* Footer */}
       <Footer />
 
-      {/* Mobile Quick Action Pill (shown on mobile when scrolled) */}
-      <QuickActions visible={scrollPosition > 450} />
+      {/* Mobile Quick Action Pill (shown on mobile when scrolled past Hero) */}
+      <QuickActions visible={scrollPosition > 650} />
 
       {/* Meet AI Personal Assistant */}
       <AIAssistant />

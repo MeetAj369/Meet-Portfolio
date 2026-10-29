@@ -72,6 +72,11 @@ const Contact = () => {
 
     setLastEmailDetails({ subject, body });
 
+    // Copy message text to clipboard as safety backup
+    try {
+      navigator.clipboard.writeText(bodyStr);
+    } catch (_) {}
+
     if (mode === 'gmail') {
       const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}&su=${subject}&body=${body}`;
       window.open(gmailUrl, '_blank', 'noopener,noreferrer');
@@ -226,28 +231,41 @@ const Contact = () => {
           {/* Info Column */}
           <div className={`${styles.infoColumn} reveal`}>
             <div className={styles.contactInfo}>
-              {/* Email Card (Full card clickable as mailto, plus copy button) */}
-              <a 
-                href={`mailto:${personalInfo.email}`} 
-                className={styles.contactCard}
-                title="Click to compose an email"
-                aria-label={`Send direct email to ${personalInfo.email}`}
-              >
+              {/* Email Card with 1-Click Copy and Direct Compose Options */}
+              <div className={styles.contactCard}>
                 <div className={styles.contactIcon}><Mail size={20} color="white" /></div>
                 <div className={styles.contactCardText}>
-                  <div className={styles.contactLabel}>Email Address (Click to Open)</div>
-                  <div className={styles.contactValue}>{personalInfo.email}</div>
+                  <div className={styles.contactLabel}>Email Address</div>
+                  <a 
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.contactValueLink}
+                    title="Click to compose directly in Gmail"
+                  >
+                    {personalInfo.email}
+                  </a>
                 </div>
-                <button 
-                  type="button"
-                  onClick={handleCopyEmail} 
-                  className={styles.copyBtn} 
-                  title="Copy email to clipboard"
-                  aria-label="Copy email address"
-                >
-                  {copied ? <Check size={16} color="#10b981" /> : <Copy size={16} />}
-                </button>
-              </a>
+                <div className={styles.cardActions}>
+                  <button 
+                    type="button"
+                    onClick={handleCopyEmail} 
+                    className={styles.copyBtn} 
+                    title="Copy email to clipboard"
+                    aria-label="Copy email address"
+                  >
+                    {copied ? <Check size={16} color="#10b981" /> : <Copy size={16} />}
+                  </button>
+                  <a 
+                    href={`mailto:${personalInfo.email}`} 
+                    className={styles.copyBtn} 
+                    title="Open in default mail client"
+                    aria-label="Open in default mail client"
+                  >
+                    <ExternalLink size={15} />
+                  </a>
+                </div>
+              </div>
               
               {/* Phone */}
               <a 

@@ -286,6 +286,12 @@ a.contactCard:hover {
   color: var(--accent-primary);
 }
 
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .copyBtn {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--glass-border);
