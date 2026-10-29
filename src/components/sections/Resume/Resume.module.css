@@ -20,5 +20,5 @@
 .itemVal { font-size:1.2rem; font-weight:800; color:var(--text-primary); line-height:1; margin-bottom:3px; }
 .itemDesc { font-size:.78rem; color:var(--text-secondary); font-weight:500; }
 
-@media (max-width:900px) { .card { grid-template-columns:1fr; padding:36px 24px; gap:36px; } }
+@media (max-width:900px) { .card { grid-template-columns:1fr; padding:36px 24px; gap:36px; } .desc { text-align: justify; text-justify: inter-word; hyphens: auto; -webkit-hyphens: auto; } }
 @media (max-width:480px) { .btns { flex-direction:column; } .btnPrimary,.btnOutline { justify-content:center; width:100%; } .right { grid-template-columns:1fr; } }

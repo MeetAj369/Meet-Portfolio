@@ -381,6 +381,16 @@
 }
 
 @media (max-width: 768px) {
+  .aboutText {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  .missionCard p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
   .missionCards, .infoGrid {
     grid-template-columns: 1fr;
   }

@@ -20,6 +20,8 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.2);
     z-index: 99;
     animation: slideUpPill 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    max-width: calc(100vw - 28px);
+    box-sizing: border-box;
   }
 
   [data-theme='light'] .mobileBar {
@@ -42,6 +44,7 @@
     background: transparent;
     cursor: pointer;
     transition: all 0.2s ease;
+    white-space: nowrap;
   }
 
   .actionBtn svg {

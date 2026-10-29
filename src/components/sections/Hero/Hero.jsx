@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { Mail, ChevronDown, Download, ArrowRight } from 'lucide-react';
+import React from 'react';
+import { Mail, ChevronDown, Download, ArrowRight, Code2, Terminal, Sparkles, Database } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../../common/Icons/BrandIcons';
 import styles from './Hero.module.css';
 import { personalInfo } from '../../../data/personalInfo';
@@ -7,28 +7,11 @@ import { useTypewriter } from '../../../hooks/useTypewriter';
 
 const Hero = () => {
   const { text } = useTypewriter(personalInfo.roles, { typeSpeed: 80, deleteSpeed: 40, delaySpeed: 1800 });
-  const heroRef = useRef(null);
-
-  useEffect(() => {
-    const el = heroRef.current;
-    if (!el) return;
-    const handleMouseMove = (e) => {
-      const { left, top, width, height } = el.getBoundingClientRect();
-      const x = ((e.clientX - left) / width - 0.5) * 20;
-      const y = ((e.clientY - top) / height - 0.5) * 20;
-      const photo = el.querySelector('[data-photo]');
-      if (photo) {
-        photo.style.transform = `perspective(1000px) rotateY(${x * 0.4}deg) rotateX(${-y * 0.4}deg) translateZ(8px)`;
-      }
-    };
-    el.addEventListener('mousemove', handleMouseMove);
-    return () => el.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <section id="hero" className={styles.hero} ref={heroRef} aria-label="Introduction">
+    <section id="hero" className={styles.hero} aria-label="Introduction">
       <div className={styles.orb1} aria-hidden="true" />
       <div className={styles.orb2} aria-hidden="true" />
       <div className={styles.orb3} aria-hidden="true" />
@@ -85,32 +68,57 @@ const Hero = () => {
 
         {/* RIGHT */}
         <div className={styles.right}>
-          <div className={styles.photoWrap} data-photo>
-            <div className={styles.ring1} />
-            <div className={styles.ring2} />
-            <div className={styles.glow} />
-            <img
-              src="/Meet-Portfolio/uploads/Photo.png"
-              alt="Meet Chauhan"
-              className={styles.photo}
-              onError={(e) => {
-                if (!e.target.dataset.triedJpg) {
-                  e.target.dataset.triedJpg = 'true';
-                  e.target.src = '/Meet-Portfolio/uploads/photo.jpg';
-                } else {
-                  e.target.style.display = 'none';
-                  if (e.target.nextElementSibling) e.target.nextElementSibling.style.display = 'flex';
-                }
-              }}
-            />
-            <div className={styles.fallback}>
-              <span>MC</span>
+          <div className={styles.photoFrame}>
+            {/* Ambient soft backlight */}
+            <div className={styles.ambientGlow} aria-hidden="true" />
+
+            {/* Premium glassmorphic photo card */}
+            <div className={styles.photoCard}>
+              <div className={styles.innerFrame}>
+                <img
+                  src="/Meet-Portfolio/uploads/Photo.png"
+                  alt="Meet Chauhan"
+                  className={styles.photo}
+                  onError={(e) => {
+                    if (!e.target.dataset.triedJpg) {
+                      e.target.dataset.triedJpg = 'true';
+                      e.target.src = '/Meet-Portfolio/uploads/photo.jpg';
+                    } else {
+                      e.target.style.display = 'none';
+                      if (e.target.nextElementSibling) e.target.nextElementSibling.style.display = 'flex';
+                    }
+                  }}
+                />
+                <div className={styles.fallback}>
+                  <span>MC</span>
+                </div>
+              </div>
+
+              {/* Verified Developer status badge */}
+              <div className={styles.statusBadge}>
+                <span className={styles.statusDot} />
+                <span className={styles.statusText}>Full Stack Developer</span>
+              </div>
+            </div>
+
+            {/* Floating tech badges with clean Lucide icons */}
+            <div className={`${styles.techChip} ${styles.chip1}`}>
+              <Code2 size={15} className={styles.chipIcon} />
+              <span>React & Next.js</span>
+            </div>
+            <div className={`${styles.techChip} ${styles.chip2}`}>
+              <Terminal size={15} className={styles.chipIcon} />
+              <span>Python & FastAPI</span>
+            </div>
+            <div className={`${styles.techChip} ${styles.chip3}`}>
+              <Sparkles size={15} className={styles.chipIcon} />
+              <span>AI & Claude</span>
+            </div>
+            <div className={`${styles.techChip} ${styles.chip4}`}>
+              <Database size={15} className={styles.chipIcon} />
+              <span>Full Stack & SQL</span>
             </div>
           </div>
-          <div className={`${styles.chip} ${styles.c1}`}>⚛️ React & Next.js</div>
-          <div className={`${styles.chip} ${styles.c2}`}>🐍 Python & FastAPI</div>
-          <div className={`${styles.chip} ${styles.c3}`}>🤖 AI & Claude</div>
-          <div className={`${styles.chip} ${styles.c4}`}>💻 Full Stack & SQL</div>
         </div>
       </div>
 
