@@ -1,23 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Monitor, Server, Wrench, Database, Brain, Sparkles, Layers, Code } from 'lucide-react';
+import { Monitor, Server, Wrench, Database, Brain, Sparkles, Layers, Code, RotateCcw } from 'lucide-react';
 import styles from './Skills.module.css';
 import { skillCategories } from '../../../data/skills';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 
-const ICON_MAP = {
-  Monitor,
-  Server,
-  Wrench,
-  Database,
-  Brain,
-  Sparkles,
-  Layers,
-  Code
-};
-
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [isVisible, setIsVisible] = useState(false);
+  const [isChaosActive, setIsChaosActive] = useState(false);
   const skillsRef = useScrollReveal({ children: true });
 
   useEffect(() => {
@@ -38,7 +28,25 @@ const Skills = () => {
   }, [skillsRef]);
 
   const handleFilter = (category) => {
+    if (isChaosActive) {
+      import('../../../utils/gravity').then(({ stopGravity }) => {
+        stopGravity(`.${styles.skillsGrid}`, `.${styles.skillCard}`);
+        setIsChaosActive(false);
+      });
+    }
     setActiveCategory(category);
+  };
+
+  const toggleChaos = () => {
+    import('../../../utils/gravity').then(({ startGravity, stopGravity }) => {
+      if (isChaosActive) {
+        stopGravity(`.${styles.skillsGrid}`, `.${styles.skillCard}`);
+        setIsChaosActive(false);
+      } else {
+        startGravity(`.${styles.skillsGrid}`, `.${styles.skillCard}`);
+        setIsChaosActive(true);
+      }
+    });
   };
 
   const getDisplaySkills = () => {
@@ -71,18 +79,22 @@ const Skills = () => {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px' }}>
             <div>
               <h2 className={styles.title}>Skills & Technologies</h2>
-              <p className={styles.subtitle}>Technologies I work with</p>
+              <p className={styles.subtitle}>Technologies, Frameworks & Core Competencies</p>
             </div>
             <button 
-              className={styles.gravityBtn}
-              onClick={() => {
-                import('../../../utils/gravity').then(({ startGravity }) => {
-                  startGravity(`.${styles.skillsGrid}`, `.${styles.skillCard}`);
-                });
-              }}
-              title="Activate Gravity Sandbox"
+              className={`${styles.gravityBtn} ${isChaosActive ? styles.gravityBtnActive : ''}`}
+              onClick={toggleChaos}
+              title={isChaosActive ? "Restore original layout" : "Activate 2D Physics Gravity Sandbox"}
             >
-              <Sparkles size={18} /> Chaos Mode
+              {isChaosActive ? (
+                <>
+                  <RotateCcw size={17} /> Reset Layout
+                </>
+              ) : (
+                <>
+                  <Sparkles size={17} /> Chaos Mode
+                </>
+              )}
             </button>
           </div>
         </div>
@@ -141,6 +153,3 @@ const Skills = () => {
 };
 
 export default Skills;
-
-
-

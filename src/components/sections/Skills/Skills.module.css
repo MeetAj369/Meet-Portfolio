@@ -36,6 +36,18 @@
   box-shadow: var(--shadow-glow-sm);
 }
 
+.gravityBtnActive {
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+.gravityBtnActive:hover {
+  background: linear-gradient(135deg, #dc2626, #ea580c);
+  color: white;
+}
+
 .title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);

@@ -221,6 +221,147 @@
   text-align: center;
 }
 
+/* Developer Terminal Card */
+.terminalCard {
+  background: rgba(8, 14, 28, 0.95);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-top: 12px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+}
+
+.terminalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(12, 20, 40, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.terminalControls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.termDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.termRed { background: #ff5f56; }
+.termYellow { background: #ffbd2e; }
+.termGreen { background: #27c93f; }
+
+.terminalTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.775rem;
+  color: var(--text-secondary);
+}
+
+.termIcon {
+  color: var(--accent-primary);
+}
+
+.termTag {
+  font-size: 0.7rem;
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--accent-primary);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+}
+
+.terminalTabs {
+  display: flex;
+  gap: 6px;
+  padding: 10px 14px;
+  background: rgba(10, 16, 32, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  overflow-x: auto;
+}
+
+.termTabBtn {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.termTabBtn:hover {
+  background: rgba(99, 102, 241, 0.2);
+  color: var(--text-primary);
+  border-color: var(--accent-primary);
+}
+
+.termTabBtnActive {
+  background: var(--accent-gradient);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: var(--shadow-glow-sm);
+}
+
+.terminalBody {
+  padding: 16px 18px;
+  font-size: 0.825rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+}
+
+.termPromptLine {
+  margin-bottom: 8px;
+}
+
+.termPrompt {
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+.termCmdText {
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+.termOutput {
+  background: transparent;
+  color: #94a3b8;
+  font-family: inherit;
+  font-size: 0.8rem;
+  margin: 0 0 10px 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.termCursorLine {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.termBlinkCursor {
+  color: #38bdf8;
+  font-weight: 900;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 .year {
   display: block;
   font-weight: 700;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Copy, Check, ExternalLink, Clock, Sparkles } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../../common/Icons/BrandIcons';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
@@ -17,9 +17,18 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const linkedinLink = socialLinks.find(s => s.name === 'LinkedIn');
   const githubLink = socialLinks.find(s => s.name === 'GitHub');
+
+  const handleCopyEmail = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(personalInfo.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 3000);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,9 +60,13 @@ const Contact = () => {
     const newErrors = validate();
     
     if (Object.keys(newErrors).length === 0) {
+      // Draft email in user's default client
+      const mailtoUrl = `mailto:${personalInfo.email}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Hi Meet,\n\n${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`)}`;
+      window.location.href = mailtoUrl;
+
       setSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setSubmitted(false), 5000);
+      setTimeout(() => setSubmitted(false), 8000);
     } else {
       setErrors(newErrors);
     }
@@ -62,46 +75,100 @@ const Contact = () => {
   return (
     <section id="contact" className={styles.contactSection} ref={revealRef}>
       <div className="container">
-        <SectionTitle title="Get In Touch" subtitle="Let's work together" />
+        <SectionTitle title="Get In Touch" subtitle="Let's build something remarkable together" />
+
+        {/* Floating Toast Notification */}
+        {copied && (
+          <div className={styles.toast}>
+            <Check size={16} />
+            <span>Copied {personalInfo.email} to clipboard!</span>
+          </div>
+        )}
         
         <div className={styles.contactContainer}>
           {/* Form Column */}
           <div className={`${styles.formColumn} reveal`}>
             {submitted ? (
               <div className={styles.successMessage}>
-                <Send size={48} className={styles.successIcon} />
-                <h3>Message Sent!</h3>
-                <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                <div className={styles.successIconWrap}>
+                  <Send size={36} className={styles.successIcon} />
+                </div>
+                <h3>Message Ready to Send!</h3>
+                <p>
+                  Your email client has been opened with your pre-filled message to <strong>{personalInfo.email}</strong>. 
+                  You can also contact me directly via LinkedIn or phone!
+                </p>
+                <button 
+                  onClick={() => setSubmitted(false)} 
+                  className={styles.resetFormBtn}
+                >
+                  Send Another Message
+                </button>
               </div>
             ) : (
               <form className={styles.form} onSubmit={handleSubmit} noValidate>
                 <div className={styles.formGroup}>
-                  <label htmlFor="name" className={styles.formLabel}>Name</label>
-                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className={`${styles.formInput} ${errors.name ? styles.inputError : ''}`} placeholder="John Doe" aria-invalid={!!errors.name} />
+                  <label htmlFor="name" className={styles.formLabel}>Your Name</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    value={formData.name} 
+                    onChange={handleChange} 
+                    className={`${styles.formInput} ${errors.name ? styles.inputError : ''}`} 
+                    placeholder="e.g. Alex Morgan" 
+                    aria-invalid={!!errors.name} 
+                  />
                   {errors.name && <span className={styles.formError}>{errors.name}</span>}
                 </div>
                 
                 <div className={styles.formGroup}>
-                  <label htmlFor="email" className={styles.formLabel}>Email</label>
-                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className={`${styles.formInput} ${errors.email ? styles.inputError : ''}`} placeholder="john@example.com" aria-invalid={!!errors.email} />
+                  <label htmlFor="email" className={styles.formLabel}>Your Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    value={formData.email} 
+                    onChange={handleChange} 
+                    className={`${styles.formInput} ${errors.email ? styles.inputError : ''}`} 
+                    placeholder="alex@example.com" 
+                    aria-invalid={!!errors.email} 
+                  />
                   {errors.email && <span className={styles.formError}>{errors.email}</span>}
                 </div>
                 
                 <div className={styles.formGroup}>
                   <label htmlFor="subject" className={styles.formLabel}>Subject</label>
-                  <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} className={`${styles.formInput} ${errors.subject ? styles.inputError : ''}`} placeholder="Project Inquiry" aria-invalid={!!errors.subject} />
+                  <input 
+                    type="text" 
+                    id="subject" 
+                    name="subject" 
+                    value={formData.subject} 
+                    onChange={handleChange} 
+                    className={`${styles.formInput} ${errors.subject ? styles.inputError : ''}`} 
+                    placeholder="Project Inquiry / Job Opportunity" 
+                    aria-invalid={!!errors.subject} 
+                  />
                   {errors.subject && <span className={styles.formError}>{errors.subject}</span>}
                 </div>
                 
                 <div className={styles.formGroup}>
                   <label htmlFor="message" className={styles.formLabel}>Message</label>
-                  <textarea id="message" name="message" value={formData.message} onChange={handleChange} className={`${styles.formTextarea} ${errors.message ? styles.inputError : ''}`} placeholder="Hello, I'd like to talk about..." aria-invalid={!!errors.message} />
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    value={formData.message} 
+                    onChange={handleChange} 
+                    className={`${styles.formTextarea} ${errors.message ? styles.inputError : ''}`} 
+                    placeholder="Hi Meet, I came across your portfolio and would love to discuss..." 
+                    aria-invalid={!!errors.message} 
+                  />
                   {errors.message && <span className={styles.formError}>{errors.message}</span>}
                 </div>
                 
                 <button type="submit" className={styles.submitBtn}>
                   <Send size={18} />
-                  <span>Send Message</span>
+                  <span>Send Message Directly</span>
                 </button>
               </form>
             )}
@@ -110,22 +177,35 @@ const Contact = () => {
           {/* Info Column */}
           <div className={`${styles.infoColumn} reveal`}>
             <div className={styles.contactInfo}>
-              <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}`} target="_blank" rel="noopener noreferrer" className={styles.contactCard}>
+              {/* Email with copy button */}
+              <div className={styles.contactCard}>
                 <div className={styles.contactIcon}><Mail size={20} color="white" /></div>
-                <div>
-                  <div className={styles.contactLabel}>Email</div>
-                  <div className={styles.contactValue}>{personalInfo.email}</div>
+                <div style={{ flex: 1 }}>
+                  <div className={styles.contactLabel}>Email Address</div>
+                  <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}`} target="_blank" rel="noopener noreferrer" className={styles.contactValueLink}>
+                    {personalInfo.email}
+                  </a>
                 </div>
-              </a>
+                <button 
+                  onClick={handleCopyEmail} 
+                  className={styles.copyBtn} 
+                  title="Copy email address"
+                  aria-label="Copy email address"
+                >
+                  {copied ? <Check size={16} color="#10b981" /> : <Copy size={16} />}
+                </button>
+              </div>
               
+              {/* Phone */}
               <a href={`tel:${personalInfo.phone.replace(/\s/g, '')}`} className={styles.contactCard}>
                 <div className={styles.contactIcon}><Phone size={20} color="white" /></div>
                 <div>
-                  <div className={styles.contactLabel}>Phone</div>
+                  <div className={styles.contactLabel}>Phone / WhatsApp</div>
                   <div className={styles.contactValue}>{personalInfo.phone}</div>
                 </div>
               </a>
               
+              {/* Location */}
               <div className={styles.contactCard}>
                 <div className={styles.contactIcon}><MapPin size={20} color="white" /></div>
                 <div>
@@ -135,22 +215,45 @@ const Contact = () => {
               </div>
             </div>
             
+            {/* Social Links */}
             <div className={styles.socialRow}>
               {linkedinLink && (
                 <a href={linkedinLink.url} target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="LinkedIn">
                   <LinkedinIcon size={20} />
+                  <span>LinkedIn</span>
                 </a>
               )}
               {githubLink && (
                 <a href={githubLink.url} target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="GitHub">
                   <GithubIcon size={20} />
+                  <span>GitHub</span>
                 </a>
               )}
+              <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}`} target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="Gmail">
+                <ExternalLink size={18} />
+                <span>Open in Gmail</span>
+              </a>
             </div>
             
-            <div className={styles.mapPlaceholder}>
-              <MapPin size={32} className={styles.mapIcon} />
-              <span>{personalInfo.location}</span>
+            {/* Availability & Status Card */}
+            <div className={styles.availabilityCard}>
+              <div className={styles.statusHeader}>
+                <span className={styles.pulseDot} />
+                <span className={styles.statusText}>Open to Opportunities</span>
+              </div>
+              <p className={styles.availabilityDesc}>
+                Available immediately for Full-Stack / Frontend Developer internships and entry-level engineering roles.
+              </p>
+              <div className={styles.statusMeta}>
+                <div className={styles.metaItem}>
+                  <Clock size={14} />
+                  <span>Timezone: IST (UTC +5:30)</span>
+                </div>
+                <div className={styles.metaItem}>
+                  <Sparkles size={14} />
+                  <span>Response: &lt; 24 Hours</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

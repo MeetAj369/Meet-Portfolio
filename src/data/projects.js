@@ -2,6 +2,12 @@ export const projects = [
   {
     id: 1,
     title: 'CareerSync — AI Career Guidance Platform',
+    fileName: 'CareerSync.tsx',
+    codeSnippet: `const careerSync = new AIPlatform({
+  paths: 49, fields: 11,
+  engine: "Next.js 16 + FastAPI"
+});
+await careerSync.matchMentor(assessment);`,
     description: 'Developed an AI-powered career navigation platform during TechSprint 2.0 Hackathon, providing guided assessments and career matching across 49+ career paths and 11 fields. Engineered responsive frontend in Next.js 16 & React 19 with TypeScript, Tailwind CSS 4, dark/light themes, and per-tab JWT session management. Built high-performance backend using Python (FastAPI, SQLAlchemy) with PostgreSQL (18 tables), automated resume export (Word/PDF), and multi-tier AI mentor fallback.',
     shortDescription: 'AI-powered career navigation platform developed during TechSprint 2.0 with guided assessments across 49+ career paths & 11 fields.',
     technologies: ['Next.js 16', 'React 19', 'TypeScript', 'Python 3.12', 'FastAPI', 'PostgreSQL', 'Tailwind CSS 4'],
@@ -22,6 +28,13 @@ export const projects = [
   {
     id: 2,
     title: 'HP TechPulse — IT Asset Lifecycle System',
+    fileName: 'TechPulse.php',
+    codeSnippet: `class HPTechPulse extends AssetManager {
+  public function calculateHealth() {
+    return $this->getDeviceScore(94);
+  }
+  public function runWDVDepreciation() {}
+}`,
     description: 'Engineered an enterprise IT asset lifecycle platform centralizing devices, users, support tickets, maintenance schedules, stock, and vendors in a unified system. Implemented employee & admin portals featuring real-time Device Health Scores (94/100), automated WDV asset depreciation valuation, and repair ticket lifecycle workflows. Built Green Pulse sustainability analytics to monitor device carbon footprint and e-waste reduction, backed by normalized MySQL schemas and secure role-based access.',
     shortDescription: 'Enterprise IT asset lifecycle platform centralizing devices, support tickets, WDV depreciation & Green Pulse carbon analytics.',
     technologies: ['PHP', 'MySQL', 'JavaScript', 'HTML5', 'CSS3'],
@@ -42,6 +55,11 @@ export const projects = [
   {
     id: 3,
     title: 'HP Mobile Selling System',
+    fileName: 'MobileStore.sql',
+    codeSnippet: `SELECT product_id, model, stock_count, price
+FROM hp_mobile_inventory
+WHERE status = 'IN_STOCK'
+ORDER BY units_sold DESC;`,
     description: 'Full-stack retail & inventory management portal with billing automation. Features real-time stock monitoring, automated POS billing and invoice generation, product catalog management, supplier tracking, and structured customer purchase histories with secure transactional data handling.',
     shortDescription: 'Full-stack retail & inventory management portal with automated billing and catalog tracking.',
     technologies: ['PHP', 'MySQL', 'JavaScript', 'HTML5', 'CSS3'],
@@ -61,6 +79,11 @@ export const projects = [
   {
     id: 4,
     title: 'HP Expense Tracker',
+    fileName: 'ExpenseTracker.py',
+    codeSnippet: `@router.post('/analytics/ledger')
+def get_budget_analytics(user_id: int):
+    expenses = db.query(Expense).all()
+    return generate_spending_charts(expenses)`,
     description: 'Financial tracking application for expense categorization, daily/monthly budgets & ledger analytics. Empowers users with interactive expense breakdown charts, dynamic budget limits, automated alerts when approaching limits, and exportable ledger data.',
     shortDescription: 'Financial tracking application for expense categorization, daily/monthly budgets & ledger analytics.',
     technologies: ['React', 'JavaScript', 'Python', 'CSS3', 'REST APIs'],
@@ -80,6 +103,12 @@ export const projects = [
   {
     id: 5,
     title: 'AI Chat Assistant',
+    fileName: 'ChatAssistant.jsx',
+    codeSnippet: `const response = await aiStream({
+  engine: "claude-3-5-sonnet",
+  messages: history,
+  temperature: 0.7
+});`,
     description: 'An intelligent conversational assistant application featuring streaming responses, persistent conversation memory, markdown and syntax-highlighted code rendering, and custom prompt templates.',
     shortDescription: 'Intelligent chat interface powered by modern LLM APIs with real-time streaming & syntax highlighting.',
     technologies: ['React', 'JavaScript', 'Python', 'Claude / AI API'],
@@ -98,6 +127,11 @@ export const projects = [
   {
     id: 6,
     title: 'Interactive Portfolio & Gravity Sandbox',
+    fileName: 'PortfolioPhysics.js',
+    codeSnippet: `import Matter from 'matter-js';
+// 2D Physics Gravity Sandbox
+const engine = Engine.create();
+World.add(engine.world, [ground, skills]);`,
     description: 'A personal portfolio built with React featuring dark/light themes, smooth animations, particle backgrounds, and an interactive 2D physics Gravity Chaos Mode powered by Matter.js.',
     shortDescription: 'Modern interactive portfolio with animations, dark/light themes & Gravity Chaos Mode.',
     technologies: ['React', 'Matter.js', 'CSS3', 'JavaScript'],
