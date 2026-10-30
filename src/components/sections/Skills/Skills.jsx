@@ -1,36 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import { Monitor, Server, Wrench, Database, Brain, Sparkles, Layers, Code, RotateCcw } from 'lucide-react';
+import { 
+  Monitor, 
+  Server, 
+  Wrench, 
+  Database, 
+  Brain, 
+  Sparkles, 
+  Layers, 
+  Code, 
+  RotateCcw,
+  CheckCircle2
+} from 'lucide-react';
 import styles from './Skills.module.css';
 import { skillCategories } from '../../../data/skills';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 
+const CATEGORY_BADGES = {
+  languages: 'Core Foundations',
+  web: 'Primary Production Stack',
+  backend: 'High Performance & APIs',
+  database: 'ACID & Relational Schemas',
+  tools: 'Developer Tooling & Workflows',
+  ai: 'Techfest @IIT Bombay Certified',
+  soft: 'Engineering Mindset & Leadership'
+};
+
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [isVisible, setIsVisible] = useState(false);
   const [isChaosActive, setIsChaosActive] = useState(false);
   const skillsRef = useScrollReveal({ children: true });
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (skillsRef.current) {
-      observer.observe(skillsRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [skillsRef]);
 
   const handleFilter = (category) => {
     if (isChaosActive) {
       import('../../../utils/gravity').then(({ stopGravity }) => {
-        stopGravity(`.${styles.skillsGrid}`, `.${styles.skillCard}`);
+        stopGravity(`.${styles.skillsContainer}`, `.${styles.techChip}`);
         setIsChaosActive(false);
       });
     }
@@ -40,65 +43,66 @@ const Skills = () => {
   const toggleChaos = () => {
     import('../../../utils/gravity').then(({ startGravity, stopGravity }) => {
       if (isChaosActive) {
-        stopGravity(`.${styles.skillsGrid}`, `.${styles.skillCard}`);
+        stopGravity(`.${styles.skillsContainer}`, `.${styles.techChip}`);
         setIsChaosActive(false);
       } else {
-        startGravity(`.${styles.skillsGrid}`, `.${styles.skillCard}`);
+        startGravity(`.${styles.skillsContainer}`, `.${styles.techChip}`);
         setIsChaosActive(true);
       }
     });
   };
 
-  const getDisplaySkills = () => {
-    if (activeCategory === 'all') {
-      return skillCategories.reduce((acc, cat) => [...acc, ...cat.skills], []);
-    }
-    return skillCategories.find(cat => cat.id === activeCategory)?.skills || [];
-  };
-
-  const displaySkills = getDisplaySkills();
-
   const getCategoryIcon = (id) => {
     switch (id) {
-      case 'languages': return <Code size={18} />;
+      case 'languages': return <Code size={17} />;
       case 'web':
-      case 'frontend': return <Monitor size={18} />;
-      case 'backend': return <Server size={18} />;
-      case 'database': return <Database size={18} />;
-      case 'tools': return <Wrench size={18} />;
-      case 'ai': return <Brain size={18} />;
-      case 'soft': return <Sparkles size={18} />;
-      default: return <Layers size={18} />;
+      case 'frontend': return <Monitor size={17} />;
+      case 'backend': return <Server size={17} />;
+      case 'database': return <Database size={17} />;
+      case 'tools': return <Wrench size={17} />;
+      case 'ai': return <Brain size={17} />;
+      case 'soft': return <Sparkles size={17} />;
+      default: return <Layers size={17} />;
     }
   };
+
+  const filteredCategories = activeCategory === 'all'
+    ? skillCategories
+    : skillCategories.filter(cat => cat.id === activeCategory);
 
   return (
     <section id="skills" className={styles.skills} ref={skillsRef} aria-label="Skills and Technologies">
       <div className={styles.container}>
+        {/* Section Header */}
         <div className={styles.sectionHeader}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px' }}>
+          <div className={styles.headerRow}>
             <div>
-              <h2 className={styles.title}>Skills & Technologies</h2>
-              <p className={styles.subtitle}>Technologies, Frameworks & Core Competencies</p>
+              <h2 className={styles.title}>Skills &amp; Technologies</h2>
+              <p className={styles.subtitle}>Modern Engineering Stack, Frameworks &amp; Core Competencies</p>
             </div>
+            
             <button 
               className={`${styles.gravityBtn} ${isChaosActive ? styles.gravityBtnActive : ''}`}
               onClick={toggleChaos}
               title={isChaosActive ? "Restore original layout" : "Activate 2D Physics Gravity Sandbox"}
+              aria-label="Toggle Physics Chaos Mode"
             >
               {isChaosActive ? (
                 <>
-                  <RotateCcw size={17} /> Reset Layout
+                  <RotateCcw size={16} />
+                  <span>Reset Layout</span>
                 </>
               ) : (
                 <>
-                  <Sparkles size={17} /> Chaos Mode
+                  <Sparkles size={16} />
+                  <span>Chaos Mode</span>
                 </>
               )}
             </button>
           </div>
         </div>
 
+        {/* Filter Navigation Tabs */}
         <div className={styles.tabs} role="tablist">
           <button 
             role="tab"
@@ -106,8 +110,8 @@ const Skills = () => {
             className={`${styles.tab} ${activeCategory === 'all' ? styles.tabActive : ''}`}
             onClick={() => handleFilter('all')}
           >
-            <Layers size={18} />
-            <span>All</span>
+            <Layers size={16} />
+            <span>All Ecosystem</span>
           </button>
           
           {skillCategories.map((category) => (
@@ -124,28 +128,73 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className={styles.skillsGrid}>
-          {displaySkills.map((skill, index) => (
-            <div key={`${skill.name}-${index}`} className={styles.skillCard}>
-              <div className={styles.skillHeader}>
-                <div className={styles.skillIconWrapper}>
-                  {skill.icon && skill.icon.startsWith('http') ? (
-                    <img src={skill.icon} alt={`${skill.name} icon`} className={styles.skillIconImg} />
-                  ) : (
-                    <span className={styles.skillIconText} role="img" aria-label={`${skill.name} icon`}>{skill.icon || '🚀'}</span>
-                  )}
+        {/* Dynamic Bento Ecosystem Container */}
+        <div className={styles.skillsContainer}>
+          <div className={`${styles.bentoGrid} ${activeCategory !== 'all' ? styles.singleCategoryGrid : ''}`}>
+            {filteredCategories.map((category) => (
+              <div key={category.id} className={styles.bentoCard}>
+                {/* Bento Card Header */}
+                <div className={styles.bentoHeader}>
+                  <div className={styles.bentoTitleGroup}>
+                    <div className={styles.categoryIconWrap}>
+                      {getCategoryIcon(category.id)}
+                    </div>
+                    <div>
+                      <h3 className={styles.bentoTitle}>{category.name}</h3>
+                      <span className={styles.bentoBadge}>
+                        {CATEGORY_BADGES[category.id] || `${category.skills.length} Technologies`}
+                      </span>
+                    </div>
+                  </div>
+                  <span className={styles.skillCountPill}>
+                    {category.skills.length} tools
+                  </span>
                 </div>
-                <span className={styles.skillName}>{skill.name}</span>
-                <span className={styles.skillLevel}>{skill.level}%</span>
+
+                {/* Tech Chips Grid Inside Bento */}
+                <div className={styles.chipsCloud}>
+                  {category.skills.map((skill, index) => (
+                    <div 
+                      key={`${skill.name}-${index}`} 
+                      className={styles.techChip}
+                      title={`${skill.name} • ${skill.level}% Proficiency`}
+                    >
+                      <div className={styles.chipIconWrap}>
+                        {skill.icon && skill.icon.startsWith('http') ? (
+                          <img 
+                            src={skill.icon} 
+                            alt={`${skill.name} icon`} 
+                            className={styles.chipIconImg} 
+                            loading="lazy"
+                          />
+                        ) : (
+                          <span className={styles.chipIconText}>{skill.icon || '⚡'}</span>
+                        )}
+                      </div>
+                      <span className={styles.chipName}>{skill.name}</span>
+                      <span className={styles.chipLevel}>{skill.level}%</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className={styles.progressBar} aria-label={`${skill.name} proficiency: ${skill.level}%`}>
-                <div 
-                  className={styles.progressFill} 
-                  style={{ width: isVisible ? `${skill.level}%` : '0%' }}
-                />
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Quick Highlights Footer */}
+        <div className={styles.skillsFooter}>
+          <div className={styles.footerHighlight}>
+            <CheckCircle2 size={16} className={styles.highlightIcon} />
+            <span>Continuous Integration &amp; Modern Git Workflows</span>
+          </div>
+          <div className={styles.footerHighlight}>
+            <CheckCircle2 size={16} className={styles.highlightIcon} />
+            <span>Full-Stack Scalability with React 19 &amp; Python FastAPI</span>
+          </div>
+          <div className={styles.footerHighlight}>
+            <CheckCircle2 size={16} className={styles.highlightIcon} />
+            <span>Relational Data Normalization &amp; Architecture</span>
+          </div>
         </div>
       </div>
     </section>

@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
-import { MapPin, GraduationCap, Mail, Circle, Terminal as TerminalIcon, Sparkles } from 'lucide-react';
+import { 
+  MapPin, 
+  GraduationCap, 
+  Mail, 
+  Circle, 
+  Terminal as TerminalIcon, 
+  Zap, 
+  Award, 
+  Cpu, 
+  Database,
+  Radio
+} from 'lucide-react';
 import styles from './About.module.css';
 import { personalInfo } from '../../../data/personalInfo';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
@@ -38,6 +49,29 @@ Email:      meetaj369@gmail.com`
   }
 ];
 
+const CORE_STRENGTHS = [
+  {
+    icon: Zap,
+    title: 'Full-Stack Performance',
+    description: 'Engineering responsive Next.js 16 & React 19 interfaces backed by asynchronous Python FastAPI & Node.js microservices.'
+  },
+  {
+    icon: Award,
+    title: 'Hackathon Proven',
+    description: 'Architected CareerSync at TechSprint 2.0 spanning 49+ career paths and 18 normalized PostgreSQL schemas under competition deadlines.'
+  },
+  {
+    icon: Cpu,
+    title: 'AI-Augmented Engineering',
+    description: 'Techfest @IIT Bombay certified in AI/ML; leveraging Claude AI and LLMs to accelerate developer velocity and clean code.'
+  },
+  {
+    icon: Database,
+    title: 'Relational & Schema Rigor',
+    description: 'Designing normalized, ACID-compliant database architectures across PostgreSQL and MySQL for enterprise stability.'
+  }
+];
+
 const About = () => {
   const aboutRef = useScrollReveal({ children: true });
   const [activeCmdIdx, setActiveCmdIdx] = useState(0);
@@ -47,38 +81,48 @@ const About = () => {
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.title}>About Me</h2>
-          <p className={styles.subtitle}>Engineering Scalable Web Applications & Intelligent Systems</p>
+          <p className={styles.subtitle}>Engineering Scalable Web Applications &amp; Intelligent Systems</p>
         </div>
 
         <div className={styles.content}>
-          {/* Left Column */}
+          {/* Left Column: Bio Narrative & Creative Strengths Grid */}
           <div className={styles.leftColumn}>
             <div className={styles.aboutText}>
               <p>{personalInfo.about}</p>
             </div>
-            
-            <div className={styles.learningSection}>
-              <h3>Currently Learning & Exploring</h3>
-              <div className={styles.tagsContainer}>
-                {personalInfo.currentlyLearning?.map((item, index) => (
-                  <span key={index} className={styles.learningTag}>{item}</span>
-                ))}
-              </div>
+
+            {/* Creative Engineering DNA Grid */}
+            <div className={styles.strengthsGrid}>
+              {CORE_STRENGTHS.map((item, idx) => {
+                const IconComponent = item.icon;
+                return (
+                  <div key={idx} className={styles.strengthCard}>
+                    <div className={styles.strengthHeader}>
+                      <div className={styles.strengthIconWrap}>
+                        <IconComponent size={18} />
+                      </div>
+                      <h4 className={styles.strengthTitle}>{item.title}</h4>
+                    </div>
+                    <p className={styles.strengthDesc}>{item.description}</p>
+                  </div>
+                );
+              })}
             </div>
 
-            <div className={styles.missionCards}>
-              <div className={styles.missionCard}>
-                <h4>Mission</h4>
-                <p>To architect performant, accessible full-stack software and intuitive user experiences that solve tangible problems.</p>
+            {/* Live Active R&D Radar Strip */}
+            <div className={styles.radarCard}>
+              <div className={styles.radarBeacon}>
+                <span className={styles.beaconPing} />
+                <span className={styles.beaconDot} />
               </div>
-              <div className={styles.missionCard}>
-                <h4>Vision</h4>
-                <p>To master modern distributed systems and AI-assisted engineering to drive innovation in high-impact products.</p>
+              <div className={styles.radarText}>
+                <span className={styles.radarLabel}>ACTIVE R&amp;D:</span>
+                <span className={styles.radarContent}>Next.js 16 App Router • Python FastAPI • Agentic AI Workflows • Liquid Glass Systems</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column */}
+          {/* Right Column: Quick Info & Interactive Terminal */}
           <div className={styles.rightColumn}>
             <div className={styles.infoGrid}>
               <div className={styles.infoCard}>
@@ -99,7 +143,7 @@ const About = () => {
               <div className={styles.infoCard}>
                 <div className={styles.iconWrapper}><Circle fill="currentColor" className={`${styles.icon} ${styles.statusIcon}`} /></div>
                 <span className={styles.label}>Status</span>
-                <span className={styles.value}>Available for Internships & Jobs</span>
+                <span className={styles.value}>Available for Internships &amp; Jobs</span>
               </div>
             </div>
 
@@ -170,7 +214,7 @@ const About = () => {
               <div className={styles.timelineDot}></div>
               <div className={styles.timelineContent}>
                 <span className={styles.year}>2025</span>
-                <span className={styles.event}>TechSprint 2.0 Hackathon & Enterprise Systems</span>
+                <span className={styles.event}>TechSprint 2.0 Hackathon &amp; Enterprise Systems</span>
               </div>
             </div>
             <div className={styles.timelineLine}></div>
@@ -178,7 +222,7 @@ const About = () => {
               <div className={styles.timelineDot}></div>
               <div className={styles.timelineContent}>
                 <span className={styles.year}>2026</span>
-                <span className={styles.event}>AI / ML Certifications & Full Stack Innovations</span>
+                <span className={styles.event}>AI / ML Certifications &amp; Full Stack Innovations</span>
               </div>
             </div>
           </div>
