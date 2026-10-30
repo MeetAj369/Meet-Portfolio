@@ -1,23 +1,32 @@
 .backToTop {
   position: fixed;
-  bottom: 86px;
-  right: 28px;
+  bottom: 88px;
+  right: 24px;
   width: 44px;
   height: 44px;
-  border-radius: var(--radius-full, 50%);
-  background: var(--accent-gradient, linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)));
-  color: white;
-  border: none;
+  border-radius: var(--radius-full);
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-specular), 0 8px 24px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 100;
+  z-index: 140;
   opacity: 0;
-  transform: scale(0) translateY(20px);
+  transform: scale(0.8) translateY(16px);
   pointer-events: none;
-  transition: opacity var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-fast);
-  box-shadow: var(--shadow-md);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] .backToTop {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(79, 70, 229, 0.2) !important;
+  color: #4f46e5 !important;
+  box-shadow: inset 0 1.5px 1px #ffffff, 0 8px 24px rgba(79, 70, 229, 0.15) !important;
 }
 
 .backToTop.visible {
@@ -27,15 +36,18 @@
 }
 
 .backToTop:hover {
+  background: var(--accent-gradient) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
   transform: scale(1.1) translateY(-3px);
-  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.5);
+  box-shadow: 0 12px 28px rgba(99, 102, 241, 0.5) !important;
 }
 
 @media (max-width: 768px) {
   .backToTop {
-    bottom: 80px;
-    right: 20px;
-    width: 38px;
-    height: 38px;
+    bottom: 84px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
   }
 }

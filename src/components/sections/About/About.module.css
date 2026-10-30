@@ -1,6 +1,6 @@
 .about {
   padding: var(--section-padding) 0;
-  background: var(--bg-primary);
+  position: relative;
 }
 
 .container {
@@ -40,9 +40,35 @@
 }
 
 .aboutText {
-  font-size: 1.125rem;
-  line-height: 1.8;
+  font-size: 1.08rem;
+  line-height: 1.85;
   color: var(--text-secondary);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-specular);
+  border-radius: var(--radius-xl);
+  padding: 26px 30px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutText::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+}
+
+[data-theme='light'] .aboutText {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.08), inset 0 1.5px 1.5px #ffffff;
 }
 
 .learningSection h3, .missionCards h4, .timelineSection h3 {
@@ -63,19 +89,35 @@
 }
 
 .learningTag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: var(--glass-bg);
-  border: 1px solid var(--accent-primary);
+  backdrop-filter: var(--glass-blur-subtle);
+  -webkit-backdrop-filter: var(--glass-blur-subtle);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-full);
-  padding: 6px 16px;
+  padding: 7px 18px;
   font-size: 0.875rem;
+  font-weight: 500;
   color: var(--text-primary);
-  transition: all var(--transition-normal);
+  box-shadow: var(--glass-specular), 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='light'] .learningTag {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(79, 70, 229, 0.16);
+  color: #0f172a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 1px #ffffff;
 }
 
 .learningTag:hover {
   background: var(--accent-gradient);
   color: #fff;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
 }
 
 .missionCards {
@@ -86,15 +128,38 @@
 
 .missionCard {
   background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   padding: 24px;
-  transition: all var(--transition-normal);
+  box-shadow: var(--glass-shadow), var(--glass-specular);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.missionCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-gradient);
+  opacity: 0.8;
+}
+
+[data-theme='light'] .missionCard {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.08), inset 0 2px 2px #ffffff;
 }
 
 .missionCard:hover {
+  transform: translateY(-5px);
   border-color: var(--accent-primary);
-  box-shadow: var(--shadow-glow);
+  box-shadow: var(--glass-shadow-hover), var(--liquid-glow);
 }
 
 .missionCard h4 {
@@ -114,8 +179,6 @@
   gap: 24px;
 }
 
-
-
 .infoGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -125,30 +188,43 @@
 
 .infoCard {
   background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   padding: 24px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  box-shadow: var(--glass-shadow), var(--glass-specular);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme='light'] .infoCard {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.08), inset 0 1.5px 1.5px #ffffff;
 }
 
 .infoCard:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-5px);
+  border-color: var(--accent-primary);
+  box-shadow: var(--glass-shadow-hover), 0 0 25px rgba(99, 102, 241, 0.25);
 }
 
 .iconWrapper {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   border-radius: var(--radius-full);
   background: var(--accent-gradient);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
 .icon {
@@ -160,17 +236,18 @@
 }
 
 .label {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
   margin-bottom: 4px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  font-weight: 600;
 }
 
 .value {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
-  font-size: 1rem;
+  font-size: 0.98rem;
 }
 
 .timelineSection {
@@ -221,24 +298,43 @@
   text-align: center;
 }
 
-/* Developer Terminal Card */
+/* Developer Terminal Card: Liquid Glass IDE Window */
 .terminalCard {
-  background: rgba(8, 14, 28, 0.95);
+  background: rgba(8, 14, 28, 0.85);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glass-shadow), var(--glass-specular);
   margin-top: 12px;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='light'] .terminalCard {
+  background: rgba(248, 250, 252, 0.9);
+  border: 1px solid rgba(79, 70, 229, 0.16);
+  box-shadow: 0 15px 40px rgba(79, 70, 229, 0.1), inset 0 1.5px 1.5px #ffffff;
+}
+
+.terminalCard:hover {
+  box-shadow: var(--glass-shadow-hover), var(--liquid-glow);
+  border-color: var(--accent-primary);
 }
 
 .terminalHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 16px;
-  background: rgba(12, 20, 40, 0.95);
+  padding: 12px 18px;
+  background: rgba(12, 20, 40, 0.9);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='light'] .terminalHeader {
+  background: rgba(241, 245, 249, 0.95);
+  border-bottom: 1px solid rgba(79, 70, 229, 0.1);
 }
 
 .terminalControls {
@@ -283,9 +379,14 @@
   display: flex;
   gap: 6px;
   padding: 10px 14px;
-  background: rgba(10, 16, 32, 0.8);
+  background: rgba(10, 16, 32, 0.7);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   overflow-x: auto;
+}
+
+[data-theme='light'] .terminalTabs {
+  background: rgba(238, 242, 255, 0.7);
+  border-bottom: 1px solid rgba(79, 70, 229, 0.08);
 }
 
 .termTabBtn {
@@ -293,7 +394,7 @@
   color: var(--text-secondary);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
-  padding: 4px 10px;
+  padding: 5px 12px;
   font-size: 0.75rem;
   font-family: inherit;
   cursor: pointer;
@@ -311,18 +412,22 @@
   background: var(--accent-gradient);
   color: #fff;
   border-color: transparent;
-  box-shadow: var(--shadow-glow-sm);
+  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.35);
 }
 
 .terminalBody {
-  padding: 16px 18px;
-  font-size: 0.825rem;
-  line-height: 1.6;
+  padding: 18px 20px;
+  font-size: 0.835rem;
+  line-height: 1.65;
   color: #e2e8f0;
 }
 
+[data-theme='light'] .terminalBody {
+  color: #1e293b;
+}
+
 .termPromptLine {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .termPrompt {
@@ -330,19 +435,31 @@
   font-weight: 700;
 }
 
+[data-theme='light'] .termPrompt {
+  color: #0284c7;
+}
+
 .termCmdText {
   color: #f1f5f9;
   font-weight: 600;
+}
+
+[data-theme='light'] .termCmdText {
+  color: #0f172a;
 }
 
 .termOutput {
   background: transparent;
   color: #94a3b8;
   font-family: inherit;
-  font-size: 0.8rem;
-  margin: 0 0 10px 0;
+  font-size: 0.81rem;
+  margin: 0 0 12px 0;
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+[data-theme='light'] .termOutput {
+  color: #475569;
 }
 
 .termCursorLine {

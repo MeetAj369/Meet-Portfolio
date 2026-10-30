@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 
 /* Hooks */
 import { useTheme } from './hooks/useTheme';
@@ -25,7 +25,6 @@ import Education from './components/sections/Education/Education';
 import Statistics from './components/sections/Statistics/Statistics';
 import Resume from './components/sections/Resume/Resume';
 import Contact from './components/sections/Contact/Contact';
-import QuickActions from './components/common/QuickActions/QuickActions';
 import AIAssistant from './components/common/AIAssistant/AIAssistant';
 
 /* App styles */
@@ -96,9 +95,6 @@ function App() {
 
       {/* Footer */}
       <Footer />
-
-      {/* Mobile Quick Action Pill (shown on mobile when scrolled past Hero) */}
-      <QuickActions visible={scrollPosition > 650} />
 
       {/* Meet AI Personal Assistant */}
       <AIAssistant />

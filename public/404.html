@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting — Meet Chauhan Portfolio</title>
+    <script>
+      // Single Page App redirect for GitHub Pages
+      const pathname = window.location.pathname;
+      if (pathname.toLowerCase().includes('resume')) {
+        window.location.replace('/Meet-Portfolio/uploads/Meet_Chauhan_Resume.pdf');
+      } else {
+        window.location.replace('/Meet-Portfolio/');
+      }
+    </script>
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #060913;
+        color: #f1f5f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+      }
+      .card {
+        padding: 40px;
+        background: rgba(13, 21, 40, 0.7);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        max-width: 440px;
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 24px;
+        background: linear-gradient(135deg, #6366f1, #06b6d4);
+        color: white;
+        text-decoration: none;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Redirecting...</h2>
+      <p>Taking you to Meet Chauhan's Portfolio</p>
+      <a href="/Meet-Portfolio/">Click here if not redirected</a>
+    </div>
+  </body>
+</html>

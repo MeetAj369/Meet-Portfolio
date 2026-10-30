@@ -9,7 +9,8 @@ const QUICK_QUESTIONS = [
   "Tell me about the CareerSync hackathon project.",
   "What's Meet's experience with Full Stack & React?",
   "What backend & database technologies does Meet use?",
-  "How can I contact Meet or download his CV?"
+  "Where can I view & download Meet's verified Resume?",
+  "How can I contact or hire Meet?"
 ];
 
 // Smart, comprehensive response generator based on Meet Chauhan's verified CV & background
@@ -233,7 +234,7 @@ const AIAssistant = () => {
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [showQuestions, setShowQuestions] = useState(false);
+  const [showQuestions, setShowQuestions] = useState(true);
   const chatEndRef = useRef(null);
 
   const scrollToBottom = () => {
