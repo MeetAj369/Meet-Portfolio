@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgAi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#110924" />
+      <stop offset="50%" stop-color="#31104b" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+    <radialGradient id="glowAi" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0.32" />
+      <stop offset="60%" stop-color="#818cf8" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="textGradAi" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e879f9" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <filter id="shadowAi" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="420" fill="url(#bgAi)" />
+  <rect width="800" height="420" fill="url(#glowAi)" />
+
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="70" x2="800" y2="70" />
+    <line x1="0" y1="140" x2="800" y2="140" />
+    <line x1="0" y1="210" x2="800" y2="210" />
+    <line x1="0" y1="280" x2="800" y2="280" />
+    <line x1="0" y1="350" x2="800" y2="350" />
+    <line x1="160" y1="0" x2="160" y2="420" />
+    <line x1="320" y1="0" x2="320" y2="420" />
+    <line x1="480" y1="0" x2="480" y2="420" />
+    <line x1="640" y1="0" x2="640" y2="420" />
+  </g>
+
+  <rect x="40" y="24" width="720" height="36" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+  <circle cx="62" cy="42" r="5" fill="#ef4444" />
+  <circle cx="78" cy="42" r="5" fill="#f59e0b" />
+  <circle cx="94" cy="42" r="5" fill="#10b981" />
+  <text x="120" y="46" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">ChatAssistant.jsx — LLM Token Streaming &amp; Syntax Highlighting Engine</text>
+
+  <rect x="580" y="30" width="168" height="24" rx="12" fill="rgba(192, 132, 252, 0.2)" stroke="rgba(192, 132, 252, 0.6)" />
+  <text x="596" y="46" font-family="-apple-system, sans-serif" font-size="10.5" fill="#e879f9" font-weight="700">✦ AI CONVERSATIONAL</text>
+
+  <g filter="url(#shadowAi)">
+    <rect x="50" y="80" width="700" height="290" rx="16" fill="rgba(24, 13, 43, 0.82)" stroke="rgba(192, 132, 252, 0.35)" stroke-width="1.2" />
+    <rect x="50" y="80" width="700" height="2" fill="url(#textGradAi)" />
+  </g>
+
+  <g transform="translate(85, 115)">
+    <rect x="0" y="0" width="60" height="60" rx="14" fill="rgba(192, 132, 252, 0.15)" stroke="rgba(192, 132, 252, 0.45)" stroke-width="1.5" />
+    <!-- Bot / Sparkle Icon -->
+    <path d="M22 24 C22 18 38 18 38 24 V34 C38 40 22 40 22 34 Z" fill="none" stroke="#e879f9" stroke-width="2.2" />
+    <circle cx="27" cy="28" r="2" fill="#c084fc" />
+    <circle cx="33" cy="28" r="2" fill="#c084fc" />
+    <path d="M27 34 Q30 36 33 34" fill="none" stroke="#e879f9" stroke-width="2" stroke-linecap="round" />
+
+    <text x="76" y="32" font-family="-apple-system, sans-serif" font-size="28" font-weight="800" fill="url(#textGradAi)" letter-spacing="-0.5">AI Chat Assistant</text>
+    <text x="76" y="52" font-family="-apple-system, sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">Intelligent LLM Conversational Interface with Code Stream Rendering</text>
+  </g>
+
+  <g transform="translate(85, 205)">
+    <rect x="0" y="0" width="200" height="68" rx="10" fill="rgba(42, 20, 72, 0.75)" stroke="rgba(255,255,255,0.08)" />
+    <text x="16" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">LLM INFERENCE</text>
+    <text x="16" y="52" font-family="monospace" font-size="22" fill="#e879f9" font-weight="800">Claude AI</text>
+    <text x="142" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8">Anthropic</text>
+
+    <rect x="215" y="0" width="205" height="68" rx="10" fill="rgba(42, 20, 72, 0.75)" stroke="rgba(255,255,255,0.08)" />
+    <text x="231" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">TOKEN STREAMING</text>
+    <text x="231" y="52" font-family="monospace" font-size="22" fill="#a855f7" font-weight="800">Real-Time</text>
+    <text x="350" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b">SSE Engine</text>
+
+    <rect x="435" y="0" width="195" height="68" rx="10" fill="rgba(42, 20, 72, 0.75)" stroke="rgba(255,255,255,0.08)" />
+    <text x="451" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">SYNTAX PARSER</text>
+    <text x="451" y="52" font-family="monospace" font-size="22" fill="#818cf8" font-weight="800">Markdown</text>
+    <text x="560" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#10b981">Copy Code</text>
+  </g>
+
+  <g transform="translate(85, 300)">
+    <rect x="0" y="0" width="115" height="24" rx="12" fill="rgba(232, 121, 249, 0.15)" stroke="rgba(232, 121, 249, 0.35)" />
+    <text x="14" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#f0abfc" font-weight="600">Claude 3.5 API</text>
+
+    <rect x="125" y="0" width="115" height="24" rx="12" fill="rgba(168, 85, 247, 0.15)" stroke="rgba(168, 85, 247, 0.35)" />
+    <text x="139" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#d8b4fe" font-weight="600">FastAPI Async</text>
+
+    <rect x="250" y="0" width="125" height="24" rx="12" fill="rgba(99, 102, 241, 0.15)" stroke="rgba(99, 102, 241, 0.35)" />
+    <text x="264" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#a5b4fc" font-weight="600">Memory History</text>
+
+    <rect x="385" y="0" width="125" height="24" rx="12" fill="rgba(232, 121, 249, 0.15)" stroke="rgba(232, 121, 249, 0.35)" />
+    <text x="399" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#f0abfc" font-weight="600">Prompt Presets</text>
+  </g>
+</svg>

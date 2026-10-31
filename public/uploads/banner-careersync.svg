@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgCs" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <radialGradient id="glowCs" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#6366f1" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="textGradCs" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <filter id="shadowCs" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="url(#bgCs)" />
+  <rect width="800" height="420" fill="url(#glowCs)" />
+
+  <!-- Geometric Grid Pattern Overlay -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="70" x2="800" y2="70" />
+    <line x1="0" y1="140" x2="800" y2="140" />
+    <line x1="0" y1="210" x2="800" y2="210" />
+    <line x1="0" y1="280" x2="800" y2="280" />
+    <line x1="0" y1="350" x2="800" y2="350" />
+    <line x1="160" y1="0" x2="160" y2="420" />
+    <line x1="320" y1="0" x2="320" y2="420" />
+    <line x1="480" y1="0" x2="480" y2="420" />
+    <line x1="640" y1="0" x2="640" y2="420" />
+  </g>
+
+  <!-- Top Status Bar -->
+  <rect x="40" y="24" width="720" height="36" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+  <circle cx="62" cy="42" r="5" fill="#ef4444" />
+  <circle cx="78" cy="42" r="5" fill="#f59e0b" />
+  <circle cx="94" cy="42" r="5" fill="#10b981" />
+  <text x="120" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">CareerSync.tsx — TechSprint 2.0 Hackathon Architecture</text>
+
+  <!-- Hackathon Winner Pill Badge -->
+  <rect x="580" y="30" width="168" height="24" rx="12" fill="rgba(245, 158, 11, 0.2)" stroke="rgba(245, 158, 11, 0.5)" />
+  <text x="592" y="46" font-family="-apple-system, sans-serif" font-size="10.5" fill="#fbbf24" font-weight="700">🏆 TECHSPRINT 2.0</text>
+
+  <!-- Main Hero Card -->
+  <g filter="url(#shadowCs)">
+    <rect x="50" y="80" width="700" height="290" rx="16" fill="rgba(15, 23, 42, 0.72)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1.2" />
+    <rect x="50" y="80" width="700" height="2" fill="url(#textGradCs)" />
+  </g>
+
+  <!-- Left Side: Brand Logo & Title -->
+  <g transform="translate(85, 115)">
+    <!-- Brand Icon Emblem -->
+    <rect x="0" y="0" width="60" height="60" rx="14" fill="rgba(56, 189, 248, 0.15)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1.5" />
+    <!-- Graduation / Compass Icon in SVG -->
+    <path d="M30 16 L50 26 L30 36 L10 26 Z" fill="#38bdf8" />
+    <path d="M18 31 L18 42 C18 46 42 46 42 42 L42 31" fill="none" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round" />
+    <circle cx="48" cy="36" r="2" fill="#38bdf8" />
+
+    <!-- Title and Subtitle -->
+    <text x="76" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800" fill="url(#textGradCs)" letter-spacing="-0.5">CareerSync</text>
+    <text x="76" y="52" font-family="-apple-system, sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">AI-Powered Career Guidance &amp; Mentorship Platform</text>
+  </g>
+
+  <!-- Metrics / Features Floating Grid -->
+  <g transform="translate(85, 205)">
+    <!-- Metric 1: 49 Paths -->
+    <rect x="0" y="0" width="185" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
+    <text x="16" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">CAREER PATHWAYS</text>
+    <text x="16" y="52" font-family="monospace" font-size="22" fill="#38bdf8" font-weight="800">49 Paths</text>
+    <text x="110" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b">11 Fields</text>
+
+    <!-- Metric 2: Matching Engine -->
+    <rect x="200" y="0" width="205" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
+    <text x="216" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">AI MATCH ACCURACY</text>
+    <text x="216" y="52" font-family="monospace" font-size="22" fill="#34d399" font-weight="800">98.4%</text>
+    <text x="295" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#10b981">Optimal Fit</text>
+
+    <!-- Metric 3: Architecture -->
+    <rect x="420" y="0" width="210" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
+    <text x="436" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">RELATIONAL SCHEMA</text>
+    <text x="436" y="52" font-family="monospace" font-size="22" fill="#a855f7" font-weight="800">18 Tables</text>
+    <text x="542" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8">PostgreSQL</text>
+  </g>
+
+  <!-- Tech Stack Pill Tags Footer -->
+  <g transform="translate(85, 300)">
+    <rect x="0" y="0" width="95" height="24" rx="12" fill="rgba(56, 189, 248, 0.12)" stroke="rgba(56, 189, 248, 0.3)" />
+    <text x="14" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#7dd3fc" font-weight="600">Next.js 16</text>
+
+    <rect x="105" y="0" width="90" height="24" rx="12" fill="rgba(56, 189, 248, 0.12)" stroke="rgba(56, 189, 248, 0.3)" />
+    <text x="119" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#7dd3fc" font-weight="600">React 19</text>
+
+    <rect x="205" y="0" width="115" height="24" rx="12" fill="rgba(99, 102, 241, 0.15)" stroke="rgba(99, 102, 241, 0.35)" />
+    <text x="219" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#a5b4fc" font-weight="600">Python FastAPI</text>
+
+    <rect x="330" y="0" width="100" height="24" rx="12" fill="rgba(168, 85, 247, 0.15)" stroke="rgba(168, 85, 247, 0.35)" />
+    <text x="344" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#d8b4fe" font-weight="600">PostgreSQL</text>
+
+    <rect x="440" y="0" width="115" height="24" rx="12" fill="rgba(56, 189, 248, 0.12)" stroke="rgba(56, 189, 248, 0.3)" />
+    <text x="454" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#7dd3fc" font-weight="600">Tailwind CSS 4</text>
+  </g>
+</svg>

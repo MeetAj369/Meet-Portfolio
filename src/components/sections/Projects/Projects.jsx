@@ -107,17 +107,6 @@ const Projects = () => {
                       loading="lazy"
                     />
                     <div className={styles.cardImgOverlay}>
-                      <div className={styles.overlayBadges}>
-                        {project.liveDemo && (
-                          <span className={styles.liveIndicator}>
-                            <span className={styles.livePulse} />
-                            Live Working App
-                          </span>
-                        )}
-                        {project.logo && (
-                          <img src={project.logo} alt="Logo" className={styles.logoBadge} />
-                        )}
-                      </div>
                       <div className={styles.overlayAction}>
                         <Eye size={16} />
                         <span>View Architecture &amp; Specs</span>
