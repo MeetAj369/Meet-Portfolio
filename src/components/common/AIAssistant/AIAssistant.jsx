@@ -7,9 +7,9 @@ import styles from './AIAssistant.module.css';
 const QUICK_QUESTIONS = [
   "What is Meet's latest qualifications & education?",
   "Tell me about the CareerSync hackathon project.",
+  "Tell me about HP TechPulse & IT Asset Management.",
   "What's Meet's experience with Full Stack & React?",
   "What backend & database technologies does Meet use?",
-  "Why should our team hire Meet?",
   "Where can I view & download Meet's verified Resume?"
 ];
 
@@ -196,11 +196,13 @@ const getAIResponse = (query) => {
   }
 
   // 9. HP TechPulse & Enterprise Systems
-  if (q.includes('techpulse') || q.includes('asset') || q.includes('lifecycle') || q.includes('gadget')) {
+  if (q.includes('techpulse') || q.includes('asset') || q.includes('lifecycle') || q.includes('gadget') || q.includes('passport')) {
     return {
-      text: `⚡ **HP TechPulse (Enterprise IT Asset Lifecycle)**:\n\n• **Platform Scope**: Centralizes enterprise devices, users, support tickets, maintenance schedules, stock, and vendors in a unified system.\n• **Key Features**: Real-time **Device Health Scores (94/100 benchmark)**, automated **Written Down Value (WDV)** depreciation calculations, and repair ticket lifecycle workflows.\n• **Sustainability**: Built-in **Green Pulse** analytics to monitor device carbon footprint and e-waste reduction.\n• **Tech Stack**: PHP (OOP), MySQL relational schemas, JavaScript, HTML5, CSS3.`,
+      text: `⚡ **HP TechPulse (Enterprise IT Asset Lifecycle & Gadget Intelligence)**:\n\n• **Platform Scope**: Centralizes enterprise hardware devices, user assignments, multi-tier support tickets, maintenance schedules, spares stock, and vendor contracts in a 14-table MySQL schema (\`techpulse369\`).\n• **Digital Gadget Passport™**: Generates verifiable cryptographic QR codes and official printable PDF certificates via FPDF engine.\n• **Device Health Intelligence**: Algorithmic 0–100 score dynamically calculated from operational age decay, repair frequency, active critical faults, and AMC/warranty coverage.\n• **Financial Compliance**: Automated Written Down Value (WDV) asset depreciation schedules and Total Cost of Ownership (TCO) tracking.\n• **5-Stage IT Ticket Pipeline**: Open → Assigned → In-Progress → Testing → Resolved with full audit trail logging (\`audit_log\`).\n• **Green Pulse**: Sustainability analytics tracking carbon footprint and e-waste prevention.\n• **Tech Stack**: PHP (OOP & BCrypt security), MySQL (14 tables), FPDF Engine, JavaScript, HTML5/CSS3.`,
       actions: [
-        { label: 'View in Projects', onClick: () => scrollToSection('projects') }
+        { label: 'View GitHub Repository', url: 'https://github.com/MeetAj369/HP-TechPulse' },
+        { label: 'View in Projects', onClick: () => scrollToSection('projects') },
+        { label: 'Download Resume (PDF)', url: personalInfo.resumePath, download: true }
       ]
     };
   }
@@ -217,9 +219,10 @@ const getAIResponse = (query) => {
     q.includes('app')
   ) {
     return {
-      text: `💻 **Meet's Key Engineering Projects**:\n\n1. **CareerSync**: AI Career Navigation Platform (Next.js 16, React 19, FastAPI, PostgreSQL, 49+ career paths).\n2. **HP TechPulse**: Enterprise IT Asset Lifecycle system with Device Health Scores (94/100) & automated WDV depreciation.\n3. **HP Mobile Selling System**: Full-stack retail & inventory management portal with billing automation.\n4. **HP Expense Tracker**: Financial tracking application for budgets, expense categorization & ledger analytics.`,
+      text: `💻 **Meet's Key Engineering Projects**:\n\n1. **CareerSync**: AI Career Navigation Platform (Next.js 16, React 19, FastAPI, PostgreSQL, 49+ career paths).\n2. **HP TechPulse**: Enterprise IT Asset Lifecycle & Gadget Health platform with digital QR Passports, 0–100 health scoring & WDV depreciation.\n3. **HP Mobile Selling System**: Full-stack retail & inventory management portal with billing automation.\n4. **HP Expense Tracker**: Financial tracking application for budgets, expense categorization & ledger analytics.`,
       actions: [
         { label: 'View All Featured Projects', onClick: () => scrollToSection('projects') },
+        { label: 'HP TechPulse GitHub', url: 'https://github.com/MeetAj369/HP-TechPulse' },
         { label: 'GitHub Repositories', url: personalInfo.github }
       ]
     };

@@ -27,30 +27,33 @@ await careerSync.matchMentor(assessment);`,
   },
   {
     id: 2,
-    title: 'HP TechPulse — IT Asset Lifecycle System',
-    fileName: 'TechPulse.php',
-    codeSnippet: `class HPTechPulse extends AssetManager {
-  public function calculateHealth() {
-    return $this->getDeviceScore(94);
-  }
-  public function runWDVDepreciation() {}
+    title: 'HP TechPulse — Enterprise IT Asset Lifecycle & Gadget Health Intelligence',
+    fileName: 'gadget_passport.php',
+    codeSnippet: `function calculate_health_score($conn, $gadget_id) {
+  $score = 100 - min(30, floor($age_months / 2));
+  $score -= min(40, $repairs_count * 8); // -8 pts/repair
+  if ($has_warranty) $score += 10;       // active warranty
+  if ($has_amc)      $score += 8;        // active AMC
+  return ['score' => max(0, min(100, $score)), 'verdict' => 'Excellent'];
 }`,
-    description: 'Engineered an enterprise IT asset lifecycle platform centralizing devices, users, support tickets, maintenance schedules, stock, and vendors in a unified system. Implemented employee & admin portals featuring real-time Device Health Scores (94/100), automated WDV asset depreciation valuation, and repair ticket lifecycle workflows. Built Green Pulse sustainability analytics to monitor device carbon footprint and e-waste reduction, backed by normalized MySQL schemas and secure role-based access.',
-    shortDescription: 'Enterprise IT asset lifecycle platform centralizing devices, support tickets, WDV depreciation & Green Pulse carbon analytics.',
-    technologies: ['PHP', 'MySQL', 'JavaScript', 'HTML5', 'CSS3'],
+    description: 'Engineered an enterprise-grade IT Asset Management (ITAM) and Hardware Lifecycle platform centralizing devices, users, support tickets, maintenance schedules, stock, and vendors in a unified system. Features verifiable Digital Gadget Passports with QR codes and FPDF printable certificates, dynamic Device Health Scoring (0–100 benchmark), automated Written Down Value (WDV) asset depreciation, and a 5-stage IT support ticket workflow (Open → Assigned → In-Progress → Testing → Resolved). Built Green Pulse sustainability analytics for device carbon footprint and e-waste reduction, backed by a 14-table normalized MySQL schema and secure multi-role RBAC.',
+    shortDescription: 'Enterprise IT asset lifecycle platform featuring Digital Gadget Passports with QR/PDF certificates, 0-100 Device Health Scoring, WDV depreciation & Green Pulse carbon analytics.',
+    technologies: ['PHP (OOP/BCrypt)', 'MySQL (14 Tables)', 'FPDF Engine', 'JavaScript', 'HTML5', 'CSS3 Glassmorphism'],
     features: [
-      'Centralized enterprise asset tracking (devices, users, tickets, vendors)',
-      'Real-time Device Health Scores with 94/100 benchmark metric',
-      'Automated Written Down Value (WDV) asset depreciation valuation',
-      'Green Pulse sustainability analytics for device carbon footprint & e-waste',
-      'Role-based access control with distinct employee & admin portals',
-      'Complete repair ticket lifecycle & scheduled maintenance alerts'
+      'Verifiable Digital Gadget Passport™ with QR codes and FPDF printable PDF certificates',
+      'Dynamic Device Health Intelligence (0-100 score) based on age, repairs, and AMC/warranty coverage',
+      'Automated Written Down Value (WDV) asset depreciation engine & Total Cost of Ownership (TCO)',
+      '5-Stage IT Support Ticket Lifecycle (Open → Assigned → In-Progress → Testing → Resolved)',
+      'Real-time spares & inventory catalog with low-stock alerts and vendor management',
+      'Green Pulse sustainability analytics calculating device carbon footprint and e-waste reduction',
+      '14-table normalized MySQL schema (techpulse369) with comprehensive audit trail logging',
+      'Multi-role RBAC with dedicated Administrator, Support Technician, and Employee portals'
     ],
-    github: 'https://github.com/MeetAj369',
-    liveDemo: 'https://meetaj369.github.io/Meet-Portfolio/',
-    image: null,
+    github: 'https://github.com/MeetAj369/HP-TechPulse',
+    liveDemo: 'https://github.com/MeetAj369/HP-TechPulse',
+    image: '/Meet-Portfolio/uploads/hp-techpulse-logo.png',
     featured: true,
-    category: 'Web Application'
+    category: 'Enterprise / Full Stack'
   },
   {
     id: 3,

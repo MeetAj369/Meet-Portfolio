@@ -176,6 +176,16 @@ const Projects = () => {
                 )}
               </div>
 
+              {selectedProject.image && (
+                <div className={styles.modalBanner}>
+                  <img 
+                    src={selectedProject.image} 
+                    alt={selectedProject.title} 
+                    className={styles.modalImage} 
+                  />
+                </div>
+              )}
+
               <h3 className={styles.modalTitle}>{selectedProject.title}</h3>
               <p className={styles.modalDesc}>{selectedProject.description || selectedProject.shortDescription}</p>
               

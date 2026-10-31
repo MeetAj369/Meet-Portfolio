@@ -479,6 +479,33 @@
   margin-bottom: 24px;
 }
 
+.modalBanner {
+  width: 100%;
+  max-height: 220px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+[data-theme='light'] .modalBanner {
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(79, 70, 229, 0.15);
+}
+
+.modalImage {
+  max-width: 100%;
+  max-height: 190px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
+}
+
 .featuresSection, .modalTech {
   margin-bottom: 24px;
 }
