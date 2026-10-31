@@ -200,9 +200,9 @@ const getAIResponse = (query) => {
     return {
       text: `⚡ **HP TechPulse (Enterprise IT Asset Lifecycle & Gadget Intelligence)**:\n\n• **Platform Scope**: Centralizes enterprise hardware devices, user assignments, multi-tier support tickets, maintenance schedules, spares stock, and vendor contracts in a 14-table MySQL schema (\`techpulse369\`).\n• **Digital Gadget Passport™**: Generates verifiable cryptographic QR codes and official printable PDF certificates via FPDF engine.\n• **Device Health Intelligence**: Algorithmic 0–100 score dynamically calculated from operational age decay, repair frequency, active critical faults, and AMC/warranty coverage.\n• **Financial Compliance**: Automated Written Down Value (WDV) asset depreciation schedules and Total Cost of Ownership (TCO) tracking.\n• **5-Stage IT Ticket Pipeline**: Open → Assigned → In-Progress → Testing → Resolved with full audit trail logging (\`audit_log\`).\n• **Green Pulse**: Sustainability analytics tracking carbon footprint and e-waste prevention.\n• **Tech Stack**: PHP (OOP & BCrypt security), MySQL (14 tables), FPDF Engine, JavaScript, HTML5/CSS3.`,
       actions: [
+        { label: 'Open Live Platform (Web App)', url: 'https://meetaj369.github.io/HP-TechPulse/' },
         { label: 'View GitHub Repository', url: 'https://github.com/MeetAj369/HP-TechPulse' },
-        { label: 'View in Projects', onClick: () => scrollToSection('projects') },
-        { label: 'Download Resume (PDF)', url: personalInfo.resumePath, download: true }
+        { label: 'Explore in Projects', onClick: () => scrollToSection('projects') }
       ]
     };
   }

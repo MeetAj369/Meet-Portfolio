@@ -50,7 +50,7 @@ await careerSync.matchMentor(assessment);`,
       'Multi-role RBAC with dedicated Administrator, Support Technician, and Employee portals'
     ],
     github: 'https://github.com/MeetAj369/HP-TechPulse',
-    liveDemo: 'https://github.com/MeetAj369/HP-TechPulse',
+    liveDemo: 'https://meetaj369.github.io/HP-TechPulse/',
     image: '/Meet-Portfolio/uploads/hp-techpulse-logo.png',
     featured: true,
     category: 'Enterprise / Full Stack'
