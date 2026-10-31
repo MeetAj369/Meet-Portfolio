@@ -1,5 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X, Send, Bot, Sparkles, ExternalLink, Download, ChevronUp, ChevronDown } from 'lucide-react';
+import { 
+  X, 
+  Send, 
+  Bot, 
+  Sparkles, 
+  ExternalLink, 
+  Download, 
+  ChevronUp, 
+  ChevronDown, 
+  Mic, 
+  MicOff, 
+  Volume2, 
+  VolumeX 
+} from 'lucide-react';
 import { scrollToSection } from '../../../utils/helpers';
 import { personalInfo } from '../../../data/personalInfo';
 import styles from './AIAssistant.module.css';
@@ -392,7 +405,10 @@ const AIAssistant = () => {
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [showQuestions, setShowQuestions] = useState(true);
+  const [isListening, setIsListening] = useState(false);
+  const [speakingId, setSpeakingId] = useState(null);
   const chatEndRef = useRef(null);
+  const recognitionRef = useRef(null);
 
   const scrollToBottom = () => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -403,6 +419,103 @@ const AIAssistant = () => {
       scrollToBottom();
     }
   }, [messages, isOpen, isTyping, showQuestions]);
+
+  // Cancel any active speech or microphone recognition when window closes
+  useEffect(() => {
+    if (!isOpen) {
+      if (typeof window !== 'undefined' && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+      setSpeakingId(null);
+      if (recognitionRef.current && isListening) {
+        try { recognitionRef.current.stop(); } catch (_) {}
+        setIsListening(false);
+      }
+    }
+  }, [isOpen]);
+
+  // Voice Input (Web Speech Recognition)
+  const toggleListening = () => {
+    const SpeechRecognition = typeof window !== 'undefined' && (window.SpeechRecognition || window.webkitSpeechRecognition);
+    if (!SpeechRecognition) {
+      alert("Voice input is not supported in this browser. Please try Chrome, Edge, or Safari.");
+      return;
+    }
+
+    if (isListening) {
+      if (recognitionRef.current) {
+        try { recognitionRef.current.stop(); } catch (_) {}
+      }
+      setIsListening(false);
+      return;
+    }
+
+    try {
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.onstart = () => {
+        setIsListening(true);
+      };
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        if (transcript) {
+          setInput(transcript);
+          handleSend(transcript);
+        }
+      };
+
+      recognition.onerror = () => {
+        setIsListening(false);
+      };
+
+      recognition.onend = () => {
+        setIsListening(false);
+      };
+
+      recognitionRef.current = recognition;
+      recognition.start();
+    } catch (e) {
+      console.warn("Speech recognition error:", e);
+      setIsListening(false);
+    }
+  };
+
+  // Text-to-Speech (Web Speech Synthesis)
+  const cleanSpeechText = (text) => {
+    if (!text) return '';
+    return text
+      .replace(/\*\*(.*?)\*\*/g, '$1')
+      .replace(/`(.*?)`/g, '$1')
+      .replace(/[#•*_]/g, '')
+      .replace(/https?:\/\/[^\s]+/g, '')
+      .replace(/\n+/g, '. ');
+  };
+
+  const handleSpeak = (text, id) => {
+    if (typeof window === 'undefined' || !window.speechSynthesis) return;
+
+    if (speakingId === id) {
+      window.speechSynthesis.cancel();
+      setSpeakingId(null);
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    const clean = cleanSpeechText(text);
+    const utterance = new SpeechSynthesisUtterance(clean);
+    utterance.rate = 1.05;
+    utterance.pitch = 1.0;
+
+    utterance.onend = () => setSpeakingId(null);
+    utterance.onerror = () => setSpeakingId(null);
+
+    setSpeakingId(id);
+    window.speechSynthesis.speak(utterance);
+  };
 
   const handleSend = (textToSend) => {
     const query = textToSend || input;
@@ -526,6 +639,22 @@ const AIAssistant = () => {
                       ))}
                     </div>
                   )}
+
+                  {/* Audio Speech Readout for Bot Responses */}
+                  {msg.sender === 'bot' && (
+                    <div className={styles.msgMetaRow}>
+                      <button
+                        type="button"
+                        onClick={() => handleSpeak(msg.text, msg.id)}
+                        className={`${styles.speakBtn} ${speakingId === msg.id ? styles.speakBtnActive : ''}`}
+                        title={speakingId === msg.id ? "Stop audio playback" : "Listen to this response"}
+                        aria-label="Listen to response"
+                      >
+                        {speakingId === msg.id ? <VolumeX size={13} /> : <Volume2 size={13} />}
+                        <span>{speakingId === msg.id ? 'Stop Audio' : 'Listen'}</span>
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -573,7 +702,7 @@ const AIAssistant = () => {
             )}
           </div>
 
-          {/* Input Bar */}
+          {/* Input Bar with Voice Input & Text Submission */}
           <form
             className={styles.inputBar}
             onSubmit={(e) => {
@@ -585,10 +714,19 @@ const AIAssistant = () => {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask a question about Meet..."
+              placeholder={isListening ? "Listening... Speak now..." : "Ask a question about Meet..."}
               className={styles.inputField}
               aria-label="Ask a question"
             />
+            <button
+              type="button"
+              onClick={toggleListening}
+              className={isListening ? styles.micBtnActive : styles.micBtn}
+              title={isListening ? "Listening... click to stop recording" : "Voice input (Microphone)"}
+              aria-label="Voice input"
+            >
+              {isListening ? <MicOff size={16} /> : <Mic size={16} />}
+            </button>
             <button
               type="submit"
               disabled={!input.trim()}

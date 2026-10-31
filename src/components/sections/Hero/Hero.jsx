@@ -60,9 +60,21 @@ const Hero = () => {
             <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="GitHub">
               <GithubIcon size={19} />
             </a>
-            <a href={`mailto:${personalInfo.email}`} className={styles.socialBtn} aria-label="Send Email">
+            <button
+              onClick={() => {
+                try { navigator.clipboard.writeText(personalInfo.email); } catch (_) {}
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personalInfo.email)}&su=${encodeURIComponent('Portfolio Inquiry — Meet Chauhan')}`;
+                const win = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+                if (!win || win.closed || typeof win.closed === 'undefined') {
+                  window.location.href = `mailto:${personalInfo.email}`;
+                }
+              }}
+              className={styles.socialBtn}
+              title="Compose email in Gmail (copies address to clipboard)"
+              aria-label="Send Email via Gmail"
+            >
               <Mail size={19} />
-            </a>
+            </button>
           </div>
         </div>
 

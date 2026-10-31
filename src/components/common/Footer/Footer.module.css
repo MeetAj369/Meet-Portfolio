@@ -114,11 +114,32 @@
   text-decoration: none;
   transition: all 0.2s ease;
   font-weight: 500;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
 }
 
-a.footerContactItem:hover {
+a.footerContactItem:hover,
+button.footerContactItem:hover {
   color: var(--accent-primary);
   transform: translateX(4px);
+}
+
+.copyBadge {
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  margin-left: 6px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .footerSocial {

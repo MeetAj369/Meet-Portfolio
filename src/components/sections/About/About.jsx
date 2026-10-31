@@ -134,11 +134,24 @@ const About = () => {
                 <span className={styles.label}>Education</span>
                 <span className={styles.value}>BCA (CGPA: 8.67), CVMU</span>
               </div>
-              <div className={styles.infoCard}>
+              <button
+                className={styles.infoCard}
+                onClick={() => {
+                  try { navigator.clipboard.writeText(personalInfo.email); } catch (_) {}
+                  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personalInfo.email)}&su=${encodeURIComponent('Portfolio Inquiry — Meet Chauhan')}`;
+                  const win = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+                  if (!win || win.closed || typeof win.closed === 'undefined') {
+                    window.location.href = `mailto:${personalInfo.email}`;
+                  }
+                }}
+                style={{ textAlign: 'left', cursor: 'pointer', fontFamily: 'inherit', width: '100%' }}
+                title="Click to compose in Gmail (copies address to clipboard)"
+                aria-label="Email Meet Chauhan"
+              >
                 <div className={styles.iconWrapper}><Mail className={styles.icon} /></div>
                 <span className={styles.label}>Email</span>
                 <span className={styles.value}>{personalInfo.email}</span>
-              </div>
+              </button>
               <div className={styles.infoCard}>
                 <div className={styles.iconWrapper}><Circle fill="currentColor" className={`${styles.icon} ${styles.statusIcon}`} /></div>
                 <span className={styles.label}>Status</span>
