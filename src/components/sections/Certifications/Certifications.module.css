@@ -230,3 +230,14 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .certCard {
+    padding: 18px 16px;
+    border-radius: var(--radius-lg);
+  }
+  .certTitle {
+    font-size: 1.05rem;
+    overflow-wrap: break-word;
+  }
+}

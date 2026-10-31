@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Monitor, 
   Server, 
@@ -7,8 +7,7 @@ import {
   Brain, 
   Sparkles, 
   Layers, 
-  Code, 
-  RotateCcw,
+  Code,
   CheckCircle2
 } from 'lucide-react';
 import styles from './Skills.module.css';
@@ -27,30 +26,7 @@ const CATEGORY_BADGES = {
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [isChaosActive, setIsChaosActive] = useState(false);
   const skillsRef = useScrollReveal({ children: true });
-
-  const handleFilter = (category) => {
-    if (isChaosActive) {
-      import('../../../utils/gravity').then(({ stopGravity }) => {
-        stopGravity(`.${styles.skillsContainer}`, `.${styles.techChip}`);
-        setIsChaosActive(false);
-      });
-    }
-    setActiveCategory(category);
-  };
-
-  const toggleChaos = () => {
-    import('../../../utils/gravity').then(({ startGravity, stopGravity }) => {
-      if (isChaosActive) {
-        stopGravity(`.${styles.skillsContainer}`, `.${styles.techChip}`);
-        setIsChaosActive(false);
-      } else {
-        startGravity(`.${styles.skillsContainer}`, `.${styles.techChip}`);
-        setIsChaosActive(true);
-      }
-    });
-  };
 
   const getCategoryIcon = (id) => {
     switch (id) {
@@ -75,31 +51,8 @@ const Skills = () => {
       <div className={styles.container}>
         {/* Section Header */}
         <div className={styles.sectionHeader}>
-          <div className={styles.headerRow}>
-            <div>
-              <h2 className={styles.title}>Skills &amp; Technologies</h2>
-              <p className={styles.subtitle}>Modern Engineering Stack, Frameworks &amp; Core Competencies</p>
-            </div>
-            
-            <button 
-              className={`${styles.gravityBtn} ${isChaosActive ? styles.gravityBtnActive : ''}`}
-              onClick={toggleChaos}
-              title={isChaosActive ? "Restore original layout" : "Activate 2D Physics Gravity Sandbox"}
-              aria-label="Toggle Physics Chaos Mode"
-            >
-              {isChaosActive ? (
-                <>
-                  <RotateCcw size={16} />
-                  <span>Reset Layout</span>
-                </>
-              ) : (
-                <>
-                  <Sparkles size={16} />
-                  <span>Chaos Mode</span>
-                </>
-              )}
-            </button>
-          </div>
+          <h2 className={styles.title}>Skills &amp; Technologies</h2>
+          <p className={styles.subtitle}>Modern Engineering Stack, Frameworks &amp; Core Competencies</p>
         </div>
 
         {/* Filter Navigation Tabs */}
@@ -108,7 +61,7 @@ const Skills = () => {
             role="tab"
             aria-selected={activeCategory === 'all'}
             className={`${styles.tab} ${activeCategory === 'all' ? styles.tabActive : ''}`}
-            onClick={() => handleFilter('all')}
+            onClick={() => setActiveCategory('all')}
           >
             <Layers size={16} />
             <span>All Ecosystem</span>
@@ -120,7 +73,7 @@ const Skills = () => {
               role="tab"
               aria-selected={activeCategory === category.id}
               className={`${styles.tab} ${activeCategory === category.id ? styles.tabActive : ''}`}
-              onClick={() => handleFilter(category.id)}
+              onClick={() => setActiveCategory(category.id)}
             >
               {getCategoryIcon(category.id)}
               <span>{category.name}</span>

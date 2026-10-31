@@ -503,8 +503,59 @@ a.contactCard:hover,
 @media (max-width: 768px) {
   .contactContainer {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
   .infoColumn {
     order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactCard {
+    padding: 16px 14px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .contactIcon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .contactCardText {
+    flex: 1 1 180px;
+    min-width: 0;
+  }
+
+  .contactValueLink, .contactValue {
+    font-size: 0.85rem;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+  }
+
+  .cardActions {
+    margin-left: auto;
+  }
+
+  .form {
+    padding: 20px 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  .formInput, .formTextarea {
+    font-size: 0.88rem;
+    padding: 10px 14px;
+  }
+
+  .formBtnGroup {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .submitBtn, .secondarySubmitBtn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.88rem;
+    padding: 11px 18px;
   }
 }

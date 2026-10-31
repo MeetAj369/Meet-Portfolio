@@ -171,18 +171,39 @@
 
 @media (max-width: 768px) {
   .educationTimeline::before {
-    left: 20px;
+    left: 14px;
   }
   
   .educationCard {
-    width: calc(100% - 48px);
-    margin: 0 0 0 48px;
-    padding: 24px;
+    width: calc(100% - 36px);
+    margin: 0 0 0 36px;
+    padding: 22px 18px;
+    border-radius: var(--radius-lg);
   }
 }
 
 @media (max-width: 480px) {
+  .educationTimeline::before {
+    left: 8px;
+  }
+
   .educationCard {
-    padding: 20px;
+    width: calc(100% - 24px);
+    margin: 0 0 0 24px;
+    padding: 16px 14px;
+  }
+
+  .eduDegree {
+    font-size: 1.1rem;
+    overflow-wrap: break-word;
+  }
+
+  .eduInstitution {
+    font-size: 0.95rem;
+    overflow-wrap: break-word;
+  }
+
+  .eduMeta {
+    gap: 8px;
   }
 }

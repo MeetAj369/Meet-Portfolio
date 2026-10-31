@@ -207,26 +207,34 @@
 @media (max-width: 900px) {
   .card {
     grid-template-columns: 1fr;
-    padding: 36px 24px;
-    gap: 36px;
+    padding: 32px 24px;
+    gap: 32px;
   }
   .desc {
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
-    -webkit-hyphens: auto;
+    text-align: left;
+    overflow-wrap: break-word;
   }
 }
 
 @media (max-width: 480px) {
+  .card {
+    padding: 20px 16px;
+    border-radius: var(--radius-lg);
+  }
   .btns {
     flex-direction: column;
   }
   .btnPrimary, .btnOutline {
     justify-content: center;
     width: 100%;
+    padding: 12px 18px;
   }
   .right {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .title {
+    font-size: 1.8rem;
+    overflow-wrap: break-word;
   }
 }

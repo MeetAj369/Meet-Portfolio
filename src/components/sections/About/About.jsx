@@ -8,8 +8,7 @@ import {
   Zap, 
   Award, 
   Cpu, 
-  Database,
-  Radio
+  Database
 } from 'lucide-react';
 import styles from './About.module.css';
 import { personalInfo } from '../../../data/personalInfo';
@@ -185,44 +184,6 @@ const About = () => {
                 <div className={styles.termCursorLine}>
                   <span className={styles.termPrompt}>meet@cvmu:~$</span> <span className={styles.termBlinkCursor}>_</span>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Timeline Journey */}
-        <div className={styles.timelineSection}>
-          <h3>My Journey</h3>
-          <div className={styles.timeline}>
-            <div className={styles.timelineItem}>
-              <div className={styles.timelineDot}></div>
-              <div className={styles.timelineContent}>
-                <span className={styles.year}>2023</span>
-                <span className={styles.event}>Foundation Programme, LSBU</span>
-              </div>
-            </div>
-            <div className={styles.timelineLine}></div>
-            <div className={styles.timelineItem}>
-              <div className={styles.timelineDot}></div>
-              <div className={styles.timelineContent}>
-                <span className={styles.year}>2024</span>
-                <span className={styles.event}>Started BCA at CVMU (CGPA: 8.67)</span>
-              </div>
-            </div>
-            <div className={styles.timelineLine}></div>
-            <div className={styles.timelineItem}>
-              <div className={styles.timelineDot}></div>
-              <div className={styles.timelineContent}>
-                <span className={styles.year}>2025</span>
-                <span className={styles.event}>TechSprint 2.0 Hackathon &amp; Enterprise Systems</span>
-              </div>
-            </div>
-            <div className={styles.timelineLine}></div>
-            <div className={styles.timelineItem}>
-              <div className={styles.timelineDot}></div>
-              <div className={styles.timelineContent}>
-                <span className={styles.year}>2026</span>
-                <span className={styles.event}>AI / ML Certifications &amp; Full Stack Innovations</span>
               </div>
             </div>
           </div>

@@ -536,3 +536,28 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 480px) {
+  .projectCard {
+    padding: 18px 16px;
+    border-radius: var(--radius-lg);
+  }
+  .cardHeader {
+    margin-bottom: 12px;
+  }
+  .projectTitle {
+    font-size: 1.15rem;
+    overflow-wrap: break-word;
+  }
+  .codePreview {
+    font-size: 0.72rem;
+    padding: 12px;
+  }
+  .techPills {
+    gap: 6px;
+  }
+  .techPill {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+  }
+}

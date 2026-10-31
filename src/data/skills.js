@@ -19,13 +19,11 @@ export const skillCategories = [
     icon: 'Monitor',
     skills: [
       { name: 'ReactJS', level: 92, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
-      { name: 'Next.js', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg' },
-      { name: 'NodeJS', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
+      { name: 'Next.js 16', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg' },
       { name: 'HTML5', level: 95, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
       { name: 'CSS3', level: 90, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
-      { name: 'Tailwind CSS', level: 90, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
-      { name: 'Bootstrap', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg' },
-      { name: 'REST APIs & JSON', level: 92, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' }
+      { name: 'Tailwind CSS 4', level: 90, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+      { name: 'Bootstrap', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg' }
     ]
   },
   {
@@ -35,9 +33,9 @@ export const skillCategories = [
     skills: [
       { name: 'FastAPI', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg' },
       { name: 'NodeJS', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
-      { name: 'PHP (Core/OOP)', level: 92, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
-      { name: 'Python Backend', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
-      { name: 'ASP.Net / VB.Net', level: 78, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg' }
+      { name: 'REST APIs & JSON', level: 92, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
+      { name: 'SQLAlchemy', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
+      { name: 'ASP.Net', level: 78, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg' }
     ]
   },
   {
@@ -45,8 +43,8 @@ export const skillCategories = [
     name: 'Databases',
     icon: 'Database',
     skills: [
-      { name: 'MySQL', level: 95, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
       { name: 'PostgreSQL', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+      { name: 'MySQL', level: 95, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
       { name: 'SQLite', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg' },
       { name: 'Relational Modeling', level: 92, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg' }
     ]
@@ -59,7 +57,7 @@ export const skillCategories = [
       { name: 'Git', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
       { name: 'GitHub', level: 90, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg' },
       { name: 'VS Code', level: 95, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg' },
-      { name: 'FastAPI Swagger', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg' }
+      { name: 'Swagger UI', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg' }
     ]
   },
   {
@@ -68,7 +66,7 @@ export const skillCategories = [
     icon: 'Brain',
     skills: [
       { name: 'Claude AI', level: 98, icon: 'https://cdn.simpleicons.org/anthropic/CC9B7A' },
-      { name: 'ChatGPT', level: 98, icon: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg' },
+      { name: 'ChatGPT / LLMs', level: 98, icon: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg' },
       { name: 'Machine Learning', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg' },
       { name: 'Data Science', level: 82, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg' }
     ]
@@ -81,7 +79,6 @@ export const skillCategories = [
       { name: 'Problem Solving', level: 95, icon: 'https://cdn.simpleicons.org/leetcode/FFA116' },
       { name: 'Analytical Thinking', level: 92, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/chrome/chrome-original.svg' },
       { name: 'Team Collaboration', level: 90, icon: 'https://cdn.simpleicons.org/slack/4A154B' },
-      { name: 'Quick Learner', level: 95, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/devicon/devicon-original.svg' },
       { name: 'Clean Code Practices', level: 92, icon: 'https://cdn.simpleicons.org/githubcopilot/6366f1' }
     ]
   }

@@ -22,7 +22,6 @@ import Projects from './components/sections/Projects/Projects';
 import Experience from './components/sections/Experience/Experience';
 import Certifications from './components/sections/Certifications/Certifications';
 import Education from './components/sections/Education/Education';
-import Statistics from './components/sections/Statistics/Statistics';
 import Resume from './components/sections/Resume/Resume';
 import Contact from './components/sections/Contact/Contact';
 import AIAssistant from './components/common/AIAssistant/AIAssistant';
@@ -87,7 +86,6 @@ function App() {
           <Experience />
           <Certifications />
           <Education />
-          <Statistics />
           <Resume />
           <Contact />
         </ErrorBoundary>

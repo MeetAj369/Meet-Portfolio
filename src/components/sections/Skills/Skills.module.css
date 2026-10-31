@@ -11,15 +11,8 @@
 }
 
 .sectionHeader {
-  margin-bottom: 32px;
-}
-
-.headerRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
+  text-align: center;
+  margin-bottom: 36px;
 }
 
 .title {
@@ -27,58 +20,22 @@
   font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: 800;
   color: var(--text-primary);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   letter-spacing: -0.025em;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: inline-block;
+  overflow-wrap: break-word;
 }
 
 .subtitle {
   color: var(--text-secondary);
   font-size: 1.05rem;
-  margin: 0;
-}
-
-.gravityBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur-subtle);
-  -webkit-backdrop-filter: var(--glass-blur-subtle);
-  color: var(--accent-primary);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-specular), 0 4px 14px rgba(0, 0, 0, 0.1);
-  padding: 8px 18px;
-  border-radius: var(--radius-full);
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-[data-theme='light'] .gravityBtn {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(79, 70, 229, 0.2);
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.08), inset 0 1px 1px #ffffff;
-}
-
-.gravityBtn:hover {
-  background: var(--accent-primary);
-  color: #ffffff;
-  border-color: var(--accent-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.45);
-}
-
-.gravityBtnActive {
-  background: linear-gradient(135deg, #ef4444, #f97316) !important;
-  color: white !important;
-  border-color: transparent !important;
-  box-shadow: 0 0 25px rgba(239, 68, 68, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+  margin: 0 auto;
+  max-width: 600px;
+  overflow-wrap: break-word;
 }
 
 /* Category Filter Tabs */
@@ -108,6 +65,7 @@
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   font-family: inherit;
   font-size: 0.875rem;
+  white-space: nowrap;
 }
 
 [data-theme='light'] .tab {
@@ -139,13 +97,14 @@
 /* Skills Container & Bento Grid */
 .skillsContainer {
   position: relative;
-  min-height: 280px;
+  width: 100%;
 }
 
 .bentoGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  width: 100%;
 }
 
 .singleCategoryGrid {
@@ -274,18 +233,18 @@
 .chipsCloud {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 9px;
 }
 
 .techChip {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
-  padding: 7px 12px 7px 9px;
+  padding: 6px 11px 6px 8px;
   border-radius: var(--radius-full);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.06);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -313,8 +272,8 @@
 }
 
 .chipIconWrap {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -328,23 +287,23 @@
 }
 
 .chipIconText {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1;
 }
 
 .chipName {
-  font-size: 0.85rem;
+  font-size: 0.825rem;
   font-weight: 600;
   color: var(--text-primary);
   letter-spacing: -0.01em;
 }
 
 .chipLevel {
-  font-size: 0.725rem;
+  font-size: 0.7rem;
   font-weight: 700;
   color: #38bdf8;
   background: rgba(56, 189, 248, 0.12);
-  padding: 1px 6px;
+  padding: 1px 5px;
   border-radius: var(--radius-full);
 }
 
@@ -358,9 +317,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 28px;
-  margin-top: 36px;
-  padding-top: 24px;
+  gap: 24px;
+  margin-top: 32px;
+  padding-top: 20px;
   border-top: 1px solid var(--glass-border);
   flex-wrap: wrap;
 }
@@ -373,7 +332,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: var(--text-secondary);
   font-weight: 500;
 }
@@ -395,22 +354,32 @@
 }
 
 @media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+
   .bentoGrid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
   }
 
   .skills {
-    padding: calc(var(--section-padding) * 0.75) 0;
+    padding: calc(var(--section-padding) * 0.7) 0;
   }
 
   .bentoCard {
-    padding: 18px;
+    padding: 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  .bentoHeader {
+    margin-bottom: 12px;
+    padding-bottom: 10px;
   }
 
   .skillsFooter {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 10px;
   }
 }

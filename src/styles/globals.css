@@ -307,6 +307,14 @@ ul, ol { list-style: none; }
 ::selection { background: rgba(99,102,241,0.35); color: #fff; }
 :focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
 
-@media (max-width: 1024px) { :root { --section-padding: 90px 0; } }
-@media (max-width: 768px) { :root { --section-padding: 70px 0; --navbar-height: 64px; } }
-@media (max-width: 480px) { :root { --section-padding: 56px 0; --container-padding: 0 16px; } }
+@media (max-width: 1024px) { :root { --section-padding: 80px 0; } }
+@media (max-width: 768px) { :root { --section-padding: 64px 0; --navbar-height: 64px; } }
+@media (max-width: 480px) { 
+  :root { 
+    --section-padding: 48px 0; 
+    --container-padding: 0 16px; 
+  } 
+  .container {
+    padding: 0 16px !important;
+  }
+}

@@ -126,20 +126,20 @@ def get_budget_analytics(user_id: int):
   },
   {
     id: 6,
-    title: 'Interactive Portfolio & Gravity Sandbox',
-    fileName: 'PortfolioPhysics.js',
-    codeSnippet: `import Matter from 'matter-js';
-// 2D Physics Gravity Sandbox
-const engine = Engine.create();
-World.add(engine.world, [ground, skills]);`,
-    description: 'A personal portfolio built with React featuring dark/light themes, smooth animations, particle backgrounds, and an interactive 2D physics Gravity Chaos Mode powered by Matter.js.',
-    shortDescription: 'Modern interactive portfolio with animations, dark/light themes & Gravity Chaos Mode.',
-    technologies: ['React', 'Matter.js', 'CSS3', 'JavaScript'],
+    title: 'Interactive Liquid Glass Portfolio',
+    fileName: 'PortfolioShowcase.jsx',
+    codeSnippet: `import { AIAssistant, ParticleAurora } from './components';
+// 2026 Liquid Glass Portfolio Engine
+const theme = useTheme();
+export default function Portfolio() { return <LiquidGlassUI />; }`,
+    description: 'A personal portfolio engineered with React 19 featuring dark/light adaptive Liquid Glassmorphism, dynamic aurora particle canvas, and a conversational AI Assistant.',
+    shortDescription: 'Modern interactive portfolio with Liquid Glassmorphism, dynamic aurora canvas & AI Assistant.',
+    technologies: ['React 19', 'Vite', 'CSS Modules', 'JavaScript', 'Liquid Glass'],
     features: [
-      'Interactive Chaos Mode with 2D physics gravity sandbox via Matter.js',
-      'Dark/Light theme toggle with persistent preferences',
-      'Animated stat counters and scroll reveals',
-      'Fully responsive glassmorphism interface across all screen sizes'
+      'Modern 2026 Liquid Glassmorphism with specular inner highlights',
+      'Conversational AI Assistant trained on verified background and projects',
+      'Dynamic 4-orb liquid aurora background with mouse parallax',
+      'Fully responsive, mobile-optimized experience across all devices'
     ],
     github: 'https://github.com/MeetAj369/Meet-Portfolio',
     liveDemo: 'https://meetaj369.github.io/Meet-Portfolio/',

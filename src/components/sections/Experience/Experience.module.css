@@ -195,36 +195,71 @@
 
 @media (max-width: 768px) {
   .timelineLine {
-    left: 20px;
+    left: 12px;
     transform: none;
   }
   
-  .timelineItem {
-    width: 100%;
-    text-align: left;
-    padding-left: 60px;
-    padding-right: 0;
-  }
-  
+  .timelineItem,
   .timelineItem:nth-child(odd),
   .timelineItem:nth-child(even) {
+    width: 100%;
     left: 0;
     text-align: left;
-    padding-left: 60px;
+    padding-left: 36px;
     padding-right: 0;
+    margin-bottom: 20px;
   }
   
   .timelineItem:nth-child(odd) .timelineDot,
   .timelineItem:nth-child(even) .timelineDot {
-    left: 12px;
+    left: 4px;
     right: auto;
+    top: 24px;
   }
   
+  .timelineCard {
+    padding: 20px 18px;
+    border-radius: var(--radius-lg);
+  }
+
   .timelineItem:nth-child(odd) .timelineIcon {
     margin-left: 0;
   }
   
   .timelineItem:nth-child(odd) .timelineDetails {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .timelineItem,
+  .timelineItem:nth-child(odd),
+  .timelineItem:nth-child(even) {
+    padding-left: 28px;
+  }
+
+  .timelineLine {
+    left: 8px;
+  }
+
+  .timelineItem:nth-child(odd) .timelineDot,
+  .timelineItem:nth-child(even) .timelineDot {
+    left: 0;
+    width: 14px;
+    height: 14px;
+  }
+
+  .timelineCard {
+    padding: 16px 14px;
+  }
+
+  .timelineRole {
+    font-size: 1.05rem;
+    overflow-wrap: break-word;
+  }
+
+  .timelineDetails {
+    flex-wrap: wrap;
+    gap: 8px;
   }
 }
