@@ -57,27 +57,29 @@ await careerSync.matchMentor(assessment);`,
   },
   {
     id: 3,
-    title: 'HP Mobile Selling System',
-    fileName: 'MobileStore.sql',
-    codeSnippet: `SELECT product_id, model, stock_count, price
-FROM hp_mobile_inventory
-WHERE status = 'IN_STOCK'
-ORDER BY units_sold DESC;`,
-    description: 'Full-stack retail & inventory management portal with billing automation. Features real-time stock monitoring, automated POS billing and invoice generation, product catalog management, supplier tracking, and structured customer purchase histories with secure transactional data handling.',
-    shortDescription: 'Full-stack retail & inventory management portal with automated billing and catalog tracking.',
-    technologies: ['PHP', 'MySQL', 'JavaScript', 'HTML5', 'CSS3'],
+    title: 'HP Mobile Store — Full-Stack E-Commerce & Retail POS Platform',
+    fileName: 'invoice.php',
+    codeSnippet: `// Pure PHP PDF Tax Invoice & POS Billing Engine
+$items = mysqli_query($conn, "SELECT m.name, oi.quantity, oi.price 
+  FROM order_items oi JOIN mobiles m ON oi.mobile_id = m.id 
+  WHERE oi.order_id = $order_id");
+$pdf->drawInvoice($order, $items, $grand_total, $gst_18);`,
+    description: 'Full-stack e-commerce and retail Point-of-Sale (POS) management platform designed for consumer electronics retail. Features a 25+ flagship smartphone catalog across Apple, Samsung, OnePlus, Xiaomi, and Realme, an interactive shopping cart and checkout pipeline with COD, UPI and Card simulations, automated printable PDF GST tax invoice generation (invoice.php), real-time inventory reconciliation with low-stock warnings, and an administrative sales analytics suite.',
+    shortDescription: 'Full-stack retail e-commerce portal with 25+ smartphone catalog, POS checkout, stock management & automated PDF GST invoicing.',
+    technologies: ['PHP', 'MySQL (7 Tables)', 'FPDF / PDF Engine', 'JavaScript', 'HTML5', 'CSS3'],
     features: [
-      'Automated POS billing & instant receipt/invoice generation',
-      'Real-time stock level monitoring with low-inventory alerts',
-      'Categorized mobile phone catalog with search and specifications filter',
-      'Supplier records and transactional sales histories',
-      'Secure admin panel with role-based sales reporting'
+      'Multi-brand flagship smartphone catalog with detailed hardware specs (RAM, Storage, Optics)',
+      'Interactive shopping cart & express checkout supporting COD, UPI QR, and Card payments',
+      'Automated printable PDF tax invoice generation with GST breakdown and order stamps',
+      'Real-time inventory and warehouse stock monitoring with low-stock threshold alerts',
+      'Admin command center with revenue analytics, sales reporting, and order status tracking',
+      'Customer portal for order history tracking and re-downloading tax invoices'
     ],
-    github: 'https://github.com/MeetAj369',
-    liveDemo: 'https://meetaj369.github.io/Meet-Portfolio/',
-    image: null,
+    github: 'https://github.com/MeetAj369/HP_MobileStore_Final',
+    liveDemo: 'https://meetaj369.github.io/HP_MobileStore_Final/',
+    image: '/Meet-Portfolio/uploads/hp-mobilestore.jpg',
     featured: true,
-    category: 'Web Development'
+    category: 'E-Commerce / Full Stack'
   },
   {
     id: 4,

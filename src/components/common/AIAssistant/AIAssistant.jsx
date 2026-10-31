@@ -207,22 +207,34 @@ const getAIResponse = (query) => {
     };
   }
 
-  // 10. Projects Overview
+  // 10. HP Mobile Store
+  if (q.includes('mobile store') || q.includes('mobile selling') || q.includes('ecommerce') || q.includes('e-commerce') || q.includes('shopping')) {
+    return {
+      text: `📱 **HP Mobile Store (E-Commerce & Retail POS Platform)**:\n\n• **Flagship Catalog**: Houses 25+ smartphone models across Apple (iPhone 16 Pro Max), Samsung (S25 Ultra), OnePlus (13), Xiaomi, and Realme with verified hardware specifications.\n• **POS Invoicing Engine**: Automated printable PDF tax invoice generation (\`invoice.php\`) with full 18% GST calculations and official order stamps.\n• **Checkout Pipeline**: Interactive shopping cart with express checkout supporting COD, Instant UPI QR, and Card payments.\n• **Retail Operations**: 7-table MySQL schema (\`mobile_store.sql\`) tracking live stock quantities, order dispatch stages, and customer feedback.`,
+      actions: [
+        { label: 'Open Live Mobile Store', url: 'https://meetaj369.github.io/HP_MobileStore_Final/' },
+        { label: 'View GitHub Repository', url: 'https://github.com/MeetAj369/HP_MobileStore_Final' },
+        { label: 'View in Projects', onClick: () => scrollToSection('projects') }
+      ]
+    };
+  }
+
+  // 11. Projects Overview
   if (
     q.includes('project') ||
     q.includes('built') ||
     q.includes('work') ||
     q.includes('portfolio') ||
-    q.includes('mobile store') ||
     q.includes('expense') ||
     q.includes('selling') ||
     q.includes('app')
   ) {
     return {
-      text: `💻 **Meet's Key Engineering Projects**:\n\n1. **CareerSync**: AI Career Navigation Platform (Next.js 16, React 19, FastAPI, PostgreSQL, 49+ career paths).\n2. **HP TechPulse**: Enterprise IT Asset Lifecycle & Gadget Health platform with digital QR Passports, 0–100 health scoring & WDV depreciation.\n3. **HP Mobile Selling System**: Full-stack retail & inventory management portal with billing automation.\n4. **HP Expense Tracker**: Financial tracking application for budgets, expense categorization & ledger analytics.`,
+      text: `💻 **Meet's Key Engineering Projects**:\n\n1. **CareerSync**: AI Career Navigation Platform (Next.js 16, React 19, FastAPI, PostgreSQL, 49+ career paths).\n2. **HP TechPulse**: Enterprise IT Asset Lifecycle & Gadget Health platform with digital QR Passports, 0–100 health scoring & WDV depreciation.\n3. **HP Mobile Store**: Full-stack retail e-commerce portal with 25+ smartphone catalog, POS checkout & automated PDF GST invoicing.\n4. **HP Expense Tracker**: Financial tracking application for budgets, expense categorization & ledger analytics.`,
       actions: [
         { label: 'View All Featured Projects', onClick: () => scrollToSection('projects') },
-        { label: 'HP TechPulse GitHub', url: 'https://github.com/MeetAj369/HP-TechPulse' },
+        { label: 'HP Mobile Store Live', url: 'https://meetaj369.github.io/HP_MobileStore_Final/' },
+        { label: 'HP TechPulse Live', url: 'https://meetaj369.github.io/HP-TechPulse/' },
         { label: 'GitHub Repositories', url: personalInfo.github }
       ]
     };
