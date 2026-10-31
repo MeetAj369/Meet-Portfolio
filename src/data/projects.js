@@ -20,7 +20,7 @@ await careerSync.matchMentor(assessment);`,
       'Automated resume export engine in Word and PDF formats'
     ],
     github: 'https://github.com/MeetAj369',
-    liveDemo: 'https://meetaj369.github.io/Meet-Portfolio/',
+    liveDemo: null,
     image: '/Meet-Portfolio/uploads/live-careersync.png',
     logo: '/Meet-Portfolio/uploads/careersync-emblem.png',
     featured: true,
@@ -131,7 +131,7 @@ $analytics = $stmt->fetchAll(PDO::FETCH_ASSOC);`,
       'Custom prompt shortcuts & system instructions'
     ],
     github: 'https://github.com/MeetAj369',
-    liveDemo: 'https://meetaj369.github.io/Meet-Portfolio/',
+    liveDemo: null,
     image: null,
     featured: false,
     category: 'AI / Full Stack'

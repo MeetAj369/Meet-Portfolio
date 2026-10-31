@@ -152,7 +152,7 @@ ul, ol { list-style: none; }
   --border: rgba(79, 70, 229, 0.12);
   --border-hover: rgba(79, 70, 229, 0.35);
   --border-subtle: rgba(0,0,0,0.06);
-  --navbar-bg: rgba(244, 247, 252, 0.85);
+  --navbar-bg: rgba(255, 255, 255, 0.96);
   --accent-secondary: #0891b2;
   --accent-tertiary: #7c3aed;
 }
@@ -292,6 +292,15 @@ ul, ol { list-style: none; }
 .reveal-right.revealed { opacity: 1; transform: translateX(0); }
 .reveal-scale { opacity: 0; transform: scale(0.85); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal-scale.revealed { opacity: 1; transform: scale(1); }
+
+/* Safeguard: revealed parents immediately reveal all children */
+.revealed .reveal,
+.revealed .reveal-left,
+.revealed .reveal-right,
+.revealed .reveal-scale {
+  opacity: 1 !important;
+  transform: none !important;
+}
 
 .stagger-1 { transition-delay: 0.1s; }
 .stagger-2 { transition-delay: 0.2s; }

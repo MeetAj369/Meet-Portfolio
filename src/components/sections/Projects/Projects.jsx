@@ -80,7 +80,7 @@ const Projects = () => {
             {filteredProjects.map((project, index) => (
               <div 
                 key={project.id || index} 
-                className={`${styles.projectCard} reveal stagger-${Math.min(index + 1, 6)}`}
+                className={styles.projectCard}
                 onClick={() => setSelectedProject(project)}
               >
                 {/* Developer Window Header Mockup */}
@@ -111,7 +111,7 @@ const Projects = () => {
                         {project.liveDemo && (
                           <span className={styles.liveIndicator}>
                             <span className={styles.livePulse} />
-                            Live Hosted
+                            Live Working App
                           </span>
                         )}
                         {project.logo && (
@@ -182,7 +182,7 @@ const Projects = () => {
                         className={`${styles.projectBtn} ${styles.projectBtnPrimary}`}
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <ExternalLink size={16} /> Live Demo
+                        <ExternalLink size={16} /> Live Working App
                       </a>
                     )}
                   </div>
@@ -248,7 +248,7 @@ const Projects = () => {
                 )}
                 {selectedProject.liveDemo && selectedProject.liveDemo !== '#' && (
                   <a href={selectedProject.liveDemo} target="_blank" rel="noopener noreferrer" className={`${styles.projectBtn} ${styles.projectBtnPrimary}`}>
-                    <ExternalLink size={18} /> Live Demo
+                    <ExternalLink size={18} /> Open Live Working App
                   </a>
                 )}
               </div>

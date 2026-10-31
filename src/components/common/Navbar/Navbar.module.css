@@ -13,10 +13,16 @@
 
 .navbar.scrolled {
   background: var(--navbar-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.35), var(--glass-specular);
+}
+
+[data-theme='light'] .navbar.scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(79, 70, 229, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .inner {
