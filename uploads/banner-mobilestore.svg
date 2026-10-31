@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgMs" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <radialGradient id="glowMs" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.32" />
+      <stop offset="60%" stop-color="#818cf8" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="textGradMs" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="50%" stop-color="#a78bfa" />
+      <stop offset="100%" stop-color="#f472b6" />
+    </linearGradient>
+    <filter id="shadowMs" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="url(#bgMs)" />
+  <rect width="800" height="420" fill="url(#glowMs)" />
+
+  <!-- Grid Overlay -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="70" x2="800" y2="70" />
+    <line x1="0" y1="140" x2="800" y2="140" />
+    <line x1="0" y1="210" x2="800" y2="210" />
+    <line x1="0" y1="280" x2="800" y2="280" />
+    <line x1="0" y1="350" x2="800" y2="350" />
+    <line x1="160" y1="0" x2="160" y2="420" />
+    <line x1="320" y1="0" x2="320" y2="420" />
+    <line x1="480" y1="0" x2="480" y2="420" />
+    <line x1="640" y1="0" x2="640" y2="420" />
+  </g>
+
+  <!-- Top Window Header Mock -->
+  <rect x="40" y="24" width="720" height="36" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+  <circle cx="62" cy="42" r="5" fill="#ef4444" />
+  <circle cx="78" cy="42" r="5" fill="#f59e0b" />
+  <circle cx="94" cy="42" r="5" fill="#10b981" />
+  <text x="120" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">invoice.php — Automated PDF GST Billing &amp; Retail POS Engine</text>
+
+  <!-- Live Platform Pill Badge -->
+  <rect x="560" y="30" width="188" height="24" rx="12" fill="rgba(16, 185, 129, 0.2)" stroke="rgba(16, 185, 129, 0.6)" />
+  <circle cx="575" cy="42" r="4" fill="#10b981" />
+  <text x="586" y="46" font-family="-apple-system, sans-serif" font-size="10.5" fill="#34d399" font-weight="700">● LIVE WORKING APP</text>
+
+  <!-- Main Hero Card -->
+  <g filter="url(#shadowMs)">
+    <rect x="50" y="80" width="700" height="290" rx="16" fill="rgba(15, 23, 42, 0.75)" stroke="rgba(96, 165, 250, 0.3)" stroke-width="1.2" />
+    <rect x="50" y="80" width="700" height="2" fill="url(#textGradMs)" />
+  </g>
+
+  <!-- Brand Identity -->
+  <g transform="translate(85, 115)">
+    <!-- Smartphone Icon Emblem -->
+    <rect x="0" y="0" width="60" height="60" rx="14" fill="rgba(96, 165, 250, 0.15)" stroke="rgba(96, 165, 250, 0.4)" stroke-width="1.5" />
+    <rect x="19" y="12" width="22" height="36" rx="4" fill="none" stroke="#60a5fa" stroke-width="2.2" />
+    <line x1="26" y1="16" x2="34" y2="16" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" />
+    <circle cx="30" cy="42" r="2" fill="#60a5fa" />
+
+    <!-- Title and Subtitle -->
+    <text x="76" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800" fill="url(#textGradMs)" letter-spacing="-0.5">HP Mobile Store</text>
+    <text x="76" y="52" font-family="-apple-system, sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">Full-Stack E-Commerce &amp; Retail POS Invoicing Platform</text>
+  </g>
+
+  <!-- Key Metrics Grid -->
+  <g transform="translate(85, 205)">
+    <!-- Metric 1: Smartphone Catalog -->
+    <rect x="0" y="0" width="200" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
+    <text x="16" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">FLAGSHIP CATALOG</text>
+    <text x="16" y="52" font-family="monospace" font-size="22" fill="#60a5fa" font-weight="800">25+ Models</text>
+    <text x="135" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8">Apple/Samsung</text>
+
+    <!-- Metric 2: Tax Invoicing -->
+    <rect x="215" y="0" width="205" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
+    <text x="231" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">POS TAX INVOICING</text>
+    <text x="231" y="52" font-family="monospace" font-size="22" fill="#34d399" font-weight="800">18% GST</text>
+    <text x="325" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#10b981">Automated PDF</text>
+
+    <!-- Metric 3: Database & Stock -->
+    <rect x="435" y="0" width="195" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
+    <text x="451" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">INVENTORY SCHEMA</text>
+    <text x="451" y="52" font-family="monospace" font-size="22" fill="#f472b6" font-weight="800">7 Tables</text>
+    <text x="548" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8">MySQL</text>
+  </g>
+
+  <!-- Tags Footer -->
+  <g transform="translate(85, 300)">
+    <rect x="0" y="0" width="95" height="24" rx="12" fill="rgba(96, 165, 250, 0.15)" stroke="rgba(96, 165, 250, 0.35)" />
+    <text x="14" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#93c5fd" font-weight="600">PHP &amp; MySQL</text>
+
+    <rect x="105" y="0" width="115" height="24" rx="12" fill="rgba(52, 211, 153, 0.15)" stroke="rgba(52, 211, 153, 0.35)" />
+    <text x="119" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#6ee7b7" font-weight="600">FPDF Invoicing</text>
+
+    <rect x="230" y="0" width="115" height="24" rx="12" fill="rgba(167, 139, 250, 0.15)" stroke="rgba(167, 139, 250, 0.35)" />
+    <text x="244" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#c4b5fd" font-weight="600">POS Checkout</text>
+
+    <rect x="355" y="0" width="125" height="24" rx="12" fill="rgba(244, 114, 182, 0.15)" stroke="rgba(244, 114, 182, 0.35)" />
+    <text x="369" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#fbcfe8" font-weight="600">Stock Thresholds</text>
+
+    <rect x="490" y="0" width="120" height="24" rx="12" fill="rgba(96, 165, 250, 0.15)" stroke="rgba(96, 165, 250, 0.35)" />
+    <text x="504" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#93c5fd" font-weight="600">UPI / QR Billing</text>
+  </g>
+</svg>

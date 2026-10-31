@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgPf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060b19" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <radialGradient id="glowPf" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.32" />
+      <stop offset="60%" stop-color="#818cf8" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="textGradPf" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+    <filter id="shadowPf" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="420" fill="url(#bgPf)" />
+  <rect width="800" height="420" fill="url(#glowPf)" />
+
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="70" x2="800" y2="70" />
+    <line x1="0" y1="140" x2="800" y2="140" />
+    <line x1="0" y1="210" x2="800" y2="210" />
+    <line x1="0" y1="280" x2="800" y2="280" />
+    <line x1="0" y1="350" x2="800" y2="350" />
+    <line x1="160" y1="0" x2="160" y2="420" />
+    <line x1="320" y1="0" x2="320" y2="420" />
+    <line x1="480" y1="0" x2="480" y2="420" />
+    <line x1="640" y1="0" x2="640" y2="420" />
+  </g>
+
+  <rect x="40" y="24" width="720" height="36" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+  <circle cx="62" cy="42" r="5" fill="#ef4444" />
+  <circle cx="78" cy="42" r="5" fill="#f59e0b" />
+  <circle cx="94" cy="42" r="5" fill="#10b981" />
+  <text x="120" y="46" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">PortfolioShowcase.jsx — 2026 Liquid Glassmorphism &amp; Conversational AI</text>
+
+  <rect x="560" y="30" width="188" height="24" rx="12" fill="rgba(16, 185, 129, 0.2)" stroke="rgba(16, 185, 129, 0.6)" />
+  <circle cx="575" cy="42" r="4" fill="#10b981" />
+  <text x="586" y="46" font-family="-apple-system, sans-serif" font-size="10.5" fill="#34d399" font-weight="700">● LIVE WORKING APP</text>
+
+  <g filter="url(#shadowPf)">
+    <rect x="50" y="80" width="700" height="290" rx="16" fill="rgba(10, 18, 38, 0.78)" stroke="rgba(34, 211, 238, 0.35)" stroke-width="1.2" />
+    <rect x="50" y="80" width="700" height="2" fill="url(#textGradPf)" />
+  </g>
+
+  <g transform="translate(85, 115)">
+    <rect x="0" y="0" width="60" height="60" rx="14" fill="rgba(34, 211, 238, 0.15)" stroke="rgba(34, 211, 238, 0.45)" stroke-width="1.5" />
+    <!-- Monogram M -->
+    <path d="M18 42 V18 L30 32 L42 18 V42" fill="none" stroke="#22d3ee" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+
+    <text x="76" y="32" font-family="-apple-system, sans-serif" font-size="28" font-weight="800" fill="url(#textGradPf)" letter-spacing="-0.5">Meet Chauhan Portfolio</text>
+    <text x="76" y="52" font-family="-apple-system, sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">Next-Gen Liquid Glass Architecture &amp; Conversational AI Engine</text>
+  </g>
+
+  <g transform="translate(85, 205)">
+    <rect x="0" y="0" width="200" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
+    <text x="16" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">FRONTEND CORE</text>
+    <text x="16" y="52" font-family="monospace" font-size="22" fill="#22d3ee" font-weight="800">React 19</text>
+    <text x="128" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8">Vite 8</text>
+
+    <rect x="215" y="0" width="205" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
+    <text x="231" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">DESIGN SYSTEM</text>
+    <text x="231" y="52" font-family="monospace" font-size="22" fill="#818cf8" font-weight="800">Liquid Glass</text>
+    <text x="352" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b">2026 UI</text>
+
+    <rect x="435" y="0" width="195" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
+    <text x="451" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">AI PERSONAL BOT</text>
+    <text x="451" y="52" font-family="monospace" font-size="22" fill="#c084fc" font-weight="800">Ask AI 🧠</text>
+    <text x="562" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#10b981">Online</text>
+  </g>
+
+  <g transform="translate(85, 300)">
+    <rect x="0" y="0" width="95" height="24" rx="12" fill="rgba(34, 211, 238, 0.15)" stroke="rgba(34, 211, 238, 0.35)" />
+    <text x="14" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#67e8f9" font-weight="600">React 19</text>
+
+    <rect x="105" y="0" width="115" height="24" rx="12" fill="rgba(99, 102, 241, 0.15)" stroke="rgba(99, 102, 241, 0.35)" />
+    <text x="119" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#a5b4fc" font-weight="600">CSS Modules</text>
+
+    <rect x="230" y="0" width="135" height="24" rx="12" fill="rgba(168, 85, 247, 0.15)" stroke="rgba(168, 85, 247, 0.35)" />
+    <text x="244" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#d8b4fe" font-weight="600">Aurora Particles</text>
+
+    <rect x="375" y="0" width="125" height="24" rx="12" fill="rgba(34, 211, 238, 0.15)" stroke="rgba(34, 211, 238, 0.35)" />
+    <text x="389" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#67e8f9" font-weight="600">Adaptive Theme</text>
+
+    <rect x="510" y="0" width="115" height="24" rx="12" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.35)" />
+    <text x="524" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#6ee7b7" font-weight="600">gh-pages CI</text>
+  </g>
+</svg>
