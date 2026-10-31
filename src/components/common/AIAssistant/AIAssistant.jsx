@@ -6,6 +6,7 @@ import styles from './AIAssistant.module.css';
 
 const QUICK_QUESTIONS = [
   "What is Meet's latest qualifications & education?",
+  "Tell me about the AI Chat Assistant platform.",
   "Tell me about the CareerSync hackathon project.",
   "Explore HP Expense Tracker & live web app.",
   "Tell me about HP TechPulse & IT Asset Management.",
@@ -238,6 +239,28 @@ const getAIResponse = (query) => {
     };
   }
 
+  // AI Chat Assistant
+  if (
+    q.includes('chat assistant') ||
+    q.includes('ai chat') ||
+    q.includes('ai assistant') ||
+    q.includes('chatbot') ||
+    q.includes('streaming') ||
+    q.includes('token stream') ||
+    q.includes('chat-assistant') ||
+    q.includes('voice input') ||
+    q.includes('speech')
+  ) {
+    return {
+      text: `🤖 **AI Chat Assistant (Real-Time LLM Token Streaming Platform)**:\n\n• **Core Scope**: An intelligent conversational interface featuring real-time Server-Sent Events (SSE) token streaming, multi-model engine routing, speech synthesis & voice input, and syntax-highlighted code blocks with instant copy.\n• **Multi-Model Routing**: Supports switching between Claude 3.5 Sonnet, Gemini 1.5 Pro, GPT-4o, and Meet AI with custom temperature and system instruction tuning.\n• **Voice & Speech**: Interactive Web Speech API microphone voice recognition and natural text-to-speech audio reader playback.\n• **Architecture**: Fully self-contained liquid glass client hosted live on GitHub Pages with FastAPI (Python 3.12 async) and PHP EventStream backends.\n• **Tech Stack**: FastAPI, Python 3.12, SSE Streaming, JavaScript, Web Speech API & Liquid Glass UI.`,
+      actions: [
+        { label: 'Open Live AI Chat Assistant', url: 'https://meetaj369.github.io/AI-Chat-Assistant/' },
+        { label: 'View GitHub Repository', url: 'https://github.com/MeetAj369/AI-Chat-Assistant' },
+        { label: 'View in Projects', onClick: () => scrollToSection('projects') }
+      ]
+    };
+  }
+
   // 12. Projects Overview
   if (
     q.includes('project') ||
@@ -248,9 +271,10 @@ const getAIResponse = (query) => {
     q.includes('app')
   ) {
     return {
-      text: `💻 **Meet's Key Engineering Projects**:\n\n1. **CareerSync**: AI Career Navigation Platform (Next.js 16, React 19, FastAPI, PostgreSQL, 49+ career paths).\n2. **HP TechPulse**: Enterprise IT Asset Lifecycle & Gadget Health platform with digital QR Passports, 0–100 health scoring & WDV depreciation.\n3. **HP Mobile Store**: Full-stack retail e-commerce portal with 25+ smartphone catalog, POS checkout & automated PDF GST invoicing.\n4. **HP Expense Tracker**: Financial tracking application for budgets, expense categorization & ledger analytics.`,
+      text: `💻 **Meet's Key Engineering Projects**:\n\n1. **CareerSync**: AI Career Navigation Platform (Next.js 16, React 19, FastAPI, PostgreSQL, 49+ career paths).\n2. **AI Chat Assistant**: Intelligent real-time LLM token streaming & multi-model interface with voice input.\n3. **HP TechPulse**: Enterprise IT Asset Lifecycle & Gadget Health platform with digital QR Passports, 0–100 health scoring & WDV depreciation.\n4. **HP Mobile Store**: Full-stack retail e-commerce portal with 25+ smartphone catalog, POS checkout & automated PDF GST invoicing.\n5. **HP Expense Tracker**: Financial tracking application for budgets, expense categorization & ledger analytics.`,
       actions: [
         { label: 'View All Featured Projects', onClick: () => scrollToSection('projects') },
+        { label: 'AI Chat Assistant Live', url: 'https://meetaj369.github.io/AI-Chat-Assistant/' },
         { label: 'HP Expense Tracker Live', url: 'https://meetaj369.github.io/HP-Expense-Tracker/' },
         { label: 'HP Mobile Store Live', url: 'https://meetaj369.github.io/HP_MobileStore_Final/' },
         { label: 'HP TechPulse Live', url: 'https://meetaj369.github.io/HP-TechPulse/' },

@@ -116,24 +116,33 @@ $analytics = $stmt->fetchAll(PDO::FETCH_ASSOC);`,
     id: 5,
     title: 'AI Chat Assistant',
     fileName: 'ChatAssistant.jsx',
-    codeSnippet: `const response = await aiStream({
-  engine: "claude-3-5-sonnet",
-  messages: history,
-  temperature: 0.7
-});`,
-    description: 'An intelligent conversational assistant application featuring streaming responses, persistent conversation memory, markdown and syntax-highlighted code rendering, and custom prompt templates.',
-    shortDescription: 'Intelligent chat interface powered by modern LLM APIs with real-time streaming & syntax highlighting.',
-    technologies: ['React', 'JavaScript', 'Python', 'Claude / AI API'],
+    codeSnippet: `// Real-Time Server-Sent Events (SSE) Streaming Engine
+const response = await fetch('/api/chat/stream', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ model: 'claude-3-5-sonnet', prompt })
+});
+const reader = response.body.getReader();
+while (true) {
+  const { done, value } = await reader.read();
+  if (done) break;
+  streamTokenToBuffer(decoder.decode(value));
+}`,
+    description: 'A full-stack conversational AI assistant engineered with real-time SSE token streaming, multi-model engine routing (Claude 3.5 Sonnet, Gemini 1.5 Pro, GPT-4o), dynamic Markdown code syntax rendering with one-click clipboard copy, Web Speech voice input and voice synthesis audio playback, and persistent localStorage session history.',
+    shortDescription: 'Intelligent AI chat interface with real-time token streaming, speech synthesis & multi-model routing.',
+    technologies: ['FastAPI', 'Python 3.12', 'SSE Streaming', 'JavaScript', 'Speech API', 'Liquid Glass'],
     features: [
-      'Real-time AI streaming responses',
-      'Syntax-highlighted code blocks with copy-to-clipboard',
-      'Conversation memory & session persistence',
-      'Custom prompt shortcuts & system instructions'
+      'High-throughput Server-Sent Events (SSE) real-time token streaming engine',
+      'Multi-model engine routing supporting Claude 3.5 Sonnet, Gemini 1.5 Pro, GPT-4o & Meet AI',
+      'Built-in Web Speech API voice input recognition and text-to-speech audio reader playback',
+      'Instant Markdown parser rendering syntax-highlighted code blocks with one-click copy',
+      'Persistent multi-chat session management in localStorage with Markdown export capabilities',
+      'Dual architecture: Standalone GitHub Pages web client with Python FastAPI & PHP EventStream backends'
     ],
-    github: 'https://github.com/MeetAj369',
-    liveDemo: null,
+    github: 'https://github.com/MeetAj369/AI-Chat-Assistant',
+    liveDemo: 'https://meetaj369.github.io/AI-Chat-Assistant/',
     image: '/Meet-Portfolio/uploads/banner-aiassistant.svg',
-    featured: false,
+    featured: true,
     category: 'AI / Full Stack'
   },
   {
