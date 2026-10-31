@@ -253,6 +253,126 @@
   font-weight: 600;
 }
 
+/* Live Project Card Image Banner */
+.cardImageWrap {
+  position: relative;
+  width: 100%;
+  height: 195px;
+  overflow: hidden;
+  background: rgba(4, 8, 18, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='light'] .cardImageWrap {
+  background: rgba(241, 245, 249, 0.95);
+  border-bottom: 1px solid rgba(79, 70, 229, 0.1);
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.projectCard:hover .cardImg {
+  transform: scale(1.06);
+}
+
+.cardImgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.6) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px 14px;
+  transition: background 0.3s ease;
+}
+
+.projectCard:hover .cardImgOverlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(10, 16, 32, 0.8) 100%);
+}
+
+.overlayBadges {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 2;
+}
+
+.liveIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.livePulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5);
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.25); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.logoBadge {
+  height: 24px;
+  max-width: 90px;
+  object-fit: contain;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 2px 7px;
+  border-radius: 6px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.overlayAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 7px 15px;
+  border-radius: var(--radius-full);
+  background: rgba(99, 102, 241, 0.9);
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  align-self: center;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+.projectCard:hover .overlayAction {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Code Frame */
 .codeFrame {
   position: relative;
@@ -481,29 +601,32 @@
 
 .modalBanner {
   width: 100%;
-  max-height: 220px;
-  border-radius: var(--radius-md);
+  max-height: 320px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  margin-bottom: 20px;
-  background: rgba(15, 23, 42, 0.6);
+  margin-bottom: 22px;
+  background: rgba(15, 23, 42, 0.7);
   border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
+  padding: 0;
 }
 
 [data-theme='light'] .modalBanner {
-  background: rgba(241, 245, 249, 0.9);
+  background: rgba(241, 245, 249, 0.95);
   border: 1px solid rgba(79, 70, 229, 0.15);
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.1);
 }
 
 .modalImage {
-  max-width: 100%;
-  max-height: 190px;
-  object-fit: contain;
-  border-radius: var(--radius-sm);
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
+  width: 100%;
+  height: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: var(--radius-lg);
 }
 
 .featuresSection, .modalTech {

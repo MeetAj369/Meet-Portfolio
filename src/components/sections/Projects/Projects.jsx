@@ -97,16 +97,44 @@ const Projects = () => {
                   <span className={styles.categoryBadge}>{project.category}</span>
                 </div>
 
-                {/* Code / Architecture Snippet Frame */}
-                <div className={styles.codeFrame}>
-                  <pre className={styles.codeContent}>
-                    <code>{project.codeSnippet || '// High-performance web application\nconst app = initializeSystem();'}</code>
-                  </pre>
-                  <div className={styles.viewOverlay}>
-                    <Eye size={18} />
-                    <span>View Architecture & Specs</span>
+                {/* Live Project Website Image or Code Mockup */}
+                {project.image ? (
+                  <div className={styles.cardImageWrap}>
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className={styles.cardImg}
+                      loading="lazy"
+                    />
+                    <div className={styles.cardImgOverlay}>
+                      <div className={styles.overlayBadges}>
+                        {project.liveDemo && (
+                          <span className={styles.liveIndicator}>
+                            <span className={styles.livePulse} />
+                            Live Hosted
+                          </span>
+                        )}
+                        {project.logo && (
+                          <img src={project.logo} alt="Logo" className={styles.logoBadge} />
+                        )}
+                      </div>
+                      <div className={styles.overlayAction}>
+                        <Eye size={16} />
+                        <span>View Architecture &amp; Specs</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div className={styles.codeFrame}>
+                    <pre className={styles.codeContent}>
+                      <code>{project.codeSnippet || '// High-performance web application\nconst app = initializeSystem();'}</code>
+                    </pre>
+                    <div className={styles.viewOverlay}>
+                      <Eye size={18} />
+                      <span>View Architecture & Specs</span>
+                    </div>
+                  </div>
+                )}
 
                 {/* Content Section */}
                 <div className={styles.projectContent}>

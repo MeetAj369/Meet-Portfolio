@@ -7,9 +7,9 @@ import styles from './AIAssistant.module.css';
 const QUICK_QUESTIONS = [
   "What is Meet's latest qualifications & education?",
   "Tell me about the CareerSync hackathon project.",
+  "Explore HP Expense Tracker & live web app.",
   "Tell me about HP TechPulse & IT Asset Management.",
-  "What's Meet's experience with Full Stack & React?",
-  "What backend & database technologies does Meet use?",
+  "Explore HP Mobile Store e-commerce platform.",
   "Where can I view & download Meet's verified Resume?"
 ];
 
@@ -219,13 +219,31 @@ const getAIResponse = (query) => {
     };
   }
 
-  // 11. Projects Overview
+  // 11. HP Expense Tracker
+  if (
+    q.includes('expense') ||
+    q.includes('budget') ||
+    q.includes('ledger') ||
+    q.includes('spending') ||
+    q.includes('finance') ||
+    q.includes('money')
+  ) {
+    return {
+      text: `💰 **HP Expense Tracker (Financial Intelligence & Ledger Platform)**:\n\n• **Core Scope**: Comprehensive personal finance dashboard with real-time budget threshold warnings, multi-account ledgering, and cashflow analytics.\n• **Relational Architecture**: Powered by an **11-table MySQL schema** (\`hp_expense_tracker\`) mapping users, accounts, categories, payment methods, transactions, recurring budgets, subscriptions, and savings goals.\n• **C-Calculation Engine**: Retains Meet's compiled C financial calculation core (\`calc.c\` / \`calc.exe\`) alongside modern PHP REST API endpoints under \`api/\`.\n• **Interactive Visuals**: Real-time Chart.js cashflow charts, category distribution donuts, and live transaction search with CSV statement export.\n• **Tech Stack**: PHP (PDO), MySQL (11 tables), C Engine, Chart.js, Bootstrap 5 & CSS3.`,
+      actions: [
+        { label: 'Open Live Expense Tracker', url: 'https://meetaj369.github.io/HP-Expense-Tracker/' },
+        { label: 'View GitHub Repository', url: 'https://github.com/MeetAj369/HP-Expense-Tracker' },
+        { label: 'View in Projects', onClick: () => scrollToSection('projects') }
+      ]
+    };
+  }
+
+  // 12. Projects Overview
   if (
     q.includes('project') ||
     q.includes('built') ||
     q.includes('work') ||
     q.includes('portfolio') ||
-    q.includes('expense') ||
     q.includes('selling') ||
     q.includes('app')
   ) {
@@ -233,6 +251,7 @@ const getAIResponse = (query) => {
       text: `💻 **Meet's Key Engineering Projects**:\n\n1. **CareerSync**: AI Career Navigation Platform (Next.js 16, React 19, FastAPI, PostgreSQL, 49+ career paths).\n2. **HP TechPulse**: Enterprise IT Asset Lifecycle & Gadget Health platform with digital QR Passports, 0–100 health scoring & WDV depreciation.\n3. **HP Mobile Store**: Full-stack retail e-commerce portal with 25+ smartphone catalog, POS checkout & automated PDF GST invoicing.\n4. **HP Expense Tracker**: Financial tracking application for budgets, expense categorization & ledger analytics.`,
       actions: [
         { label: 'View All Featured Projects', onClick: () => scrollToSection('projects') },
+        { label: 'HP Expense Tracker Live', url: 'https://meetaj369.github.io/HP-Expense-Tracker/' },
         { label: 'HP Mobile Store Live', url: 'https://meetaj369.github.io/HP_MobileStore_Final/' },
         { label: 'HP TechPulse Live', url: 'https://meetaj369.github.io/HP-TechPulse/' },
         { label: 'GitHub Repositories', url: personalInfo.github }
@@ -299,25 +318,38 @@ const getAIResponse = (query) => {
   };
 };
 
-// Formats text so that **bold** is rendered as strong tags without raw asterisks
+// Formats inline markdown (**bold** and `code`) cleanly without raw markdown artifacts
+const renderInlineTokens = (str) => {
+  if (!str) return null;
+  const tokens = str.split(/(\*\*.*?\*\*|`.*?`)/g);
+  return tokens.map((tok, idx) => {
+    if (tok.startsWith('**') && tok.endsWith('**') && tok.length >= 4) {
+      return (
+        <strong key={idx} className={styles.boldText}>
+          {tok.slice(2, -2)}
+        </strong>
+      );
+    }
+    if (tok.startsWith('`') && tok.endsWith('`') && tok.length >= 2) {
+      return (
+        <code key={idx} className={styles.inlineCode}>
+          {tok.slice(1, -1)}
+        </code>
+      );
+    }
+    return tok;
+  });
+};
+
 const renderFormattedText = (text) => {
+  if (!text) return null;
   return text.split('\n').map((line, lineIdx) => {
     if (!line.trim()) {
       return <span key={lineIdx} className={styles.blankLine} />;
     }
-    const parts = line.split(/(\*\*.*?\*\*)/g);
     return (
       <span key={lineIdx} className={styles.textLine}>
-        {parts.map((part, pIdx) => {
-          if (part.startsWith('**') && part.endsWith('**')) {
-            return (
-              <strong key={pIdx} className={styles.boldText}>
-                {part.slice(2, -2)}
-              </strong>
-            );
-          }
-          return part;
-        })}
+        {renderInlineTokens(line)}
       </span>
     );
   });

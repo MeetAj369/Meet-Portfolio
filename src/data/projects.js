@@ -21,7 +21,8 @@ await careerSync.matchMentor(assessment);`,
     ],
     github: 'https://github.com/MeetAj369',
     liveDemo: 'https://meetaj369.github.io/Meet-Portfolio/',
-    image: null,
+    image: '/Meet-Portfolio/uploads/live-careersync.png',
+    logo: '/Meet-Portfolio/uploads/careersync-emblem.png',
     featured: true,
     category: 'AI / Full Stack'
   },
@@ -51,7 +52,8 @@ await careerSync.matchMentor(assessment);`,
     ],
     github: 'https://github.com/MeetAj369/HP-TechPulse',
     liveDemo: 'https://meetaj369.github.io/HP-TechPulse/',
-    image: '/Meet-Portfolio/uploads/hp-techpulse-logo.png',
+    image: '/Meet-Portfolio/uploads/live-hp-techpulse.png',
+    logo: '/Meet-Portfolio/uploads/hp-techpulse-logo.png',
     featured: true,
     category: 'Enterprise / Full Stack'
   },
@@ -77,33 +79,38 @@ $pdf->drawInvoice($order, $items, $grand_total, $gst_18);`,
     ],
     github: 'https://github.com/MeetAj369/HP_MobileStore_Final',
     liveDemo: 'https://meetaj369.github.io/HP_MobileStore_Final/',
-    image: '/Meet-Portfolio/uploads/hp-mobilestore.jpg',
+    image: '/Meet-Portfolio/uploads/live-hp-mobilestore.png',
     featured: true,
     category: 'E-Commerce / Full Stack'
   },
   {
     id: 4,
-    title: 'HP Expense Tracker',
-    fileName: 'ExpenseTracker.py',
-    codeSnippet: `@router.post('/analytics/ledger')
-def get_budget_analytics(user_id: int):
-    expenses = db.query(Expense).all()
-    return generate_spending_charts(expenses)`,
-    description: 'Financial tracking application for expense categorization, daily/monthly budgets & ledger analytics. Empowers users with interactive expense breakdown charts, dynamic budget limits, automated alerts when approaching limits, and exportable ledger data.',
-    shortDescription: 'Financial tracking application for expense categorization, daily/monthly budgets & ledger analytics.',
-    technologies: ['React', 'JavaScript', 'Python', 'CSS3', 'REST APIs'],
+    title: 'HP Expense Tracker — Financial Intelligence & Budgeting Platform',
+    fileName: 'dashboard.php',
+    codeSnippet: `// Dynamic Monthly Spending Summary & Budget Calculation
+$stmt = $pdo->prepare("SELECT c.name, SUM(t.amount) as total_spent, b.monthly_limit 
+  FROM transactions t JOIN categories c ON t.category_id = c.id 
+  LEFT JOIN budgets b ON b.category_id = c.id AND b.user_id = ?
+  WHERE t.user_id = ? AND MONTH(t.date) = MONTH(CURRENT_DATE())
+  GROUP BY c.id");
+$stmt->execute([$userId, $userId]);
+$analytics = $stmt->fetchAll(PDO::FETCH_ASSOC);`,
+    description: 'Full-stack personal finance and budget intelligence platform designed to manage multi-account cashflows, expense categorization, and savings milestones. Engineered with an 11-table relational MySQL schema (hp_expense_tracker), it features real-time budget threshold warnings, active recurring subscription trackers (Netflix, Spotify, Cloud Hosting), interactive Chart.js cashflow visualizations, CSV ledger export, and a compiled C calculation engine (calc.c) alongside modular PHP REST APIs.',
+    shortDescription: 'Modern financial intelligence dashboard with 11-table schema, dynamic budget alerts, subscriptions tracker & ledger analytics.',
+    technologies: ['PHP (PDO)', 'MySQL (11 Tables)', 'C Engine', 'Chart.js', 'REST APIs', 'CSS3'],
     features: [
-      'Instant expense categorization and transaction logging',
-      'Custom daily, weekly, and monthly budget limits with threshold alerts',
-      'Visual ledger analytics and interactive expense distribution charts',
-      'Filterable transaction history by category and date ranges',
-      'Clean, responsive UI with dark/light mode support'
+      'Comprehensive 11-table relational schema managing accounts, transactions, budgets, and goals',
+      'Interactive Chart.js donut and multi-month inflow vs outflow cashflow analytics',
+      'Dynamic budget consumption meters with automated threshold warning indicators',
+      'Active recurring bill & subscription monitor (Netflix, Spotify, Cloud VPS)',
+      'Live transaction ledger with instant multi-criteria filtering and CSV statement export',
+      'Compiled C calculation engine (calc.c) integrated with modern PHP PDO REST endpoints'
     ],
-    github: 'https://github.com/MeetAj369',
-    liveDemo: 'https://meetaj369.github.io/Meet-Portfolio/',
-    image: null,
+    github: 'https://github.com/MeetAj369/HP-Expense-Tracker',
+    liveDemo: 'https://meetaj369.github.io/HP-Expense-Tracker/',
+    image: '/Meet-Portfolio/uploads/live-hp-expensetracker.png',
     featured: true,
-    category: 'Web Application'
+    category: 'Financial / Full Stack'
   },
   {
     id: 5,
@@ -148,8 +155,9 @@ export default function Portfolio() { return <LiquidGlassUI />; }`,
     ],
     github: 'https://github.com/MeetAj369/Meet-Portfolio',
     liveDemo: 'https://meetaj369.github.io/Meet-Portfolio/',
-    image: null,
+    image: '/Meet-Portfolio/uploads/live-meet-portfolio.png',
+    logo: '/Meet-Portfolio/uploads/logo.png',
     featured: false,
-    category: 'Web Development'
+    category: 'Frontend / UI'
   }
 ];
