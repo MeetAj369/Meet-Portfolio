@@ -531,6 +531,11 @@
   border-color: var(--accent-primary);
 }
 
+.termTabBtn:active {
+  transform: scale(0.95);
+  transition-duration: 0.08s;
+}
+
 .termTabBtnActive {
   background: var(--accent-gradient);
   color: #fff;
@@ -567,6 +572,11 @@
   font-weight: 600;
 }
 
+.termCmdTextAnimated {
+  display: inline-block;
+  animation: termExecution 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 [data-theme='light'] .termCmdText {
   color: #0f172a;
 }
@@ -579,6 +589,21 @@
   margin: 0 0 12px 0;
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+.termOutputAnimated {
+  animation: termExecution 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes termExecution {
+  0% {
+    opacity: 0.2;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 [data-theme='light'] .termOutput {

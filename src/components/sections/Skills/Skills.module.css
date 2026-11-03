@@ -82,6 +82,11 @@
   box-shadow: var(--glass-specular-hover), 0 6px 18px rgba(99, 102, 241, 0.2);
 }
 
+.tab:active {
+  transform: translateY(0) scale(0.96);
+  transition-duration: 0.08s;
+}
+
 .tabActive {
   background: var(--accent-gradient) !important;
   color: #ffffff !important;
@@ -126,6 +131,27 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  animation: bentoCascadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+/* Staggered cascade entrance for bento cards */
+.bentoCard:nth-child(1) { animation-delay: 0.03s; }
+.bentoCard:nth-child(2) { animation-delay: 0.07s; }
+.bentoCard:nth-child(3) { animation-delay: 0.11s; }
+.bentoCard:nth-child(4) { animation-delay: 0.15s; }
+.bentoCard:nth-child(5) { animation-delay: 0.19s; }
+.bentoCard:nth-child(6) { animation-delay: 0.23s; }
+.bentoCard:nth-child(n+7) { animation-delay: 0.27s; }
+
+@keyframes bentoCascadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .bentoCard::before {

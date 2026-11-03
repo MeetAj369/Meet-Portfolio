@@ -180,15 +180,20 @@
   font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: transform var(--t-normal), box-shadow var(--t-normal);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease, filter 0.2s ease;
   box-shadow: 0 8px 25px -4px rgba(99, 102, 241, 0.5), inset 0 1.5px 1px rgba(255, 255, 255, 0.4);
   text-decoration: none;
   position: relative;
   overflow: hidden;
 }
 .btnPrimary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 35px -2px rgba(99, 102, 241, 0.65), inset 0 2px 2px rgba(255, 255, 255, 0.6);
+  transform: translateY(-2.5px) scale(1.02);
+  box-shadow: 0 14px 35px -2px rgba(99, 102, 241, 0.65), inset 0 2px 2px rgba(255, 255, 255, 0.6);
+}
+.btnPrimary:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4), inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  transition-duration: 0.08s;
 }
 
 .btnSecondary {
@@ -206,15 +211,19 @@
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-specular), 0 4px 14px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: all var(--t-normal);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease, border-color 0.2s ease, background 0.2s ease;
   text-decoration: none;
 }
 .btnSecondary:hover {
   background: var(--glass-bg-hover);
   border-color: var(--accent-primary);
   color: var(--accent-primary);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: var(--glass-specular-hover), 0 8px 25px rgba(99, 102, 241, 0.25);
+}
+.btnSecondary:active {
+  transform: translateY(1px) scale(0.97);
+  transition-duration: 0.08s;
 }
 
 .btnGhost {
@@ -231,13 +240,17 @@
   font-weight: 500;
   border: 1px solid var(--border);
   cursor: pointer;
-  transition: all var(--t-normal);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease, border-color 0.2s ease, color 0.2s ease;
 }
 .btnGhost:hover {
   color: var(--text-primary);
   border-color: var(--accent-primary);
   background: rgba(99, 102, 241, 0.08);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
+}
+.btnGhost:active {
+  transform: translateY(1px) scale(0.97);
+  transition-duration: 0.08s;
 }
 
 /* Socials */
@@ -259,15 +272,19 @@
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-specular);
   color: var(--text-secondary);
-  transition: all var(--t-normal);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease, background 0.2s ease, border-color 0.2s ease;
   text-decoration: none;
 }
 .socialBtn:hover {
   background: var(--accent-primary);
   border-color: var(--accent-primary);
   color: #fff;
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.05);
   box-shadow: 0 8px 24px rgba(99, 102, 241, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+.socialBtn:active {
+  transform: translateY(1px) scale(0.95);
+  transition-duration: 0.08s;
 }
 
 /* ---- RIGHT: MODERN UNCLUTTERED SHOWCASE ---- */

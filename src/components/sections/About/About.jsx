@@ -189,9 +189,17 @@ const About = () => {
               <div className={styles.terminalBody}>
                 <div className={styles.termPromptLine}>
                   <span className={styles.termPrompt}>meet@cvmu:~$</span>{' '}
-                  <span className={styles.termCmdText}>{TERMINAL_COMMANDS[activeCmdIdx].cmd}</span>
+                  <span 
+                    key={`cmd-${activeCmdIdx}`} 
+                    className={`${styles.termCmdText} ${styles.termCmdTextAnimated}`}
+                  >
+                    {TERMINAL_COMMANDS[activeCmdIdx].cmd}
+                  </span>
                 </div>
-                <pre className={styles.termOutput}>
+                <pre 
+                  key={`out-${activeCmdIdx}`} 
+                  className={`${styles.termOutput} ${styles.termOutputAnimated}`}
+                >
                   <code>{TERMINAL_COMMANDS[activeCmdIdx].output}</code>
                 </pre>
                 <div className={styles.termCursorLine}>

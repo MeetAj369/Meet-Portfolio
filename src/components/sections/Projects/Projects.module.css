@@ -47,6 +47,11 @@
   box-shadow: var(--glass-specular-hover), 0 6px 18px rgba(99, 102, 241, 0.2);
 }
 
+.filterTab:active {
+  transform: translateY(0) scale(0.96);
+  transition-duration: 0.08s;
+}
+
 .filterTabActive,
 [data-theme='light'] .filterTab.filterTabActive,
 [data-theme='light'] .filterTabActive {
@@ -168,8 +173,17 @@
   position: relative;
   opacity: 1 !important;
   transform: translateY(0);
-  animation: cardFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: cardFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
+
+/* Staggered cascade entrance for project cards */
+.projectCard:nth-child(1) { animation-delay: 0.03s; }
+.projectCard:nth-child(2) { animation-delay: 0.07s; }
+.projectCard:nth-child(3) { animation-delay: 0.11s; }
+.projectCard:nth-child(4) { animation-delay: 0.15s; }
+.projectCard:nth-child(5) { animation-delay: 0.19s; }
+.projectCard:nth-child(6) { animation-delay: 0.23s; }
+.projectCard:nth-child(n+7) { animation-delay: 0.27s; }
 
 @keyframes cardFadeIn {
   from {
@@ -192,6 +206,53 @@
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
   pointer-events: none;
   z-index: 2;
+}
+
+/* Glass Specular Shimmer Beam */
+.projectCard::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -130%;
+  width: 70%;
+  height: 220%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0) 70%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+}
+
+[data-theme='light'] .projectCard::after {
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 25%,
+    rgba(255, 255, 255, 0.32) 50%,
+    rgba(255, 255, 255, 0) 75%,
+    transparent 100%
+  );
+}
+
+.projectCard:hover::after {
+  opacity: 1;
+  animation: glassSpecularSweep 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes glassSpecularSweep {
+  0% {
+    left: -130%;
+  }
+  100% {
+    left: 190%;
+  }
 }
 
 [data-theme='light'] .projectCard {
@@ -535,10 +596,15 @@
   border-radius: var(--radius-md);
   font-size: 0.825rem;
   font-weight: 600;
-  transition: all var(--transition-fast);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease, background 0.2s ease, border-color 0.2s ease;
   text-decoration: none;
   flex: 1;
   cursor: pointer;
+}
+
+.projectBtn:active {
+  transform: translateY(1px) scale(0.97);
+  transition-duration: 0.08s;
 }
 
 .projectBtnPrimary {
@@ -550,7 +616,12 @@
 
 .projectBtnPrimary:hover {
   box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.projectBtnPrimary:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.35);
 }
 
 .projectBtnOutline {
@@ -564,8 +635,12 @@
 .projectBtnOutline:hover {
   background: var(--glass-bg-hover);
   border-color: var(--accent-primary);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: var(--glass-specular-hover), 0 4px 14px rgba(99, 102, 241, 0.2);
+}
+
+.projectBtnOutline:active {
+  transform: translateY(1px) scale(0.97);
 }
 
 /* Modal Styling: Liquid Glass Modal */
