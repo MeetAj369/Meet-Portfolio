@@ -19,7 +19,7 @@
   width: 2px;
   background: var(--accent-gradient);
   transform: translateX(-50%);
-  box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.5), 0 0 32px rgba(34, 211, 238, 0.25);
 }
 
 .timelineItem {
@@ -50,7 +50,7 @@
   border: 3px solid var(--bg-primary);
   border-radius: 50%;
   z-index: 1;
-  box-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.75), 0 0 30px rgba(34, 211, 238, 0.35);
 }
 
 .timelineItem:nth-child(odd) .timelineDot {
@@ -152,9 +152,20 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   font-size: 0.775rem;
   font-family: 'Inter', monospace;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-specular);
+}
+
+[data-theme='light'] .timelinePeriod,
+[data-theme='light'] .timelineLocation {
+  background: rgba(79, 70, 229, 0.05);
+  border-color: rgba(79, 70, 229, 0.12);
 }
 
 .currentBadge {

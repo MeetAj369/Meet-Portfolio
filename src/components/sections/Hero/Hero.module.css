@@ -22,10 +22,11 @@
   height: 50vw;
   max-width: 600px;
   max-height: 600px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.16) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
-  animation: orb1 8s ease-in-out infinite;
+  filter: blur(40px);
+  animation: orb1 10s ease-in-out infinite;
 }
 .orb2 {
   position: absolute;
@@ -35,10 +36,11 @@
   height: 45vw;
   max-width: 500px;
   max-height: 500px;
-  background: radial-gradient(circle, rgba(34, 211, 238, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.16) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
-  animation: orb2 10s ease-in-out infinite;
+  filter: blur(45px);
+  animation: orb2 12s ease-in-out infinite;
 }
 .orb3 {
   position: absolute;
@@ -49,10 +51,25 @@
   height: 40vw;
   max-width: 450px;
   max-height: 450px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.07) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
-  animation: orb3 12s ease-in-out infinite;
+  filter: blur(50px);
+  animation: orb3 14s ease-in-out infinite;
+}
+.orb4 {
+  position: absolute;
+  bottom: 5%;
+  left: 20%;
+  width: 35vw;
+  height: 35vw;
+  max-width: 380px;
+  max-height: 380px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(55px);
+  animation: orb1 16s ease-in-out infinite reverse;
 }
 
 @keyframes orb1 {
@@ -351,12 +368,25 @@
   height: 310px;
   padding: 8px;
   border-radius: 30px;
-  background: var(--glass-bg);
+  background: var(--glass-bg-elevated);
   border: 1px solid var(--glass-border);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), var(--glass-specular), 0 0 25px rgba(99, 102, 241, 0.2);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  overflow: hidden;
+}
+
+.photoCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  z-index: 3;
+  pointer-events: none;
 }
 
 [data-theme='light'] .photoCard {
@@ -485,12 +515,15 @@
   border-radius: var(--radius-full);
   font-size: 0.8rem;
   font-weight: 600;
+  letter-spacing: 0.02em;
   color: var(--text-primary);
   backdrop-filter: var(--glass-blur-subtle);
   -webkit-backdrop-filter: var(--glass-blur-subtle);
   box-shadow: var(--glass-specular), 0 4px 12px rgba(0, 0, 0, 0.12);
   white-space: nowrap;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 [data-theme='light'] .techPill {
@@ -504,7 +537,26 @@
   border-color: var(--accent-primary);
   background: var(--glass-bg-hover);
   transform: translateY(-2px);
-  box-shadow: var(--glass-specular-hover), 0 8px 20px rgba(99, 102, 241, 0.25);
+  box-shadow: var(--glass-specular-hover), 0 8px 20px rgba(99, 102, 241, 0.28);
+}
+
+.techPill::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: rotate(25deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.techPill:hover::after {
+  opacity: 1;
+  animation: shimmerSweep 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 [data-theme='light'] .techPill:hover {

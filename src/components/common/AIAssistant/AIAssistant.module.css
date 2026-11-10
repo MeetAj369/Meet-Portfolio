@@ -25,6 +25,11 @@
   box-shadow: 0 16px 36px rgba(99, 102, 241, 0.65), 0 0 20px rgba(34, 211, 238, 0.4);
 }
 
+.fabBtn:active {
+  transform: translateY(1px) scale(0.96);
+  transition-duration: 0.08s;
+}
+
 .fabIconWrap {
   position: relative;
   width: 32px;

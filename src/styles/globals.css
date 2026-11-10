@@ -83,6 +83,8 @@ ul, ol { list-style: none; }
   --glass-shadow-hover: 0 20px 50px -6px rgba(0, 0, 0, 0.6), 0 0 35px rgba(99, 102, 241, 0.3);
   --liquid-glow: 0 0 35px rgba(99, 102, 241, 0.28), 0 0 70px rgba(34, 211, 238, 0.14);
   --liquid-glow-hover: 0 0 45px rgba(99, 102, 241, 0.45), 0 0 85px rgba(34, 211, 238, 0.25);
+  --glass-reflection: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 60%, transparent 100%);
+  --glass-border-subtle: rgba(255, 255, 255, 0.07);
 
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.35);
   --shadow-md: 0 4px 20px rgba(0,0,0,0.4);
@@ -151,6 +153,8 @@ ul, ol { list-style: none; }
   --glass-shadow-hover: 0 18px 45px -8px rgba(79, 70, 229, 0.18), 0 0 25px rgba(79, 70, 229, 0.1);
   --liquid-glow: 0 0 28px rgba(79, 70, 229, 0.16), 0 0 55px rgba(8, 145, 178, 0.08);
   --liquid-glow-hover: 0 0 38px rgba(79, 70, 229, 0.28), 0 0 70px rgba(8, 145, 178, 0.16);
+  --glass-reflection: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 60%, transparent 100%);
+  --glass-border-subtle: rgba(79, 70, 229, 0.08);
 
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
   --shadow-md: 0 4px 20px rgba(0,0,0,0.1);
@@ -350,4 +354,65 @@ ul, ol { list-style: none; }
     padding: 0 12px !important;
     box-sizing: border-box !important;
   }
+}
+
+/* Premium Gradient Section Dividers */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border), rgba(99, 102, 241, 0.35), var(--glass-border), transparent);
+  margin: 0;
+  border: none;
+}
+
+/* Glass Ambient Background Orb */
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(60px);
+  opacity: 0.6;
+}
+
+/* Premium badge pill */
+.badge-glass {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: var(--accent-primary);
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  box-shadow: var(--glass-specular), 0 2px 8px rgba(99, 102, 241, 0.12);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='light'] .badge-glass {
+  background: rgba(79, 70, 229, 0.08);
+  border-color: rgba(79, 70, 229, 0.2);
+}
+
+/* Glass input focus ring */
+.input-glass:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18), var(--glass-specular), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Shimmer keyframe (global reuse) */
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%) rotate(25deg); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateX(280%) rotate(25deg); opacity: 0; }
+}
+
+/* Pulse glow for active/live badges */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(99, 102, 241, 0.3); }
+  50% { box-shadow: 0 0 22px rgba(99, 102, 241, 0.65), 0 0 45px rgba(34, 211, 238, 0.25); }
 }

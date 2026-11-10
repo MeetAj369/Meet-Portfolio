@@ -15,6 +15,7 @@ const Hero = () => {
       <div className={styles.orb1} aria-hidden="true" />
       <div className={styles.orb2} aria-hidden="true" />
       <div className={styles.orb3} aria-hidden="true" />
+      <div className={styles.orb4} aria-hidden="true" />
 
       <div className={`container ${styles.grid}`}>
         {/* LEFT */}
