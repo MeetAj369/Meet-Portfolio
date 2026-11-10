@@ -40,6 +40,26 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  /* Handle direct URL hash landing (e.g. #about) once page is ready */
+  useEffect(() => {
+    if (!isLoading && window.location.hash) {
+      const targetId = window.location.hash.replace('#', '');
+      const timer = setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          const navEl = document.querySelector('header');
+          const navHeight = navEl ? navEl.offsetHeight : 72;
+          const elementTop = el.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: Math.max(0, elementTop - navHeight - 16),
+            behavior: 'smooth'
+          });
+        }
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading]);
+
   /* Keyboard shortcuts */
   useEffect(() => {
     const handleKeyDown = (e) => {

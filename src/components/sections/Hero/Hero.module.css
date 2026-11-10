@@ -374,15 +374,14 @@
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-  overflow: hidden;
 }
 
 .photoCard::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 20px;
+  right: 20px;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
   z-index: 3;
@@ -454,27 +453,27 @@
 /* Status Badge */
 .statusBadge {
   position: absolute;
-  bottom: -12px;
+  bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 7px 18px;
-  background: var(--glass-bg);
+  background: var(--glass-bg-elevated);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-full);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35), var(--glass-specular), 0 0 16px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45), var(--glass-specular), 0 0 16px rgba(99, 102, 241, 0.25);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   white-space: nowrap;
-  z-index: 3;
+  z-index: 10;
 }
 
 [data-theme='light'] .statusBadge {
-  background: rgba(255, 255, 255, 0.95);
+  background: #ffffff;
   border: 1px solid rgba(79, 70, 229, 0.25);
-  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.18), inset 0 1.5px 1.5px #ffffff;
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.16), 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .statusDot {
@@ -501,7 +500,7 @@
   width: 320px;
   max-width: 100%;
   z-index: 2;
-  margin-top: 4px;
+  margin-top: 14px;
 }
 
 .techPill {
@@ -630,7 +629,7 @@
   }
 
   .showcaseWrap {
-    gap: 20px;
+    gap: 26px;
   }
 
   /* Centered Typewriter role */

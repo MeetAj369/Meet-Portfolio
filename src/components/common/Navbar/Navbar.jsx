@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import styles from './Navbar.module.css';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
@@ -21,9 +21,43 @@ const Navbar = ({ theme, toggleTheme, activeSection, scrollDirection, scrollPosi
   const isScrolled = scrollPosition > 50;
   const isHidden = scrollDirection === 'down' && scrollPosition > 300 && !menuOpen;
 
+  // Lock body scroll when mobile menu is open to prevent background bleed / jumping
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    };
+  }, [menuOpen]);
+
+  // Close on Escape or window resize to desktop
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    const handleResize = () => {
+      if (window.innerWidth > 900) setMenuOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const handleNav = (id) => {
-    scrollToSection(id);
     setMenuOpen(false);
+    // Slight tick to allow menu close animation and body unlock
+    setTimeout(() => {
+      scrollToSection(id);
+    }, 40);
   };
 
   return (

@@ -1,15 +1,25 @@
-// Smooth scroll to section
+// Smooth scroll to section with dynamic navbar height offset and safe clearance
 export const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
   if (element) {
-    const navbarHeight = 72; // matches var(--navbar-height)
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
-  
+    const navEl = document.querySelector('header');
+    const navHeight = navEl ? navEl.offsetHeight : (window.innerWidth <= 768 ? 64 : 72);
+    // Add 16px of comfortable breathing room so the section header is never covered
+    const safeClearance = 16;
+    const elementTop = element.getBoundingClientRect().top + window.scrollY;
+    const targetPosition = Math.max(0, elementTop - navHeight - safeClearance);
+
     window.scrollTo({
-      top: offsetPosition,
+      top: targetPosition,
       behavior: 'smooth'
     });
+
+    // Keep the browser URL updated cleanly
+    try {
+      if (window.location.hash !== `#${sectionId}`) {
+        window.history.pushState(null, '', `#${sectionId}`);
+      }
+    } catch (_) {}
   }
 };
 
