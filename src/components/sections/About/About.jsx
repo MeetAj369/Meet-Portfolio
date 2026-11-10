@@ -19,32 +19,34 @@ const TERMINAL_COMMANDS = [
     cmd: 'meet --whoami',
     output: `{
   "name": "Meet Chauhan",
-  "role": "Full Stack & Frontend Developer",
-  "education": "Charutar Vidya Mandal University",
+  "role": "Full Stack & Frontend Dev",
+  "education": "CVMU",
   "cgpa": "8.67 / 10.0",
-  "specialization": ["ReactJS", "NodeJS", "Python", "FastAPI"]
+  "stack": ["ReactJS", "NodeJS", "Python"]
 }`
   },
   {
     cmd: 'meet --stack',
-    output: `[Frontend]  ReactJS, Next.js 16, TypeScript, Tailwind CSS 4, HTML5/CSS3
-[Backend]   Python (FastAPI), NodeJS, PHP (OOP), REST APIs, JSON
-[Database]  PostgreSQL, MySQL, SQLite, Relational Modeling & CRUD
-[Tools]     Git, GitHub, Visual Studio Code, FastAPI Swagger, Claude AI`
+    output: `[Frontend]  ReactJS, Next.js 16, TypeScript
+            Tailwind CSS 4, HTML5/CSS3
+[Backend]   Python FastAPI, NodeJS, PHP
+            REST APIs, JSON
+[Database]  PostgreSQL, MySQL, SQLite
+[Tools]     Git, GitHub, VS Code, Claude AI`
   },
   {
     cmd: 'meet --hackathon',
-    output: `Event:      TechSprint 2.0 Hackathon
-Project:    CareerSync — AI Career Navigation Platform
-Scope:      Guided assessments & matching across 49+ career paths
-Stack:      Next.js 16 + React 19 + Python FastAPI + PostgreSQL (18 tables)`
+    output: `Event:    TechSprint 2.0 Hackathon
+Project:  CareerSync — AI Career Platform
+Scope:    49+ career paths & assessments
+Stack:    Next.js 16 + FastAPI + PostgreSQL`
   },
   {
     cmd: 'meet --status',
-    output: `Status:     Available Immediately
-Interests:  Technical Internships, Full Stack Engineering, AI Applications
-Location:   Anand, Gujarat, India (Open to Remote & Hybrid)
-Email:      meetaj369@gmail.com`
+    output: `Status:   Available Immediately
+Seek:     Internships, Full Stack Roles
+Location: Anand, Gujarat (Remote OK)
+Email:    meetaj369@gmail.com`
   }
 ];
 

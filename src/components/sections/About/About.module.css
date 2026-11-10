@@ -300,6 +300,11 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .infoGrid {
@@ -548,6 +553,9 @@
   font-size: 0.835rem;
   line-height: 1.65;
   color: #e2e8f0;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 [data-theme='light'] .terminalBody {
@@ -589,6 +597,10 @@
   margin: 0 0 12px 0;
   white-space: pre-wrap;
   word-break: break-word;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+  max-width: 100%;
+  display: block;
 }
 
 .termOutputAnimated {
@@ -686,6 +698,8 @@
   .terminalTabs {
     gap: 6px;
     padding: 8px 10px;
+    flex-wrap: wrap;
+    overflow-x: hidden;
   }
 
   .termTabBtn {

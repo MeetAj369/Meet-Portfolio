@@ -10,23 +10,13 @@ const Footer = () => {
   const linkedinLink = socialLinks.find(s => s.name === 'LinkedIn');
   const githubLink = socialLinks.find(s => s.name === 'GitHub');
 
-  const handleEmailClick = (e) => {
-    e.preventDefault();
-    // 1. Copy to clipboard
+  const handleEmailCopy = (e) => {
+    // Copy to clipboard on click (but let the <a> href do the opening)
     try {
       navigator.clipboard.writeText(personalInfo.email);
       setEmailCopied(true);
       setTimeout(() => setEmailCopied(false), 2500);
     } catch (_) {}
-
-    // 2. Open Gmail web composer directly in a new tab (works reliably across all desktop & mobile browsers)
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personalInfo.email)}&su=${encodeURIComponent('Portfolio Inquiry — Meet Chauhan')}`;
-    const win = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
-
-    // 3. Fallback: if browser blocks popup or user has local client, invoke mailto
-    if (!win || win.closed || typeof win.closed === 'undefined') {
-      window.location.href = `mailto:${personalInfo.email}?subject=${encodeURIComponent('Portfolio Inquiry — Meet Chauhan')}`;
-    }
   };
 
   return (
@@ -84,10 +74,11 @@ const Footer = () => {
           <div className={styles.footerContactCol}>
             <h4 className={styles.footerTitle}>Contact</h4>
             <div className={styles.footerLinks}>
-              <button
-                onClick={handleEmailClick}
+              <a
+                href={`mailto:${personalInfo.email}?subject=${encodeURIComponent('Portfolio Inquiry — Meet Chauhan')}`}
                 className={styles.footerContactItem}
-                title="Click to compose in Gmail & copy email address"
+                onClick={handleEmailCopy}
+                title="Click to email Meet Chauhan"
                 aria-label="Send email to Meet Chauhan"
               >
                 <Mail size={16} />
@@ -97,7 +88,7 @@ const Footer = () => {
                     <Check size={12} /> Copied!
                   </span>
                 )}
-              </button>
+              </a>
               <a href={`tel:${personalInfo.phone.replace(/\s/g, '')}`} className={styles.footerContactItem}>
                 <Phone size={16} />
                 <span>{personalInfo.phone}</span>
