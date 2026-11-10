@@ -40,23 +40,31 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  /* Handle direct URL hash landing (e.g. #about) once page is ready */
+  /* Handle direct URL hash landing (e.g. #about) once page is ready and on hashchange */
   useEffect(() => {
-    if (!isLoading && window.location.hash) {
-      const targetId = window.location.hash.replace('#', '');
-      const timer = setTimeout(() => {
+    const scrollToHash = () => {
+      if (window.location.hash) {
+        const targetId = window.location.hash.replace('#', '');
         const el = document.getElementById(targetId);
         if (el) {
           const navEl = document.querySelector('header');
           const navHeight = navEl ? navEl.offsetHeight : 72;
           const elementTop = el.getBoundingClientRect().top + window.scrollY;
           window.scrollTo({
-            top: Math.max(0, elementTop - navHeight - 16),
+            top: Math.max(0, elementTop - navHeight - 24),
             behavior: 'smooth'
           });
         }
-      }, 200);
-      return () => clearTimeout(timer);
+      }
+    };
+
+    if (!isLoading) {
+      const timer = setTimeout(scrollToHash, 200);
+      window.addEventListener('hashchange', scrollToHash);
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener('hashchange', scrollToHash);
+      };
     }
   }, [isLoading]);
 

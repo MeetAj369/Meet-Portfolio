@@ -85,7 +85,7 @@ const Hero = () => {
             {/* Ambient soft backlight */}
             <div className={styles.ambientGlow} aria-hidden="true" />
 
-            {/* Main Portrait Card - Clean and unblocked */}
+            {/* Main Portrait Card - 100% Clean and unblocked, zero elements covering it */}
             <div className={styles.photoCard}>
               <div className={styles.innerFrame}>
                 <img
@@ -106,12 +106,12 @@ const Hero = () => {
                   <span>MC</span>
                 </div>
               </div>
+            </div>
 
-              {/* Status Badge attached cleanly to bottom of photo */}
-              <div className={styles.statusBadge}>
-                <span className={styles.statusDot} />
-                <span className={styles.statusText}>Full Stack Developer</span>
-              </div>
+            {/* Status Badge - Positioned cleanly BELOW the photo, NEVER covering the photo */}
+            <div className={styles.statusBadge}>
+              <span className={styles.statusDot} />
+              <span className={styles.statusText}>Full Stack Developer</span>
             </div>
 
             {/* Tech Badges Tray - Positioned cleanly below photo, zero overlap */}

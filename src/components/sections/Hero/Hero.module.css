@@ -323,7 +323,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 22px;
+  gap: 14px;
   width: fit-content;
   max-width: 100%;
 }
@@ -450,30 +450,38 @@
   background-clip: text;
 }
 
-/* Status Badge */
+/* Status Badge: Positioned cleanly BELOW the photo, NEVER covering the photo */
 .statusBadge {
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 18px;
+  padding: 8px 22px;
   background: var(--glass-bg-elevated);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-full);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45), var(--glass-specular), 0 0 16px rgba(99, 102, 241, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), var(--glass-specular);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   white-space: nowrap;
-  z-index: 10;
+  z-index: 2;
+  margin: 0;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.statusBadge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(99, 102, 241, 0.3), var(--glass-specular-hover);
 }
 
 [data-theme='light'] .statusBadge {
   background: #ffffff;
-  border: 1px solid rgba(79, 70, 229, 0.25);
-  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.16), 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(79, 70, 229, 0.22);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.12), 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .statusBadge:hover {
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.2), 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .statusDot {
@@ -500,7 +508,7 @@
   width: 320px;
   max-width: 100%;
   z-index: 2;
-  margin-top: 14px;
+  margin-top: 0;
 }
 
 .techPill {
@@ -706,8 +714,7 @@
     border-radius: 16px;
   }
   .statusBadge {
-    padding: 5px 12px;
-    bottom: -10px;
+    padding: 6px 16px;
   }
   .statusText {
     font-size: 0.72rem;

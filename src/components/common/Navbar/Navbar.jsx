@@ -54,14 +54,16 @@ const Navbar = ({ theme, toggleTheme, activeSection, scrollDirection, scrollPosi
 
   const handleNav = (id) => {
     setMenuOpen(false);
+    document.body.style.overflow = '';
+    document.body.style.touchAction = '';
     // Slight tick to allow menu close animation and body unlock
     setTimeout(() => {
       scrollToSection(id);
-    }, 40);
+    }, 50);
   };
 
   return (
-    <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''} ${isHidden ? styles.hidden : ''}`}>
+    <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''} ${isHidden ? styles.hidden : ''} ${menuOpen ? styles.menuIsOpen : ''}`}>
       <div className={`container ${styles.inner}`}>
         <button className={styles.logo} onClick={() => handleNav('hero')} aria-label="Go to top">
           <img

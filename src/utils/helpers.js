@@ -4,8 +4,8 @@ export const scrollToSection = (sectionId) => {
   if (element) {
     const navEl = document.querySelector('header');
     const navHeight = navEl ? navEl.offsetHeight : (window.innerWidth <= 768 ? 64 : 72);
-    // Add 16px of comfortable breathing room so the section header is never covered
-    const safeClearance = 16;
+    // Add 24px of comfortable breathing room so the section header is never covered
+    const safeClearance = 24;
     const elementTop = element.getBoundingClientRect().top + window.scrollY;
     const targetPosition = Math.max(0, elementTop - navHeight - safeClearance);
 
