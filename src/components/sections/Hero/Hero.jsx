@@ -4,11 +4,10 @@ import { GithubIcon, LinkedinIcon } from '../../common/Icons/BrandIcons';
 import styles from './Hero.module.css';
 import { personalInfo } from '../../../data/personalInfo';
 import { useTypewriter } from '../../../hooks/useTypewriter';
+import { scrollToSection } from '../../../utils/helpers';
 
 const Hero = () => {
   const { text } = useTypewriter(personalInfo.roles, { typeSpeed: 80, deleteSpeed: 40, delaySpeed: 1800 });
-
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
     <section id="hero" className={styles.hero} aria-label="Introduction">
@@ -43,13 +42,13 @@ const Hero = () => {
           </p>
 
           <div className={styles.cta}>
-            <button className={styles.btnPrimary} onClick={() => scrollTo('projects')}>
+            <button className={styles.btnPrimary} onClick={() => scrollToSection('projects')}>
               View Projects <ArrowRight size={17} />
             </button>
             <a href="/Meet-Portfolio/uploads/Meet_Chauhan_Resume.pdf" download="Meet_Chauhan_Resume.pdf" className={styles.btnSecondary}>
               <Download size={17} /> Resume
             </a>
-            <button className={styles.btnGhost} onClick={() => scrollTo('contact')}>
+            <button className={styles.btnGhost} onClick={() => scrollToSection('contact')}>
               Contact Me
             </button>
           </div>
@@ -137,9 +136,13 @@ const Hero = () => {
         </div>
       </div>
 
-      <a href="#about" className={styles.scrollDown} aria-label="Scroll down">
+      <button
+        onClick={() => scrollToSection('about')}
+        className={styles.scrollDown}
+        aria-label="Scroll down to About section"
+      >
         <ChevronDown size={26} />
-      </a>
+      </button>
     </section>
   );
 };

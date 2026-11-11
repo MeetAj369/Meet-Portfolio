@@ -1,30 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
 
 export const useScrollPosition = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [scrollDirection, setScrollDirection] = useState('up');
   const [activeSection, setActiveSection] = useState('hero');
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const lastScrollY = useRef(0);
+  const lastActiveRef = useRef('hero');
 
   useEffect(() => {
     let ticking = false;
 
-    const updateScroll = () => {
+    const updateActive = () => {
       const currentPos = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (currentPos / docHeight) * 100 : 0;
-
-      setScrollDirection(currentPos > lastScrollY.current ? 'down' : 'up');
-      lastScrollY.current = currentPos;
-      setScrollPosition(currentPos);
-      setScrollProgress(progress);
-
-      // Detect active section using viewport reading zone
-      const sections = document.querySelectorAll('section[id]');
-      let current = 'hero';
       const viewportHeight = window.innerHeight;
-      const scrollMid = viewportHeight * 0.35; // 35% from the top of the viewport
+      const scrollMid = viewportHeight * 0.35; // 35% from top of viewport
+
+      let current = 'hero';
+      const sections = document.querySelectorAll('section[id]');
 
       if (window.innerHeight + currentPos >= document.documentElement.scrollHeight - 60) {
         current = 'contact';
@@ -36,23 +25,30 @@ export const useScrollPosition = () => {
           }
         });
       }
-      setActiveSection(current);
+
+      // ONLY trigger a React state re-render when the active section actually changes
+      if (current !== lastActiveRef.current) {
+        lastActiveRef.current = current;
+        setActiveSection(current);
+      }
       ticking = false;
     };
 
     const handleScroll = () => {
       if (!ticking) {
-        window.requestAnimationFrame(updateScroll);
+        window.requestAnimationFrame(updateActive);
         ticking = true;
       }
     };
 
-    // Initial check
-    updateScroll();
-
+    updateActive();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
-  return { scrollPosition, scrollDirection, activeSection, scrollProgress };
+  return { activeSection, scrollPosition: 0, scrollDirection: 'up', scrollProgress: 0 };
 };

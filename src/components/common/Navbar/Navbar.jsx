@@ -16,23 +16,37 @@ const NAV_LINKS = [
   { id: 'contact', label: 'Contact' },
 ];
 
-const Navbar = ({ theme, toggleTheme, activeSection, scrollDirection, scrollPosition }) => {
+const Navbar = ({ theme, toggleTheme, activeSection }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const isScrolled = scrollPosition > 50;
-  const isHidden = scrollDirection === 'down' && scrollPosition > 300 && !menuOpen;
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Lock body scroll when mobile menu is open to prevent background bleed / jumping
+  // Track scrolled state for glass backdrop styling without re-rendering parent tree
+  useEffect(() => {
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.scrollY > 40;
+          setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Lock body scroll only when mobile menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
-      document.body.style.touchAction = 'none';
     } else {
       document.body.style.overflow = '';
-      document.body.style.touchAction = '';
     }
     return () => {
       document.body.style.overflow = '';
-      document.body.style.touchAction = '';
     };
   }, [menuOpen]);
 
@@ -55,15 +69,13 @@ const Navbar = ({ theme, toggleTheme, activeSection, scrollDirection, scrollPosi
   const handleNav = (id) => {
     setMenuOpen(false);
     document.body.style.overflow = '';
-    document.body.style.touchAction = '';
-    // Slight tick to allow menu close animation and body unlock
     setTimeout(() => {
       scrollToSection(id);
     }, 50);
   };
 
   return (
-    <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''} ${isHidden ? styles.hidden : ''} ${menuOpen ? styles.menuIsOpen : ''}`}>
+    <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''} ${menuOpen ? styles.menuIsOpen : ''}`}>
       <div className={`container ${styles.inner}`}>
         <button className={styles.logo} onClick={() => handleNav('hero')} aria-label="Go to top">
           <img

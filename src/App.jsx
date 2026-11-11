@@ -31,12 +31,12 @@ import styles from './App.module.css';
 
 function App() {
   const { theme, toggleTheme } = useTheme();
-  const { scrollPosition, scrollDirection, activeSection, scrollProgress } = useScrollPosition();
+  const { activeSection } = useScrollPosition();
   const [isLoading, setIsLoading] = useState(true);
 
-  /* Simulate initial load */
+  /* Quick smooth splash — frees up interaction and scrolling immediately */
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1800);
+    const timer = setTimeout(() => setIsLoading(false), 350);
     return () => clearTimeout(timer);
   }, []);
 
@@ -59,7 +59,7 @@ function App() {
     };
 
     if (!isLoading) {
-      const timer = setTimeout(scrollToHash, 200);
+      const timer = setTimeout(scrollToHash, 100);
       window.addEventListener('hashchange', scrollToHash);
       return () => {
         clearTimeout(timer);
@@ -93,15 +93,13 @@ function App() {
       <CustomCursor theme={theme} />
 
       {/* Scroll progress bar */}
-      <ScrollProgress progress={scrollProgress} />
+      <ScrollProgress />
 
-      {/* Navigation */}
+      {/* Navigation — permanently fixed and visible */}
       <Navbar
         theme={theme}
         toggleTheme={toggleTheme}
         activeSection={activeSection}
-        scrollDirection={scrollDirection}
-        scrollPosition={scrollPosition}
       />
 
       {/* Main content */}
@@ -126,7 +124,7 @@ function App() {
       <AIAssistant />
 
       {/* Back to top */}
-      <BackToTop visible={scrollPosition > 500} />
+      <BackToTop />
     </div>
   );
 }
