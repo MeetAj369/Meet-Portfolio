@@ -38,7 +38,7 @@ const Hero = () => {
           <p className={styles.bio}>
             Full Stack &amp; Frontend Developer passionate about building high-performance
             web applications, enterprise platforms, and AI-powered systems. BCA undergraduate
-            (CGPA: 8.67) at Charutar Vidya Mandal University, Anand, Gujarat.
+            (CGPA: 8.73) at Charutar Vidya Mandal University, Anand, Gujarat.
           </p>
 
           <div className={styles.cta}>

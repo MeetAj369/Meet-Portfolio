@@ -75,7 +75,7 @@ const getAIResponse = (query) => {
     q.includes('introduce yourself')
   ) {
     return {
-      text: `I'm **Ask Meet's AI** 🧠, a conversational assistant trained on Meet Chauhan's verified resume, academic history, and engineering projects.\n\nHere's what I can do for you:\n• Walk you through his **key engineering projects** like CareerSync & HP TechPulse\n• Detail his technical stack in **React 19, Next.js 16, Python FastAPI, and PostgreSQL**\n• Share his academic achievements (**8.67 CGPA** at CVMU & LSBU foundation)\n• Provide instant links to **download his verified PDF resume** or contact him directly!`,
+      text: `I'm **Ask Meet's AI** 🧠, a conversational assistant trained on Meet Chauhan's verified resume, academic history, and engineering projects.\n\nHere's what I can do for you:\n• Walk you through his **key engineering projects** like CareerSync & HP TechPulse\n• Detail his technical stack in **React 19, Next.js 16, Python FastAPI, and PostgreSQL**\n• Share his academic achievements (**8.73 CGPA** at CVMU & LSBU foundation)\n• Provide instant links to **download his verified PDF resume** or contact him directly!`,
       actions: [
         { label: 'Download Resume (PDF)', url: personalInfo.resumePath, download: true },
         { label: 'Get in Touch', onClick: () => scrollToSection('contact') }
@@ -121,7 +121,7 @@ const getAIResponse = (query) => {
     q.includes('recommend')
   ) {
     return {
-      text: `Here is why Meet Chauhan is a strong addition to any engineering team:\n\n1. **Full-Stack Execution**: Builds fast, responsive React 19 & Next.js 16 user interfaces backed by async Python FastAPI & Node.js microservices.\n2. **Hackathon Proven**: Architected **CareerSync** during the TechSprint 2.0 Hackathon across 49+ career paths and 18 normalized PostgreSQL tables under tight deadlines.\n3. **Academic Excellence**: Holds an **8.67 / 10.0 CGPA** in BCA at Charutar Vidya Mandal University and completed a Foundation Programme in Computing at London South Bank University.\n4. **AI-Native Engineering**: Certified in AI/ML (Techfest @IIT Bombay); utilizes Claude AI and modern LLMs to accelerate developer velocity and clean code.\n\n🟢 **Status**: Available immediately for technical internships and entry-level developer roles!`,
+      text: `Here is why Meet Chauhan is a strong addition to any engineering team:\n\n1. **Full-Stack Execution**: Builds fast, responsive React 19 & Next.js 16 user interfaces backed by async Python FastAPI & Node.js microservices.\n2. **Hackathon Proven**: Architected **CareerSync** during the TechSprint 2.0 Hackathon across 49+ career paths and 18 normalized PostgreSQL tables under tight deadlines.\n3. **Academic Excellence**: Holds an **8.73 / 10.0 CGPA** in BCA at Charutar Vidya Mandal University and completed a Foundation Programme in Computing at London South Bank University.\n4. **AI-Native Engineering**: Certified in AI/ML (Techfest @IIT Bombay); utilizes Claude AI and modern LLMs to accelerate developer velocity and clean code.\n\n🟢 **Status**: Available immediately for technical internships and entry-level developer roles!`,
       actions: [
         { label: 'Download Verified Resume', url: personalInfo.resumePath, download: true },
         { label: 'Contact Meet Directly', onClick: () => scrollToSection('contact') }
@@ -183,7 +183,7 @@ const getAIResponse = (query) => {
     q.includes('london')
   ) {
     return {
-      text: `🎓 **Meet's Qualifications & Education**:\n\n• **Bachelor of Computer Applications (BCA)**\n  Institution: **Charutar Vidya Mandal University (CVMU)**, Anand, Gujarat\n  Duration: June 2024 – June 2027\n  Academic Score: **8.67 / 10.0 CGPA**\n\n• **Foundation Programme in Computing**\n  Institution: **London South Bank University (LSBU)**, London, UK (2023)\n\n• **Core Disciplines**: Full Stack Software Architecture, Data Structures & Algorithms, Relational Database Modeling (MySQL / PostgreSQL), and Scalable Distributed Systems.`,
+      text: `🎓 **Meet's Qualifications & Education**:\n\n• **Bachelor of Computer Applications (BCA)**\n  Institution: **Charutar Vidya Mandal University (CVMU)**, Anand, Gujarat\n  Duration: June 2024 – June 2027\n  Academic Score: **8.73 / 10.0 CGPA**\n\n• **Foundation Programme in Computing**\n  Institution: **London South Bank University (LSBU)**, London, UK (2023)\n\n• **Core Disciplines**: Full Stack Software Architecture, Data Structures & Algorithms, Relational Database Modeling (MySQL / PostgreSQL), and Scalable Distributed Systems.`,
       actions: [
         { label: 'Download Verified CV (PDF)', url: personalInfo.resumePath, download: true },
         { label: 'View Education Section', onClick: () => scrollToSection('education') }
@@ -346,7 +346,7 @@ const getAIResponse = (query) => {
 
   // 13. General / Natural Fallback Response
   return {
-    text: `Thanks for asking about that! 😊\n\nMeet Chauhan is a **Full Stack & Frontend Developer** with expertise in ReactJS, Next.js 16, Python FastAPI, and PostgreSQL. He maintains an **8.67 CGPA** at Charutar Vidya Mandal University and is best known for architecting **CareerSync** (TechSprint 2.0 Hackathon) and **HP TechPulse**.\n\nYou can ask me specifically about his **qualifications**, **projects**, **tech stack**, **certifications**, or **how to contact him**!`,
+    text: `Thanks for asking about that! 😊\n\nMeet Chauhan is a **Full Stack & Frontend Developer** with expertise in ReactJS, Next.js 16, Python FastAPI, and PostgreSQL. He maintains an **8.73 CGPA** at Charutar Vidya Mandal University and is best known for architecting **CareerSync** (TechSprint 2.0 Hackathon) and **HP TechPulse**.\n\nYou can ask me specifically about his **qualifications**, **projects**, **tech stack**, **certifications**, or **how to contact him**!`,
     actions: [
       { label: 'Download Resume PDF', url: personalInfo.resumePath, download: true },
       { label: 'Explore Projects', onClick: () => scrollToSection('projects') },

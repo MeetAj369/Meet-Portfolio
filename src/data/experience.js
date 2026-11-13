@@ -27,7 +27,7 @@ export const experiences = [
     organization: 'Charutar Vidya Mandal University',
     period: 'June 2024 — June 2027',
     location: 'Anand, Gujarat, India',
-    description: 'Maintaining a 8.67 / 10.0 CGPA while mastering modern web stacks (ReactJS, NodeJS, Python, TypeScript, PHP, MySQL, PostgreSQL), software engineering methodologies, and AI-assisted workflows.',
+    description: 'Maintaining a 8.73 / 10.0 CGPA while mastering modern web stacks (ReactJS, NodeJS, Python, TypeScript, PHP, MySQL, PostgreSQL), software engineering methodologies, and AI-assisted workflows.',
     type: 'education',
     icon: 'GraduationCap',
     current: true

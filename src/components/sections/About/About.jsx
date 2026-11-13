@@ -21,7 +21,7 @@ const TERMINAL_COMMANDS = [
   "name": "Meet Chauhan",
   "role": "Full Stack & Frontend Dev",
   "education": "CVMU",
-  "cgpa": "8.67 / 10.0",
+  "cgpa": "8.73 / 10.0",
   "stack": ["ReactJS", "NodeJS", "Python"]
 }`
   },
@@ -134,7 +134,7 @@ const About = () => {
               <div className={styles.infoCard}>
                 <div className={styles.iconWrapper}><GraduationCap className={styles.icon} /></div>
                 <span className={styles.label}>Education</span>
-                <span className={styles.value}>BCA (CGPA: 8.67), CVMU</span>
+                <span className={styles.value}>BCA (CGPA: 8.73), CVMU</span>
               </div>
               <button
                 className={styles.infoCard}

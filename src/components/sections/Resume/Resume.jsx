@@ -7,7 +7,7 @@ const RESUME_URL = '/Meet-Portfolio/uploads/Meet_Chauhan_Resume.pdf';
 
 const highlights = [
   { icon: Briefcase, label: 'Full Stack', desc: 'ReactJS / NodeJS / Python' },
-  { icon: GraduationCap, label: 'BCA (8.67)', desc: 'Charutar Vidya Mandal Univ' },
+  { icon: GraduationCap, label: 'BCA (8.73)', desc: 'Charutar Vidya Mandal Univ' },
   { icon: Award, label: '5+ Core', desc: 'AI, ML & Web Certs' },
   { icon: FileText, label: 'TechSprint', desc: 'Hackathon & Enterprise Apps' },
 ];
@@ -98,7 +98,7 @@ const Resume = () => {
                 </div>
                 <div>
                   <h3 className={styles.modalTitle}>Meet Chauhan — Official Verified Resume</h3>
-                  <p className={styles.modalSubtitle}>Bachelor of Computer Applications (8.67 CGPA) • Full Stack Developer</p>
+                  <p className={styles.modalSubtitle}>Bachelor of Computer Applications (8.73 CGPA) • Full Stack Developer</p>
                 </div>
               </div>
 

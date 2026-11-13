@@ -24,7 +24,7 @@ export const personalInfo = {
     institution: 'Charutar Vidya Mandal University',
     location: 'Anand, Gujarat, India',
     period: 'June 2024 — June 2027',
-    cgpa: '8.67 / 10.0'
+    cgpa: '8.73 / 10.0'
   },
   status: 'Available Immediately for Technical Internships and Job opportunities',
   interests: ['Full Stack Web Development', 'Academic Hackathons', 'Open-Source', 'AI Engineering'],
@@ -51,5 +51,5 @@ export const stats = [
   { label: 'Technologies', value: 18, suffix: '+', icon: 'Code2' },
   { label: 'Learning Hours', value: 600, suffix: '+', icon: 'Clock' },
   { label: 'Git Commits', value: 250, suffix: '+', icon: 'GitCommitHorizontal' },
-  { label: 'Degree CGPA', value: 8.67, suffix: '/10', icon: 'GraduationCap' },
+  { label: 'Degree CGPA', value: 8.73, suffix: '/10', icon: 'GraduationCap' },
 ];

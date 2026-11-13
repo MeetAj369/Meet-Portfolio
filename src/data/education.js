@@ -5,7 +5,7 @@ export const education = [
     institution: 'Charutar Vidya Mandal University',
     location: 'Anand, Gujarat, India',
     period: 'June 2024 — June 2027',
-    grade: 'CGPA: 8.67 / 10.0',
+    grade: 'CGPA: 8.73 / 10.0',
     description: 'Pursuing comprehensive curriculum in computer applications, full stack development, relational database systems (MySQL/PostgreSQL), data structures, algorithms, and software engineering principles.',
     current: true,
     icon: 'GraduationCap'
