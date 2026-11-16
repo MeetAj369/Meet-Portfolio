@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Copy, Check, ExternalLink, Clock, Sparkles } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from '../../common/Icons/BrandIcons';
+import { Mail, Phone, MapPin, Send, Copy, Check, ExternalLink, Clock, Sparkles, ArrowUpRight, MessageSquare } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from '../../common/Icons/BrandIcons';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
 import { isValidEmail } from '../../../utils/helpers';
@@ -20,8 +20,9 @@ const Contact = () => {
   const [copied, setCopied] = useState(false);
   const [lastEmailDetails, setLastEmailDetails] = useState(null);
 
-  const linkedinLink = socialLinks.find(s => s.name === 'LinkedIn');
-  const githubLink = socialLinks.find(s => s.name === 'GitHub');
+  const linkedinLink = socialLinks.find(s => s.name === 'LinkedIn') || { url: 'https://www.linkedin.com/in/meetaj0369/' };
+  const githubLink = socialLinks.find(s => s.name === 'GitHub') || { url: 'https://github.com/MeetAj369' };
+  const whatsappUrl = `https://wa.me/919106477426?text=${encodeURIComponent('Hi Meet, I came across your portfolio and would love to connect!')}`;
 
   const handleCopyEmail = (e) => {
     e.preventDefault();
@@ -72,7 +73,6 @@ const Contact = () => {
 
     setLastEmailDetails({ subject, body });
 
-    // Copy message text to clipboard as safety backup
     try {
       navigator.clipboard.writeText(bodyStr);
     } catch (_) {}
@@ -92,7 +92,11 @@ const Contact = () => {
   return (
     <section id="contact" className={styles.contactSection} ref={revealRef}>
       <div className="container">
-        <SectionTitle title="Get In Touch" subtitle="Let's build something remarkable together" />
+        {/* Action-Oriented Title & Subtitle */}
+        <SectionTitle 
+          title="Let's build something." 
+          subtitle="I'm currently open to Job, freelance opportunities, collaborations and interesting development projects." 
+        />
 
         {/* Floating Toast Notification */}
         {copied && (
@@ -101,19 +105,115 @@ const Contact = () => {
             <span>Copied {personalInfo.email} to clipboard!</span>
           </div>
         )}
+
+        {/* Primary Action Channels Trio */}
+        <div className={styles.primaryChannelsGrid}>
+          {/* Channel 1: Email Me */}
+          <div className={styles.primaryChannelCard}>
+            <div className={styles.channelIconWrap}>
+              <Mail size={22} color="white" />
+            </div>
+            <div className={styles.channelMeta}>
+              <span className={styles.channelTag}>PRIMARY CHANNEL</span>
+              <h3 className={styles.channelTitle}>Email Me</h3>
+              <p className={styles.channelDesc}>Direct inquiries, job offers & project proposals</p>
+              <a 
+                href={`mailto:${personalInfo.email}`}
+                className={styles.channelActionLink}
+                title="Send email to Meet"
+              >
+                {personalInfo.email}
+              </a>
+            </div>
+            <div className={styles.channelBtnRow}>
+              <a 
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}`} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.channelBtnPrimary}
+              >
+                <ExternalLink size={14} /> Open Gmail
+              </a>
+              <button 
+                type="button" 
+                onClick={handleCopyEmail} 
+                className={styles.channelBtnSecondary}
+                title="Copy email address"
+              >
+                {copied ? <Check size={14} color="#10b981" /> : <Copy size={14} />} Copy
+              </button>
+            </div>
+          </div>
+
+          {/* Channel 2: LinkedIn */}
+          <a 
+            href={linkedinLink.url} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className={`${styles.primaryChannelCard} ${styles.interactiveCard}`}
+          >
+            <div className={styles.channelIconWrap}>
+              <LinkedinIcon size={22} color="white" />
+            </div>
+            <div className={styles.channelMeta}>
+              <span className={styles.channelTag}>PROFESSIONAL NETWORK</span>
+              <h3 className={styles.channelTitle}>
+                LinkedIn <ArrowUpRight size={18} className={styles.arrowIcon} />
+              </h3>
+              <p className={styles.channelDesc}>Connect, review background & message directly</p>
+              <span className={styles.channelHandle}>linkedin.com/in/meetaj0369</span>
+            </div>
+            <div className={styles.channelBtnRow}>
+              <span className={styles.channelBtnPrimary}>
+                <LinkedinIcon size={14} /> Connect on LinkedIn
+              </span>
+            </div>
+          </a>
+
+          {/* Channel 3: GitHub */}
+          <a 
+            href={githubLink.url} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className={`${styles.primaryChannelCard} ${styles.interactiveCard}`}
+          >
+            <div className={styles.channelIconWrap}>
+              <GithubIcon size={22} color="white" />
+            </div>
+            <div className={styles.channelMeta}>
+              <span className={styles.channelTag}>CODE & CONTRIBUTIONS</span>
+              <h3 className={styles.channelTitle}>
+                GitHub <ArrowUpRight size={18} className={styles.arrowIcon} />
+              </h3>
+              <p className={styles.channelDesc}>Explore repositories, hackathons & code commits</p>
+              <span className={styles.channelHandle}>github.com/MeetAj369</span>
+            </div>
+            <div className={styles.channelBtnRow}>
+              <span className={styles.channelBtnPrimary}>
+                <GithubIcon size={14} /> Explore GitHub
+              </span>
+            </div>
+          </a>
+        </div>
         
+        {/* Contact Form & Secondary Details Grid */}
         <div className={styles.contactContainer}>
           {/* Form Column */}
           <div className={`${styles.formColumn} reveal`}>
+            <div className={styles.formHeader}>
+              <h3 className={styles.formTitle}>Send a Direct Message</h3>
+              <p className={styles.formSubtitle}>Fills a formatted draft ready to send via Gmail or your mail app</p>
+            </div>
+
             {submitted ? (
               <div className={styles.successMessage}>
                 <div className={styles.successIconWrap}>
                   <Send size={36} className={styles.successIcon} />
                 </div>
-                <h3>Message Ready to Send!</h3>
+                <h3>Message Draft Generated!</h3>
                 <p>
-                  Your email draft has been generated for <strong>{personalInfo.email}</strong>. 
-                  Choose an option below to open or re-send anytime:
+                  Your message has been formatted for <strong>{personalInfo.email}</strong>. 
+                  Choose an option below to open and dispatch anytime:
                 </p>
 
                 <div className={styles.successActions}>
@@ -139,7 +239,7 @@ const Contact = () => {
                     onClick={() => setSubmitted(false)} 
                     className={styles.resetFormBtn}
                   >
-                    Write New Message
+                    Write Another Message
                   </button>
                 </div>
               </div>
@@ -184,7 +284,7 @@ const Contact = () => {
                     value={formData.subject} 
                     onChange={handleChange} 
                     className={`${styles.formInput} ${errors.subject ? styles.inputError : ''}`} 
-                    placeholder="Project Inquiry / Job Opportunity" 
+                    placeholder="Job Opportunity / Project Collaboration" 
                     aria-invalid={!!errors.subject} 
                   />
                   {errors.subject && <span className={styles.formError}>{errors.subject}</span>}
@@ -198,7 +298,7 @@ const Contact = () => {
                     value={formData.message} 
                     onChange={handleChange} 
                     className={`${styles.formTextarea} ${errors.message ? styles.inputError : ''}`} 
-                    placeholder="Hi Meet, I came across your portfolio and would love to discuss..." 
+                    placeholder="Hi Meet, I came across your portfolio and would like to discuss..." 
                     aria-invalid={!!errors.message} 
                   />
                   {errors.message && <span className={styles.formError}>{errors.message}</span>}
@@ -230,100 +330,14 @@ const Contact = () => {
           
           {/* Info Column */}
           <div className={`${styles.infoColumn} reveal`}>
-            <div className={styles.contactInfo}>
-              {/* Email Card with 1-Click Copy and Direct Compose Options */}
-              <div className={styles.contactCard}>
-                <div className={styles.contactIcon}><Mail size={20} color="white" /></div>
-                <div className={styles.contactCardText}>
-                  <div className={styles.contactLabel}>Email Address</div>
-                  <a 
-                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.contactValueLink}
-                    title="Click to compose directly in Gmail"
-                  >
-                    {personalInfo.email}
-                  </a>
-                </div>
-                <div className={styles.cardActions}>
-                  <button 
-                    type="button"
-                    onClick={handleCopyEmail} 
-                    className={styles.copyBtn} 
-                    title="Copy email to clipboard"
-                    aria-label="Copy email address"
-                  >
-                    {copied ? <Check size={16} color="#10b981" /> : <Copy size={16} />}
-                  </button>
-                  <a 
-                    href={`mailto:${personalInfo.email}`} 
-                    className={styles.copyBtn} 
-                    title="Open in default mail client"
-                    aria-label="Open in default mail client"
-                  >
-                    <ExternalLink size={15} />
-                  </a>
-                </div>
-              </div>
-              
-              {/* Phone */}
-              <a 
-                href={`tel:${personalInfo.phone.replace(/\s/g, '')}`} 
-                className={styles.contactCard}
-                title="Click to call"
-              >
-                <div className={styles.contactIcon}><Phone size={20} color="white" /></div>
-                <div className={styles.contactCardText}>
-                  <div className={styles.contactLabel}>Phone / WhatsApp</div>
-                  <div className={styles.contactValue}>{personalInfo.phone}</div>
-                </div>
-              </a>
-              
-              {/* Location */}
-              <div className={styles.contactCard}>
-                <div className={styles.contactIcon}><MapPin size={20} color="white" /></div>
-                <div className={styles.contactCardText}>
-                  <div className={styles.contactLabel}>Location</div>
-                  <div className={styles.contactValue}>{personalInfo.location}</div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Social & Quick Links */}
-            <div className={styles.socialRow}>
-              <a 
-                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}`} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className={styles.socialBtn} 
-                aria-label="Open in Gmail Web"
-              >
-                <ExternalLink size={18} />
-                <span>Open in Gmail</span>
-              </a>
-              {linkedinLink && (
-                <a href={linkedinLink.url} target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="LinkedIn">
-                  <LinkedinIcon size={18} />
-                  <span>LinkedIn</span>
-                </a>
-              )}
-              {githubLink && (
-                <a href={githubLink.url} target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="GitHub">
-                  <GithubIcon size={18} />
-                  <span>GitHub</span>
-                </a>
-              )}
-            </div>
-            
             {/* Availability & Status Card */}
             <div className={styles.availabilityCard}>
               <div className={styles.statusHeader}>
                 <span className={styles.pulseDot} />
-                <span className={styles.statusText}>Open to Opportunities</span>
+                <span className={styles.statusText}>Currently Open to Opportunities</span>
               </div>
               <p className={styles.availabilityDesc}>
-                Available immediately for Full-Stack / Frontend Developer internships and entry-level engineering roles.
+                Available immediately for Full-Stack / Frontend Developer job roles, technical internships, and select freelance engineering collaborations.
               </p>
               <div className={styles.statusMeta}>
                 <div className={styles.metaItem}>
@@ -334,6 +348,41 @@ const Contact = () => {
                   <Sparkles size={14} />
                   <span>Response: &lt; 24 Hours</span>
                 </div>
+                <div className={styles.metaItem}>
+                  <MapPin size={14} />
+                  <span>Location: {personalInfo.location}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Secondary WhatsApp Channel (Discreet & Subordinate) */}
+            <div className={styles.secondaryChannelBox}>
+              <div className={styles.secondaryHeader}>
+                <span className={styles.secondaryBadge}>SECONDARY CHANNEL</span>
+                <span className={styles.secondaryLabel}>Quick messaging & casual inquiries</span>
+              </div>
+              <p className={styles.secondaryDesc}>
+                For formal opportunities, please use Email or LinkedIn above. For quick questions or casual chats:
+              </p>
+              <a 
+                href={whatsappUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.whatsappBtn}
+                title="Message Meet on WhatsApp"
+              >
+                <WhatsappIcon size={18} className={styles.whatsappIcon} />
+                <span>Message on WhatsApp</span>
+                <span className={styles.whatsappNumber}>(+91 91064 77426)</span>
+              </a>
+            </div>
+
+            {/* Location & Timezone Summary */}
+            <div className={styles.locationCard}>
+              <div className={styles.locIcon}><MapPin size={20} color="white" /></div>
+              <div className={styles.locText}>
+                <div className={styles.locTitle}>Based in Anand, Gujarat, India</div>
+                <div className={styles.locSubtitle}>Open to remote worldwide & on-site software engineering roles</div>
               </div>
             </div>
           </div>
