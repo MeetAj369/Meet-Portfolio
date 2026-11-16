@@ -92,7 +92,7 @@ const Certifications = () => {
                 </div>
               )}
               
-              {selectedCert.credentialUrl && (
+              {selectedCert.credentialUrl ? (
                 <div className={styles.modalActions}>
                   <a 
                     href={selectedCert.credentialUrl} 
@@ -102,6 +102,12 @@ const Certifications = () => {
                   >
                     <ExternalLink size={18} /> View Credential
                   </a>
+                </div>
+              ) : (
+                <div className={styles.modalActions}>
+                  <div className={styles.academicBadge}>
+                    <CheckCircle size={15} /> Curriculum & Practical Competency Completed
+                  </div>
                 </div>
               )}
             </div>

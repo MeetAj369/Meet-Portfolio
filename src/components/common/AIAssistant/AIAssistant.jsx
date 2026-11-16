@@ -18,12 +18,12 @@ import { personalInfo } from '../../../data/personalInfo';
 import styles from './AIAssistant.module.css';
 
 const QUICK_QUESTIONS = [
-  "What is Meet's latest qualifications & education?",
-  "Tell me about the AI Chat Assistant platform.",
-  "Tell me about the CareerSync hackathon project.",
-  "Explore HP Expense Tracker & live web app.",
-  "Tell me about HP TechPulse & IT Asset Management.",
-  "Explore HP Mobile Store e-commerce platform.",
+  "Why should we hire Meet for a Full-Stack developer role?",
+  "What did Meet build in the TechSprint 2.0 Hackathon?",
+  "What can Meet build for our engineering team?",
+  "What are his strongest database & backend skills?",
+  "Tell me about HP TechPulse & enterprise IT management.",
+  "What is Meet's academic history & CGPA?",
   "Where can I view & download Meet's verified Resume?"
 ];
 
@@ -129,6 +129,24 @@ const getAIResponse = (query) => {
     };
   }
 
+  // 5b. What Meet Can Build / Core Capabilities
+  if (
+    q.includes('what can meet build') ||
+    q.includes('what can you build') ||
+    q.includes('what can he build') ||
+    q.includes('what i build') ||
+    q.includes('capabilities') ||
+    q.includes('deliverables')
+  ) {
+    return {
+      text: `Meet transforms design & requirements into production-ready software across 4 primary domains:\n\n1. 🌐 **Responsive Web Applications**: High-performance React 19 & Next.js 16 frontends with TypeScript, Tailwind CSS, and Apple-grade Liquid Glass design systems.\n2. 🛒 **E-Commerce & Retail POS Platforms**: End-to-end multi-brand catalogs, shopping carts, express checkout, inventory reconciliation, and automated GST PDF tax invoicing (e.g., **HP Mobile Store**).\n3. 🗄️ **Enterprise & Database Systems**: Complex relational database schemas (PostgreSQL & MySQL up to 18 tables), 5-stage IT service ticket pipelines, and verifiable Digital Passports (e.g., **HP TechPulse**).\n4. ⚡ **Automation, AI & Python Tools**: Asynchronous FastAPI microservices, real-time SSE streaming, LLM integrations, and automated PDF/Word export engines.\n\nExplore live code demonstrations across his portfolio!`,
+      actions: [
+        { label: 'View What I Build', onClick: () => scrollToSection('what-i-build') },
+        { label: 'Explore All Projects', onClick: () => scrollToSection('projects') }
+      ]
+    };
+  }
+
   // 6. Specific Technologies (Python, React, FastAPI, Next.js, Databases)
   if (q.includes('python') || q.includes('fastapi')) {
     return {
@@ -150,7 +168,7 @@ const getAIResponse = (query) => {
     };
   }
 
-  if (q.includes('database') || q.includes('sql') || q.includes('postgres') || q.includes('mysql')) {
+  if (q.includes('database') || q.includes('sql') || q.includes('postgres') || q.includes('mysql') || q.includes('backend')) {
     return {
       text: `Meet has strong expertise in relational database architecture and data modeling:\n\n• **Databases**: PostgreSQL, MySQL, and SQLite.\n• **Normalization**: Proven ability to design clean 3NF relational schemas (e.g. 18 normalized tables for CareerSync).\n• **ACID & CRUD**: Complex SQL queries, indexes, automated migrations with SQLAlchemy, and secure transaction workflows.`,
       actions: [
@@ -560,9 +578,11 @@ const AIAssistant = () => {
         >
           <div className={styles.fabIconWrap}>
             <Bot size={20} className={styles.botIcon} />
-            <span className={styles.pulseGlow} />
           </div>
-          <span className={styles.fabLabel}>Ask Meet's AI</span>
+          <span className={styles.fabLabel}>
+            <span className={styles.liveDot} />
+            Ask Meet's AI
+          </span>
           <span className={styles.fabAiBadge}>
             <Sparkles size={12} className={styles.fabSparkle} />
           </span>

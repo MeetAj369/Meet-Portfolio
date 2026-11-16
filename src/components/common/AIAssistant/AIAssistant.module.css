@@ -125,24 +125,23 @@
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
 }
 
-/* Crisp Radar Ping Beacon Online Indicator */
-.pulseGlow {
-  position: absolute;
-  top: -1px;
-  right: -1px;
-  width: 9px;
-  height: 9px;
+/* Crisp Live Online Beacon Indicator in FAB label */
+.liveDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: #10b981;
-  border: 1.5px solid #ffffff;
-  box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
-  pointer-events: none;
+  box-shadow: 0 0 8px #10b981, 0 0 16px rgba(16, 185, 129, 0.6);
+  margin-right: 7px;
+  vertical-align: middle;
+  position: relative;
 }
 
-.pulseGlow::after {
+.liveDot::after {
   content: '';
   position: absolute;
-  inset: -1.5px;
+  inset: -2px;
   border-radius: 50%;
   border: 1.5px solid #10b981;
   animation: radarPing 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
@@ -160,6 +159,8 @@
 }
 
 .fabLabel {
+  display: inline-flex;
+  align-items: center;
   font-weight: 700;
   font-size: 0.92rem;
   letter-spacing: -0.01em;

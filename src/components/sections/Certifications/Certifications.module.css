@@ -244,6 +244,28 @@
   transform: translateY(-2px);
 }
 
+.academicBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: var(--radius-full);
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: var(--accent-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: var(--glass-specular);
+}
+
+[data-theme='light'] .academicBadge {
+  background: rgba(79, 70, 229, 0.06);
+  border: 1px solid rgba(79, 70, 229, 0.18);
+  color: #4f46e5;
+}
+
 @media (max-width: 768px) {
   .certsGrid {
     grid-template-columns: 1fr;

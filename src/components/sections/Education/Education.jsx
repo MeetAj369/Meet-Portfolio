@@ -24,15 +24,17 @@ const Education = () => {
             const Icon = IconMap[item.icon] || BookOpen;
             
             return (
-              <div key={index} className={styles.educationCard}>
-                <div className={styles.eduIcon}>
-                  <Icon size={24} color="white" />
+              <div key={index} className={styles.timelineItem}>
+                <div className={styles.timelineTrack}>
+                  <div className={styles.timelineNode}>
+                    <Icon size={22} color="white" />
+                  </div>
                 </div>
-                
-                <div className={styles.eduContent}>
+
+                <div className={styles.educationCard}>
                   <div className={styles.eduHeader}>
                     <h3 className={styles.eduDegree}>{item.degree}</h3>
-                    <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+                    <div className={styles.badgeGroup}>
                       {item.grade && (
                         <span className={styles.gradeBadge}>{item.grade}</span>
                       )}

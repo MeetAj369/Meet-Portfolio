@@ -17,6 +17,8 @@ import { ErrorBoundary } from './components/common/ErrorBoundary';
 /* Section components — eagerly imported for instant rendering */
 import Hero from './components/sections/Hero/Hero';
 import About from './components/sections/About/About';
+import Statistics from './components/sections/Statistics/Statistics';
+import WhatIBuild from './components/sections/WhatIBuild/WhatIBuild';
 import Skills from './components/sections/Skills/Skills';
 import Projects from './components/sections/Projects/Projects';
 import Experience from './components/sections/Experience/Experience';
@@ -107,6 +109,8 @@ function App() {
         <ErrorBoundary>
           <Hero />
           <About />
+          <Statistics />
+          <WhatIBuild />
           <Skills />
           <Projects />
           <Experience />

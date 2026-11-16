@@ -41,6 +41,17 @@ const Hero = () => {
             (CGPA: 8.73) at Charutar Vidya Mandal University, Anand, Gujarat.
           </p>
 
+          {/* Recruiter Context Banner */}
+          <div className={styles.currentlyBanner}>
+            <div className={styles.currentlyHeader}>
+              <span className={styles.currentlyPulse} />
+              <span className={styles.currentlyTag}>CURRENT FOCUS</span>
+            </div>
+            <p className={styles.currentlyText}>
+              Building full-stack projects, strengthening <strong>ReactJS, Python &amp; backend development</strong>, and actively looking for software engineering job opportunities.
+            </p>
+          </div>
+
           <div className={styles.cta}>
             <button className={styles.btnPrimary} onClick={() => scrollToSection('projects')}>
               View Projects <ArrowRight size={17} />
@@ -87,20 +98,28 @@ const Hero = () => {
             {/* Main Portrait Card - 100% Clean and unblocked, zero elements covering it */}
             <div className={styles.photoCard}>
               <div className={styles.innerFrame}>
-                <img
-                  src="/Meet-Portfolio/uploads/Photo.png"
-                  alt="Meet Chauhan"
-                  className={styles.photo}
-                  onError={(e) => {
-                    if (!e.target.dataset.triedJpg) {
-                      e.target.dataset.triedJpg = 'true';
-                      e.target.src = '/Meet-Portfolio/uploads/photo.jpg';
-                    } else {
-                      e.target.style.display = 'none';
-                      if (e.target.nextElementSibling) e.target.nextElementSibling.style.display = 'flex';
-                    }
-                  }}
-                />
+                <picture>
+                  <source srcSet="/Meet-Portfolio/uploads/Photo.webp" type="image/webp" />
+                  <img
+                    src="/Meet-Portfolio/uploads/Photo.png"
+                    alt="Meet Chauhan — Full Stack & Frontend Developer"
+                    className={styles.photo}
+                    width="380"
+                    height="380"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    onError={(e) => {
+                      if (!e.target.dataset.triedJpg) {
+                        e.target.dataset.triedJpg = 'true';
+                        e.target.src = '/Meet-Portfolio/uploads/photo.jpg';
+                      } else {
+                        e.target.style.display = 'none';
+                        if (e.target.nextElementSibling) e.target.nextElementSibling.style.display = 'flex';
+                      }
+                    }}
+                  />
+                </picture>
                 <div className={styles.fallback}>
                   <span>MC</span>
                 </div>
