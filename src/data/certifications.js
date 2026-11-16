@@ -8,7 +8,7 @@ export const certifications = [
     category: 'AI / ML',
     icon: 'Brain',
     skills: ['Artificial Intelligence', 'Neural Networks', 'Deep Learning', 'AI Pipelines', 'Problem Solving'],
-    credentialUrl: 'https://github.com/MeetAj369'
+    credentialUrl: '/Meet-Portfolio/Certificates/Artificial Intelligence (AI) - Fundamentals and Applications.pdf'
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ export const certifications = [
     category: 'AI / ML',
     icon: 'Cpu',
     skills: ['Supervised Learning', 'Unsupervised Learning', 'Model Evaluation', 'Feature Engineering', 'Python'],
-    credentialUrl: 'https://github.com/MeetAj369'
+    credentialUrl: '/Meet-Portfolio/Certificates/Machine Learning (ML) - Core Concepts and Algorithms.pdf'
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const certifications = [
     category: 'Data Science',
     icon: 'Database',
     skills: ['Data Analysis', 'Data Visualization', 'Exploratory Data Analysis', 'Statistical Analysis', 'SQL'],
-    credentialUrl: 'https://github.com/MeetAj369'
+    credentialUrl: '/Meet-Portfolio/Certificates/Data Science - Data Analysis and Visualization Fundamentals.pdf'
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ export const certifications = [
     category: 'Web Development',
     icon: 'Globe',
     skills: ['HTML5 & CSS3', 'JavaScript ES6+', 'PHP', 'MySQL', 'Full Stack Architecture', 'REST APIs'],
-    credentialUrl: 'https://github.com/MeetAj369'
+    credentialUrl: '/Meet-Portfolio/Certificates/Web Development - Full Stack Fundamentals (HTML, CSS, JavaScript, PHP).pdf'
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ export const certifications = [
     category: 'AI Tools',
     icon: 'Zap',
     skills: ['Claude AI', 'AI-Assisted Coding', 'Debugging Workflows', 'Prompt Engineering', 'Code Optimization'],
-    credentialUrl: 'https://github.com/MeetAj369'
+    credentialUrl: '/Meet-Portfolio/Certificates/Claude AI - AI-Assisted Coding, Debugging & Development Workflows.pdf'
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ export const certifications = [
     category: 'Database',
     icon: 'Database',
     skills: ['MySQL', 'PostgreSQL', 'Complex Joins', 'Database Normalization', 'Relational Schemas'],
-    credentialUrl: 'https://github.com/MeetAj369'
+    credentialUrl: '/Meet-Portfolio/Certificates/SQL Database Management & Relational Modeling.pdf'
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ export const certifications = [
     category: 'Web Development',
     icon: 'Palette',
     skills: ['Tailwind CSS', 'Responsive Layouts', 'CSS3 Architecture', 'Mobile-First Design'],
-    credentialUrl: 'https://github.com/MeetAj369'
+    credentialUrl: '/Meet-Portfolio/Certificates/Tailwind CSS & Modern Responsive Design.pdf'
   },
   {
     id: 8,
@@ -85,6 +85,6 @@ export const certifications = [
     category: 'AI / ML',
     icon: 'Rocket',
     skills: ['ML Pipelines', 'API Integration', 'Model Deployment', 'Python'],
-    credentialUrl: 'https://github.com/MeetAj369'
+    credentialUrl: '/Meet-Portfolio/Certificates/AI Bootcamp - Intelligent Systems & Deployment.pdf'
   }
 ];
