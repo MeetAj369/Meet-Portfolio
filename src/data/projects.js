@@ -149,17 +149,17 @@ while (true) {
     id: 6,
     title: 'Interactive Liquid Glass Portfolio',
     fileName: 'PortfolioShowcase.jsx',
-    codeSnippet: `import { AIAssistant, ParticleAurora } from './components';
-// 2026 Liquid Glass Portfolio Engine
+    codeSnippet: `// 2026 Liquid Glass Portfolio Engine
+import { ParticleAurora, ScrollReveal } from './components';
 const theme = useTheme();
 export default function Portfolio() { return <LiquidGlassUI />; }`,
-    description: 'A personal portfolio engineered with React 19 featuring dark/light adaptive Liquid Glassmorphism, dynamic aurora particle canvas, and a conversational AI Assistant.',
-    shortDescription: 'Modern interactive portfolio with Liquid Glassmorphism, dynamic aurora canvas & AI Assistant.',
+    description: 'A personal portfolio engineered with React 19 featuring dark/light adaptive Liquid Glassmorphism, dynamic aurora particle canvas, custom interactive terminal, and responsive UI architecture.',
+    shortDescription: 'Modern interactive portfolio with Liquid Glassmorphism, dynamic aurora canvas & responsive design.',
     technologies: ['React 19', 'Vite', 'CSS Modules', 'JavaScript', 'Liquid Glass'],
     features: [
       'Modern 2026 Liquid Glassmorphism with specular inner highlights',
-      'Conversational AI Assistant trained on verified background and projects',
       'Dynamic 4-orb liquid aurora background with mouse parallax',
+      'Interactive developer terminal simulating Unix shell commands',
       'Fully responsive, mobile-optimized experience across all devices'
     ],
     github: 'https://github.com/MeetAj369/Meet-Portfolio',
@@ -168,5 +168,57 @@ export default function Portfolio() { return <LiquidGlassUI />; }`,
     logo: '/Meet-Portfolio/uploads/logo.png',
     featured: false,
     category: 'Frontend / UI'
+  },
+  {
+    id: 7,
+    title: 'Netflix Streaming UI & Interactive Web App',
+    fileName: 'NetflixPlayer.js',
+    codeSnippet: `// YouTube Embedded Trailer Player & My List Engine
+function openTrailer(title, trailerId) {
+  trailerIframe.src = \`https://www.youtube.com/embed/\${trailerId}?autoplay=1\`;
+  trailerModal.classList.add('active');
+}`,
+    description: 'A production-grade Netflix streaming platform recreation featuring billboard hero showcase with Money Heist, interactive trailer playback modal, detailed movie info modal, real-time live search across 20+ titles, categorized rows (Trending, Originals, Critically Acclaimed, Thrillers), and persistent My List and rating bookmarking in localStorage.',
+    shortDescription: 'Full-featured Netflix streaming platform with trailer player modal, real-time search & persistent My List.',
+    technologies: ['JavaScript ES6+', 'HTML5', 'CSS3', 'localStorage API', 'YouTube IFrame API', 'Responsive UI'],
+    features: [
+      'Interactive 16:9 YouTube trailer video playback modal with keyboard escape handling',
+      'Detailed movie synopsis modal with match percentage, maturity badges, and genre tags',
+      'Real-time instant live search filtering by title, genre, and keyword tags',
+      'Persistent "My List" bookmarking system saved to browser localStorage with toast feedback',
+      'Curated category rows: Trending Now, Netflix Originals, Top Rated, and Action Thrillers',
+      'Account settings & membership profile details portal'
+    ],
+    github: 'https://github.com/MeetAj369/Netflix-Clone',
+    liveDemo: 'https://meetaj369.github.io/Netflix-Clone/',
+    image: '/Meet-Portfolio/uploads/banner-techpulse.svg',
+    featured: true,
+    category: 'Frontend / UI'
+  },
+  {
+    id: 8,
+    title: 'Flipkart E-Commerce REST API Backend',
+    fileName: 'server.js',
+    codeSnippet: `// Flipkart Dual-Resilient Database & Express API
+app.use('/auth', authRoutes);
+app.use('/products', productRoutes);
+app.use('/cart', cartRoutes);
+app.use('/orders', orderRoutes);`,
+    description: 'Production-ready Express.js e-commerce REST API simulating Flipkart backend architecture. Features JWT authentication, product catalog discovery with multi-parameter filtering, dynamic active cart management, order checkout with tracking ID generation, interactive browser-based API playground at GET /, and dual-mode resilience (MongoDB Atlas + In-Memory Fallback).',
+    shortDescription: 'Enterprise Express.js REST API with JWT auth, product catalog filtering, cart & order checkout.',
+    technologies: ['Node.js', 'Express.js', 'MongoDB Atlas', 'Mongoose', 'JWT', 'bcryptjs', 'REST APIs'],
+    features: [
+      'Interactive HTML API Explorer & Documentation dashboard served directly at root (GET /)',
+      'Stateless JWT authentication (signup, login, profile) with salted bcrypt password hashing',
+      'Product catalog microservice with category, keyword search, price range, and sorting filters',
+      'Active user cart sessions with automatic item price recalculation and quantity controls',
+      'Order fulfillment service generating tracking numbers (FKRT...) and clearing active carts',
+      'Dual-mode database architecture: MongoDB Atlas with high-speed in-memory fallback'
+    ],
+    github: 'https://github.com/MeetAj369/Flipkart-backend',
+    liveDemo: 'https://github.com/MeetAj369/Flipkart-backend',
+    image: '/Meet-Portfolio/uploads/banner-mobilestore.svg',
+    featured: true,
+    category: 'Backend / Full Stack'
   }
 ];

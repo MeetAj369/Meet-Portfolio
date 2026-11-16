@@ -26,7 +26,7 @@ import Certifications from './components/sections/Certifications/Certifications'
 import Education from './components/sections/Education/Education';
 import Resume from './components/sections/Resume/Resume';
 import Contact from './components/sections/Contact/Contact';
-import AIAssistant from './components/common/AIAssistant/AIAssistant';
+
 
 /* App styles */
 import styles from './App.module.css';
@@ -124,8 +124,7 @@ function App() {
       {/* Footer */}
       <Footer />
 
-      {/* Meet AI Personal Assistant */}
-      <AIAssistant />
+
 
       {/* Back to top */}
       <BackToTop />
