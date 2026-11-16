@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgNflx" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141414" />
+      <stop offset="50%" stop-color="#180708" />
+      <stop offset="100%" stop-color="#000000" />
+    </linearGradient>
+    <radialGradient id="glowNflx" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#e50914" stop-opacity="0.32" />
+      <stop offset="50%" stop-color="#831843" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="textGradNflx" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e50914" />
+      <stop offset="100%" stop-color="#f87171" />
+    </linearGradient>
+    <filter id="shadowNflx" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.7" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="url(#bgNflx)" />
+  <rect width="800" height="420" fill="url(#glowNflx)" />
+
+  <!-- Grid overlay -->
+  <g opacity="0.06" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="70" x2="800" y2="70" />
+    <line x1="0" y1="140" x2="800" y2="140" />
+    <line x1="0" y1="210" x2="800" y2="210" />
+    <line x1="0" y1="280" x2="800" y2="280" />
+    <line x1="0" y1="350" x2="800" y2="350" />
+    <line x1="160" y1="0" x2="160" y2="420" />
+    <line x1="320" y1="0" x2="320" y2="420" />
+    <line x1="480" y1="0" x2="480" y2="420" />
+    <line x1="640" y1="0" x2="640" y2="420" />
+  </g>
+
+  <!-- Top Status Bar -->
+  <rect x="40" y="24" width="720" height="36" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+  <circle cx="62" cy="42" r="5" fill="#e50914" />
+  <circle cx="78" cy="42" r="5" fill="#f59e0b" />
+  <circle cx="94" cy="42" r="5" fill="#10b981" />
+  <text x="120" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#a3a3a3" font-weight="600">NetflixPlayer.js — Interactive Streaming Architecture</text>
+
+  <!-- Badge top-right -->
+  <rect x="580" y="30" width="168" height="24" rx="12" fill="rgba(229, 9, 20, 0.25)" stroke="rgba(229, 9, 20, 0.6)" />
+  <text x="596" y="46" font-family="-apple-system, sans-serif" font-size="10.5" fill="#fca5a5" font-weight="700">🎬 4K HDR STREAMING</text>
+
+  <!-- Main Hero Card -->
+  <g filter="url(#shadowNflx)">
+    <rect x="50" y="80" width="700" height="290" rx="16" fill="rgba(20, 20, 24, 0.85)" stroke="rgba(229, 9, 20, 0.35)" stroke-width="1.2" />
+    <rect x="50" y="80" width="700" height="2" fill="url(#textGradNflx)" />
+  </g>
+
+  <!-- Left Side: Brand Logo & Title -->
+  <g transform="translate(85, 115)">
+    <!-- Brand Icon Emblem -->
+    <rect x="0" y="0" width="60" height="60" rx="14" fill="rgba(229, 9, 20, 0.18)" stroke="rgba(229, 9, 20, 0.5)" stroke-width="1.5" />
+    <text x="17" y="44" font-family="Arial, sans-serif" font-size="38" fill="#e50914" font-weight="900">N</text>
+
+    <!-- Title & Subtitle -->
+    <text x="80" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" fill="#ffffff" font-weight="800" letter-spacing="-0.5">Netflix Streaming Web App</text>
+    <text x="80" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#a3a3a3">Interactive Video Trailer Player • 20+ Titles • My List Persistence</text>
+  </g>
+
+  <!-- Highlights Pills -->
+  <g transform="translate(85, 200)">
+    <rect x="0" y="0" width="130" height="30" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+    <text x="14" y="19" font-family="-apple-system, sans-serif" font-size="11.5" fill="#46d369" font-weight="700">99% MATCH</text>
+
+    <rect x="142" y="0" width="160" height="30" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+    <text x="156" y="19" font-family="-apple-system, sans-serif" font-size="11.5" fill="#f87171" font-weight="600">YOUTUBE MODAL</text>
+
+    <rect x="314" y="0" width="150" height="30" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+    <text x="328" y="19" font-family="-apple-system, sans-serif" font-size="11.5" fill="#38bdf8" font-weight="600">LIVE SEARCH</text>
+
+    <rect x="476" y="0" width="150" height="30" rx="6" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+    <text x="490" y="19" font-family="-apple-system, sans-serif" font-size="11.5" fill="#fbbf24" font-weight="600">LOCALSTORAGE</text>
+  </g>
+
+  <!-- Movie Thumbnails Row Preview -->
+  <g transform="translate(85, 252)">
+    <!-- Card 1 -->
+    <rect x="0" y="0" width="118" height="85" rx="8" fill="#1f1f23" stroke="rgba(229, 9, 20, 0.4)" />
+    <rect x="8" y="8" width="16" height="18" rx="2" fill="#e50914" />
+    <text x="12" y="21" font-family="Arial" font-size="11" fill="#fff" font-weight="bold">N</text>
+    <text x="10" y="60" font-family="-apple-system, sans-serif" font-size="10" fill="#fff" font-weight="bold">MONEY HEIST</text>
+    <text x="10" y="74" font-family="-apple-system, sans-serif" font-size="8.5" fill="#46d369">99% Match</text>
+
+    <!-- Card 2 -->
+    <rect x="130" y="0" width="118" height="85" rx="8" fill="#1f1f23" stroke="rgba(255,255,255,0.1)" />
+    <rect x="138" y="8" width="16" height="18" rx="2" fill="#e50914" />
+    <text x="142" y="21" font-family="Arial" font-size="11" fill="#fff" font-weight="bold">N</text>
+    <text x="140" y="60" font-family="-apple-system, sans-serif" font-size="10" fill="#fff" font-weight="bold">STRANGER</text>
+    <text x="140" y="74" font-family="-apple-system, sans-serif" font-size="8.5" fill="#46d369">98% Match</text>
+
+    <!-- Card 3 -->
+    <rect x="260" y="0" width="118" height="85" rx="8" fill="#1f1f23" stroke="rgba(255,255,255,0.1)" />
+    <text x="270" y="60" font-family="-apple-system, sans-serif" font-size="10" fill="#fff" font-weight="bold">INTERSTELLAR</text>
+    <text x="270" y="74" font-family="-apple-system, sans-serif" font-size="8.5" fill="#46d369">97% Match</text>
+
+    <!-- Card 4 -->
+    <rect x="390" y="0" width="118" height="85" rx="8" fill="#1f1f23" stroke="rgba(255,255,255,0.1)" />
+    <rect x="398" y="8" width="16" height="18" rx="2" fill="#e50914" />
+    <text x="402" y="21" font-family="Arial" font-size="11" fill="#fff" font-weight="bold">N</text>
+    <text x="400" y="60" font-family="-apple-system, sans-serif" font-size="10" fill="#fff" font-weight="bold">PEAKY BLINDERS</text>
+    <text x="400" y="74" font-family="-apple-system, sans-serif" font-size="8.5" fill="#46d369">98% Match</text>
+
+    <!-- Card 5 -->
+    <rect x="520" y="0" width="110" height="85" rx="8" fill="#1f1f23" stroke="rgba(255,255,255,0.1)" />
+    <text x="530" y="60" font-family="-apple-system, sans-serif" font-size="10" fill="#fff" font-weight="bold">SQUID GAME</text>
+    <text x="530" y="74" font-family="-apple-system, sans-serif" font-size="8.5" fill="#46d369">99% Match</text>
+  </g>
+</svg>

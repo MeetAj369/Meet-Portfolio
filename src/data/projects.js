@@ -191,7 +191,7 @@ function openTrailer(title, trailerId) {
     ],
     github: 'https://github.com/MeetAj369/Netflix-Clone',
     liveDemo: 'https://meetaj369.github.io/Netflix-Clone/',
-    image: '/Meet-Portfolio/uploads/banner-techpulse.svg',
+    image: '/Meet-Portfolio/uploads/banner-netflix.svg',
     featured: true,
     category: 'Frontend / UI'
   },
@@ -216,8 +216,8 @@ app.use('/orders', orderRoutes);`,
       'Dual-mode database architecture: MongoDB Atlas with high-speed in-memory fallback'
     ],
     github: 'https://github.com/MeetAj369/Flipkart-backend',
-    liveDemo: 'https://github.com/MeetAj369/Flipkart-backend',
-    image: '/Meet-Portfolio/uploads/banner-mobilestore.svg',
+    liveDemo: null,
+    image: '/Meet-Portfolio/uploads/banner-flipkart.svg',
     featured: true,
     category: 'Backend / Full Stack'
   }
