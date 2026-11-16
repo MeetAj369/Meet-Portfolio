@@ -29,8 +29,7 @@ export const certifications = [
     description: 'Foundations of data science methodology: exploratory data analysis (EDA), statistical methods, data cleaning, data visualization, and analytical interpretation.',
     category: 'Data Science',
     icon: 'Database',
-    skills: ['Data Analysis', 'Data Visualization', 'Exploratory Data Analysis', 'Statistical Analysis', 'SQL'],
-    credentialUrl: '/Meet-Portfolio/Certificates/Data Science - Data Analysis and Visualization Fundamentals.pdf'
+    skills: ['Data Analysis', 'Data Visualization', 'Exploratory Data Analysis', 'Statistical Analysis', 'SQL']
   },
   {
     id: 4,
@@ -40,8 +39,7 @@ export const certifications = [
     description: 'End-to-end full-stack web engineering certification covering front-end standards (HTML5, CSS3, modern JavaScript ES6+) and dynamic back-end programming using PHP and relational MySQL.',
     category: 'Web Development',
     icon: 'Globe',
-    skills: ['HTML5 & CSS3', 'JavaScript ES6+', 'PHP', 'MySQL', 'Full Stack Architecture', 'REST APIs'],
-    credentialUrl: '/Meet-Portfolio/Certificates/Web Development - Full Stack Fundamentals (HTML, CSS, JavaScript, PHP).pdf'
+    skills: ['HTML5 & CSS3', 'JavaScript ES6+', 'PHP', 'MySQL', 'Full Stack Architecture', 'REST APIs']
   },
   {
     id: 5,
@@ -51,8 +49,7 @@ export const certifications = [
     description: 'Advanced credential evaluating prompt engineering, AI-assisted coding, automated debugging, test generation, and modern developer workflows using Claude.',
     category: 'AI Tools',
     icon: 'Zap',
-    skills: ['Claude AI', 'AI-Assisted Coding', 'Debugging Workflows', 'Prompt Engineering', 'Code Optimization'],
-    credentialUrl: '/Meet-Portfolio/Certificates/Claude AI - AI-Assisted Coding, Debugging & Development Workflows.pdf'
+    skills: ['Claude AI', 'AI-Assisted Coding', 'Debugging Workflows', 'Prompt Engineering', 'Code Optimization']
   },
   {
     id: 6,
@@ -62,8 +59,7 @@ export const certifications = [
     description: 'Database architecture certification covering advanced SQL queries, joins, relational schema design, normalization, indexing, and transactional integrity.',
     category: 'Database',
     icon: 'Database',
-    skills: ['MySQL', 'PostgreSQL', 'Complex Joins', 'Database Normalization', 'Relational Schemas'],
-    credentialUrl: '/Meet-Portfolio/Certificates/SQL Database Management & Relational Modeling.pdf'
+    skills: ['MySQL', 'PostgreSQL', 'Complex Joins', 'Database Normalization', 'Relational Schemas']
   },
   {
     id: 7,
@@ -73,8 +69,7 @@ export const certifications = [
     description: 'Comprehensive certification in utility-first responsive web design, mobile-first layouts, custom theming, and component styling patterns.',
     category: 'Web Development',
     icon: 'Palette',
-    skills: ['Tailwind CSS', 'Responsive Layouts', 'CSS3 Architecture', 'Mobile-First Design'],
-    credentialUrl: '/Meet-Portfolio/Certificates/Tailwind CSS & Modern Responsive Design.pdf'
+    skills: ['Tailwind CSS', 'Responsive Layouts', 'CSS3 Architecture', 'Mobile-First Design']
   },
   {
     id: 8,
@@ -84,7 +79,6 @@ export const certifications = [
     description: 'Intensive practical training covering full-lifecycle machine learning pipelines, dataset preparation, model tuning, and web API integration.',
     category: 'AI / ML',
     icon: 'Rocket',
-    skills: ['ML Pipelines', 'API Integration', 'Model Deployment', 'Python'],
-    credentialUrl: '/Meet-Portfolio/Certificates/AI Bootcamp - Intelligent Systems & Deployment.pdf'
+    skills: ['ML Pipelines', 'API Integration', 'Model Deployment', 'Python']
   }
 ];
