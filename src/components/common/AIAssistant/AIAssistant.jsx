@@ -559,10 +559,13 @@ const AIAssistant = () => {
           aria-label="Open Meet's AI Assistant"
         >
           <div className={styles.fabIconWrap}>
-            <Bot size={22} className={styles.botIcon} />
+            <Bot size={20} className={styles.botIcon} />
             <span className={styles.pulseGlow} />
           </div>
-          <span className={styles.fabLabel}>Ask Meet's AI 🧠</span>
+          <span className={styles.fabLabel}>Ask Meet's AI</span>
+          <span className={styles.fabAiBadge}>
+            <Sparkles size={12} className={styles.fabSparkle} />
+          </span>
         </button>
       )}
 
@@ -577,7 +580,9 @@ const AIAssistant = () => {
                 <span className={styles.onlineDot} />
               </div>
               <div>
-                <h3 className={styles.headerTitle}>Ask Me Anything About Meet 🧠</h3>
+                <h3 className={styles.headerTitle}>
+                  Ask Me Anything About Meet <Sparkles size={15} className={styles.headerSparkle} />
+                </h3>
                 <p className={styles.headerSubtitle}>I can answer questions about Meet's experience, projects, and skills.</p>
               </div>
             </div>
