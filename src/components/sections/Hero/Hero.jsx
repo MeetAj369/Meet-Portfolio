@@ -48,7 +48,7 @@ const Hero = () => {
               <span className={styles.currentlyTag}>CURRENT FOCUS</span>
             </div>
             <p className={styles.currentlyText}>
-              Building full-stack projects, strengthening <strong>ReactJS, Python &amp; backend development</strong>, and actively looking for software engineering job opportunities.
+              Building full-stack projects, strengthening <strong>ReactJS, MERN, Python &amp; backend development</strong>, and actively looking for <strong>Job opportunities</strong>.
             </p>
           </div>
 
