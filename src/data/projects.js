@@ -168,56 +168,5 @@ export default function Portfolio() { return <LiquidGlassUI />; }`,
     logo: '/Meet-Portfolio/uploads/logo.png',
     featured: false,
     category: 'Frontend / UI'
-  },
-  {
-    id: 7,
-    title: 'Netflix Streaming UI & Interactive Web App',
-    fileName: 'NetflixPlayer.js',
-    codeSnippet: `// YouTube Embedded Trailer Player & My List Engine
-function openTrailer(title, trailerId) {
-  trailerIframe.src = \`https://www.youtube.com/embed/\${trailerId}?autoplay=1\`;
-  trailerModal.classList.add('active');
-}`,
-    description: 'A production-grade Netflix streaming platform recreation featuring billboard hero showcase with Money Heist, interactive trailer playback modal, detailed movie info modal, real-time live search across 20+ titles, categorized rows (Trending, Originals, Critically Acclaimed, Thrillers), and persistent My List and rating bookmarking in localStorage.',
-    shortDescription: 'Full-featured Netflix streaming platform with trailer player modal, real-time search & persistent My List.',
-    technologies: ['JavaScript ES6+', 'HTML5', 'CSS3', 'localStorage API', 'YouTube IFrame API', 'Responsive UI'],
-    features: [
-      'Interactive 16:9 YouTube trailer video playback modal with keyboard escape handling',
-      'Detailed movie synopsis modal with match percentage, maturity badges, and genre tags',
-      'Real-time instant live search filtering by title, genre, and keyword tags',
-      'Persistent "My List" bookmarking system saved to browser localStorage with toast feedback',
-      'Curated category rows: Trending Now, Netflix Originals, Top Rated, and Action Thrillers',
-      'Account settings & membership profile details portal'
-    ],
-    github: 'https://github.com/MeetAj369/Netflix-Clone',
-    liveDemo: 'https://meetaj369.github.io/Netflix-Clone/',
-    image: '/Meet-Portfolio/uploads/banner-netflix.svg',
-    featured: true,
-    category: 'Frontend / UI'
-  },
-  {
-    id: 8,
-    title: 'Flipkart E-Commerce Storefront & REST API',
-    fileName: 'server.js',
-    codeSnippet: `// Flipkart Dual-Resilient Database & Express API
-app.use('/auth', authRoutes);
-app.use('/products', productRoutes);
-app.use('/cart', cartRoutes);
-app.use('/orders', orderRoutes);`,
-    description: 'Production-grade Flipkart e-commerce platform featuring an authentic Explore Plus frontend storefront (hero carousel, deals countdown timer, faceted catalog filters, quick view modal, shopping cart & checkout) connected with an Express.js REST API backend with JWT authentication, cart sessions, order fulfillment with FKRT tracking codes, and dual-mode database resilience (MongoDB Atlas + In-Memory Fallback).',
-    shortDescription: 'Flipkart e-commerce platform with Explore Plus storefront UI, catalog filters, cart checkout & Express.js REST API.',
-    technologies: ['JavaScript ES6+', 'HTML5/CSS3', 'Node.js', 'Express.js', 'MongoDB Atlas', 'JWT', 'REST APIs'],
-    features: [
-      'Authentic Flipkart Explore Plus storefront with hero sale banner carousel & Deals of the Day timer',
-      'Dynamic faceted catalog filtering (F-Assured, categories, price range, brands, customer ratings)',
-      'Two-column product quick-view modal with PIN delivery checker and bank offers',
-      'Interactive shopping cart drawer with quantity counter and real-time discount calculation',
-      'Express.js backend with JWT authentication, order fulfillment (FKRT... tracking codes), and dual-mode resilience'
-    ],
-    github: 'https://github.com/MeetAj369/Flipkart-frontend',
-    liveDemo: 'https://meetaj369.github.io/Flipkart-frontend/',
-    image: '/Meet-Portfolio/uploads/banner-flipkart.svg',
-    featured: true,
-    category: 'Full Stack / E-Commerce'
   }
 ];
