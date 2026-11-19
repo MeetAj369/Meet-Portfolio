@@ -1,3 +1,10 @@
 {
-  "framework": "vite"
+  "framework": "vite",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/Meet-Portfolio/(.*)",
+      "destination": "/$1"
+    }
+  ]
 }
