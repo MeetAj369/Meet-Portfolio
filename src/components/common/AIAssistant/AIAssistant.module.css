@@ -356,71 +356,124 @@
 
 /* Compact Suggested Questions Tray (Bottom) */
 .bottomTray {
-  background: rgba(12, 20, 40, 0.88);
-  backdrop-filter: blur(12px);
+  background: rgba(12, 20, 40, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   flex-shrink: 0;
+  padding: 8px 14px 6px;
 }
 
 [data-theme='light'] .bottomTray {
-  background: rgba(241, 245, 249, 0.95);
+  background: rgba(248, 250, 252, 0.98);
   border-top: 1px solid rgba(79, 70, 229, 0.12);
-  border-bottom: 1px solid rgba(79, 70, 229, 0.06);
 }
 
-.drawerToggle {
-  width: 100%;
+.trayHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 14px;
-  background: none;
+  padding: 0 2px 6px;
+}
+
+.trayLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #818cf8;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+[data-theme='light'] .trayLabel {
+  color: #4f46e5;
+}
+
+.traySparkle {
+  color: #38bdf8;
+}
+
+.dismissChipsBtn {
+  background: rgba(255, 255, 255, 0.08);
   border: none;
-  color: var(--accent-primary);
-  font-size: 0.76rem;
-  font-weight: 600;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-[data-theme='dark'] .drawerToggle {
-  color: #38bdf8;
+.dismissChipsBtn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
 }
 
-.drawerToggle:hover {
-  opacity: 0.85;
+[data-theme='light'] .dismissChipsBtn {
+  background: rgba(0, 0, 0, 0.06);
+  color: #64748b;
+}
+
+[data-theme='light'] .dismissChipsBtn:hover {
+  background: rgba(0, 0, 0, 0.12);
+  color: #0f172a;
 }
 
 .questionsList {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 6px 12px 10px;
-  max-height: 140px;
-  overflow-y: auto;
+  flex-direction: row;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 2px 4px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.questionsList::-webkit-scrollbar {
+  display: none;
 }
 
 .questionChip {
-  text-align: left;
-  background: var(--glass-bg);
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-specular);
-  color: var(--text-primary);
-  padding: 7px 12px;
-  border-radius: var(--radius-sm);
-  font-size: 0.775rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: #e0e7ff;
+  padding: 6px 13px;
+  border-radius: 99px;
+  font-size: 0.78rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
-  line-height: 1.35;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .questionChip:hover {
-  background: var(--accent-primary);
+  background: rgba(99, 102, 241, 0.25);
+  border-color: rgba(99, 102, 241, 0.55);
   color: #ffffff;
-  border-color: var(--accent-primary);
-  transform: translateX(2px);
+  transform: translateY(-1px);
+}
+
+[data-theme='light'] .questionChip {
+  background: #ffffff;
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  color: #1e1b4b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .questionChip:hover {
+  background: #eef2ff;
+  border-color: #6366f1;
+  color: #4338ca;
 }
 
 /* Messages Area */
@@ -855,18 +908,34 @@
 
   .bottomTray {
     flex-shrink: 0 !important;
-    background: #0c1428 !important;
+    background: #080e1c !important;
     border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 8px 12px 6px !important;
   }
 
   [data-theme='light'] .bottomTray {
-    background: #f1f5f9 !important;
+    background: #f8fafc !important;
     border-top: 1px solid rgba(79, 70, 229, 0.12) !important;
   }
 
   .questionsList {
-    max-height: 120px !important;
-    padding: 6px 12px 10px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 2px 0 6px !important;
+    max-height: none !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .questionChip {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    font-size: 0.8rem !important;
+    padding: 7px 14px !important;
+    border-radius: 99px !important;
   }
 
   .inputBar {

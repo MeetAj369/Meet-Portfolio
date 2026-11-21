@@ -17,14 +17,14 @@ import { scrollToSection } from '../../../utils/helpers';
 import { personalInfo } from '../../../data/personalInfo';
 import styles from './AIAssistant.module.css';
 
-const QUICK_QUESTIONS = [
-  "Why should we hire Meet for a Full-Stack developer role?",
-  "What did Meet build in the TechSprint 2.0 Hackathon?",
-  "What can Meet build for our engineering team?",
-  "What are his strongest database & backend skills?",
-  "Tell me about HP TechPulse & enterprise IT management.",
-  "What is Meet's academic history & CGPA?",
-  "Where can I view & download Meet's verified Resume?"
+const QUICK_PROMPTS = [
+  { label: "💡 Why Hire Meet?", query: "Why should we hire Meet for a Full-Stack developer role?" },
+  { label: "🚀 TechSprint 2.0 Hackathon", query: "What did Meet build in the TechSprint 2.0 Hackathon?" },
+  { label: "💻 Key Projects (CareerSync)", query: "Tell me about his key projects like CareerSync and HP TechPulse." },
+  { label: "🛠️ Tech Stack & Skills", query: "What are his strongest database & backend skills?" },
+  { label: "📄 Download Resume (PDF)", query: "Where can I view & download Meet's verified Resume?" },
+  { label: "🎓 Education & CGPA", query: "What is Meet's academic history & CGPA?" },
+  { label: "📬 Contact & Availability", query: "How can I contact Meet or check his job availability?" }
 ];
 
 // Conversational AI Engine for Meet Chauhan's Portfolio
@@ -733,31 +733,36 @@ const AIAssistant = () => {
             <div ref={chatEndRef} />
           </div>
 
-          {/* Compact Suggested Questions Tray (Bottom) */}
-          <div className={styles.bottomTray}>
-            <button 
-              className={styles.drawerToggle}
-              onClick={() => setShowQuestions(!showQuestions)}
-              aria-expanded={showQuestions}
-            >
-              <span>Suggested Questions</span>
-              {showQuestions ? <ChevronDown size={14} /> : <ChevronUp size={14} />}
-            </button>
-
-            {showQuestions && (
+          {/* Sleek Horizontal Suggested Prompts Ribbon */}
+          {showQuestions && (
+            <div className={styles.bottomTray}>
+              <div className={styles.trayHeader}>
+                <span className={styles.trayLabel}>
+                  <Sparkles size={12} className={styles.traySparkle} /> Suggested Prompts
+                </span>
+                <button
+                  type="button"
+                  className={styles.dismissChipsBtn}
+                  onClick={() => setShowQuestions(false)}
+                  title="Hide suggestions"
+                  aria-label="Hide suggested prompts"
+                >
+                  <X size={13} />
+                </button>
+              </div>
               <div className={styles.questionsList}>
-                {QUICK_QUESTIONS.map((q, i) => (
+                {QUICK_PROMPTS.map((item, i) => (
                   <button
                     key={i}
-                    onClick={() => handleSend(q)}
+                    onClick={() => handleSend(item.query)}
                     className={styles.questionChip}
                   >
-                    {q}
+                    <span>{item.label}</span>
                   </button>
                 ))}
               </div>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* Input Bar with Voice Input & Text Submission */}
           <form
