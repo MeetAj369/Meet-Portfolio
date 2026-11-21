@@ -163,7 +163,7 @@ export default function Portfolio() { return <LiquidGlassUI />; }`,
       'Fully responsive, mobile-optimized experience across all devices'
     ],
     github: 'https://github.com/MeetAj369/Meet-Portfolio',
-    liveDemo: 'https://meet-portfolio-xi.vercel.app/',
+    liveDemo: 'https://meetaj369.github.io/Meet-Portfolio/',
     image: '/Meet-Portfolio/uploads/banner-portfolio.svg',
     logo: '/Meet-Portfolio/uploads/logo.png',
     featured: false,

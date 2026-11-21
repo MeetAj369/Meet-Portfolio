@@ -8,7 +8,7 @@ export const personalInfo = {
   phone: '+91 91064 77426',
   linkedin: 'https://www.linkedin.com/in/meetaj0369/',
   github: 'https://github.com/MeetAj369',
-  portfolio: 'https://meet-portfolio-xi.vercel.app/',
+  portfolio: 'https://meetaj369.github.io/Meet-Portfolio/',
   resumePath: '/Meet-Portfolio/uploads/Meet_Chauhan_Resume.pdf',
   about: `Tech-enthusiastic BCA undergraduate with hands-on experience in Full Stack Web Development across front-end and back-end technologies including ReactJS, NodeJS, Python, JavaScript, TypeScript, HTML, CSS, PHP, SQL, and MySQL. Proven ability to design, build, and debug scalable web applications through academic hackathons and real-world projects. Holds certifications in AI, Machine Learning, and Data Science. Eager to leverage strong problem-solving skills and a collaborative mindset to contribute to a results-driven software engineering team.`,
   roles: [
