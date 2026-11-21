@@ -420,3 +420,19 @@ ul, ol { list-style: none; }
   0%, 100% { box-shadow: 0 0 8px rgba(99, 102, 241, 0.3); }
   50% { box-shadow: 0 0 22px rgba(99, 102, 241, 0.65), 0 0 45px rgba(34, 211, 238, 0.25); }
 }
+
+/* Mobile device optimization (iPhone, iPad & Android) */
+@media (max-width: 768px) {
+  /* Prevent iOS Safari auto-zoom on form inputs */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+
+  /* Safe area padding helper */
+  body {
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+}

@@ -51,7 +51,7 @@ await careerSync.matchMentor(assessment);`,
       'Multi-role RBAC with dedicated Administrator, Support Technician, and Employee portals'
     ],
     github: 'https://github.com/MeetAj369/HP-TechPulse',
-    liveDemo: 'https://meetaj369.github.io/HP-TechPulse/',
+    liveDemo: null,
     image: '/Meet-Portfolio/uploads/banner-techpulse.svg',
     logo: '/Meet-Portfolio/uploads/hp-techpulse-logo.png',
     featured: true,
@@ -140,7 +140,7 @@ while (true) {
       'Dual architecture: Standalone GitHub Pages web client with Python FastAPI & PHP EventStream backends'
     ],
     github: 'https://github.com/MeetAj369/AI-Chat-Assistant',
-    liveDemo: 'https://meetaj369.github.io/AI-Chat-Assistant/',
+    liveDemo: null,
     image: '/Meet-Portfolio/uploads/banner-aiassistant.svg',
     featured: true,
     category: 'AI / Full Stack'

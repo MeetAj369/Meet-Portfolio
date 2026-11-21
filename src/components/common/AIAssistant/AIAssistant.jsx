@@ -232,7 +232,6 @@ const getAIResponse = (query) => {
     return {
       text: `⚡ **HP TechPulse (Enterprise IT Asset Lifecycle & Gadget Intelligence)**:\n\n• **Platform Scope**: Centralizes enterprise hardware devices, user assignments, multi-tier support tickets, maintenance schedules, spares stock, and vendor contracts in a 14-table MySQL schema (\`techpulse369\`).\n• **Digital Gadget Passport™**: Generates verifiable cryptographic QR codes and official printable PDF certificates via FPDF engine.\n• **Device Health Intelligence**: Algorithmic 0–100 score dynamically calculated from operational age decay, repair frequency, active critical faults, and AMC/warranty coverage.\n• **Financial Compliance**: Automated Written Down Value (WDV) asset depreciation schedules and Total Cost of Ownership (TCO) tracking.\n• **5-Stage IT Ticket Pipeline**: Open → Assigned → In-Progress → Testing → Resolved with full audit trail logging (\`audit_log\`).\n• **Green Pulse**: Sustainability analytics tracking carbon footprint and e-waste prevention.\n• **Tech Stack**: PHP (OOP & BCrypt security), MySQL (14 tables), FPDF Engine, JavaScript, HTML5/CSS3.`,
       actions: [
-        { label: 'Open Live Platform (Web App)', url: 'https://meetaj369.github.io/HP-TechPulse/' },
         { label: 'View GitHub Repository', url: 'https://github.com/MeetAj369/HP-TechPulse' },
         { label: 'Explore in Projects', onClick: () => scrollToSection('projects') }
       ]
@@ -285,7 +284,6 @@ const getAIResponse = (query) => {
     return {
       text: `🤖 **AI Chat Assistant (Real-Time LLM Token Streaming Platform)**:\n\n• **Core Scope**: An intelligent conversational interface featuring real-time Server-Sent Events (SSE) token streaming, multi-model engine routing, speech synthesis & voice input, and syntax-highlighted code blocks with instant copy.\n• **Multi-Model Routing**: Supports switching between Claude 3.5 Sonnet, Gemini 1.5 Pro, GPT-4o, and Meet AI with custom temperature and system instruction tuning.\n• **Voice & Speech**: Interactive Web Speech API microphone voice recognition and natural text-to-speech audio reader playback.\n• **Architecture**: Fully self-contained liquid glass client hosted live on GitHub Pages with FastAPI (Python 3.12 async) and PHP EventStream backends.\n• **Tech Stack**: FastAPI, Python 3.12, SSE Streaming, JavaScript, Web Speech API & Liquid Glass UI.`,
       actions: [
-        { label: 'Open Live AI Chat Assistant', url: 'https://meetaj369.github.io/AI-Chat-Assistant/' },
         { label: 'View GitHub Repository', url: 'https://github.com/MeetAj369/AI-Chat-Assistant' },
         { label: 'View in Projects', onClick: () => scrollToSection('projects') }
       ]
@@ -305,10 +303,8 @@ const getAIResponse = (query) => {
       text: `💻 **Meet's Key Engineering Projects**:\n\n1. **CareerSync**: AI Career Navigation Platform (Next.js 16, React 19, FastAPI, PostgreSQL, 49+ career paths).\n2. **AI Chat Assistant**: Intelligent real-time LLM token streaming & multi-model interface with voice input.\n3. **HP TechPulse**: Enterprise IT Asset Lifecycle & Gadget Health platform with digital QR Passports, 0–100 health scoring & WDV depreciation.\n4. **HP Mobile Store**: Full-stack retail e-commerce portal with 25+ smartphone catalog, POS checkout & automated PDF GST invoicing.\n5. **HP Expense Tracker**: Financial tracking application for budgets, expense categorization & ledger analytics.`,
       actions: [
         { label: 'View All Featured Projects', onClick: () => scrollToSection('projects') },
-        { label: 'AI Chat Assistant Live', url: 'https://meetaj369.github.io/AI-Chat-Assistant/' },
         { label: 'HP Expense Tracker Live', url: 'https://meetaj369.github.io/HP-Expense-Tracker/' },
         { label: 'HP Mobile Store Live', url: 'https://meetaj369.github.io/HP_MobileStore_Final/' },
-        { label: 'HP TechPulse Live', url: 'https://meetaj369.github.io/HP-TechPulse/' },
         { label: 'GitHub Repositories', url: personalInfo.github }
       ]
     };
@@ -437,6 +433,22 @@ const AIAssistant = () => {
       scrollToBottom();
     }
   }, [messages, isOpen, isTyping, showQuestions]);
+
+  // Lock background body scroll and listen for Escape key when chat is open
+  useEffect(() => {
+    if (isOpen) {
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') setIsOpen(false);
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = prevOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [isOpen]);
 
   // Cancel any active speech or microphone recognition when window closes
   useEffect(() => {
@@ -589,31 +601,38 @@ const AIAssistant = () => {
         </button>
       )}
 
-      {/* Floating Chat Panel */}
+      {/* Floating Chat Panel & Backdrop */}
       {isOpen && (
-        <div className={styles.chatWindow} role="dialog" aria-label="Meet's AI Assistant">
-          {/* Header */}
-          <div className={styles.chatHeader}>
-            <div className={styles.headerLeft}>
-              <div className={styles.avatar}>
-                <Bot size={20} color="#ffffff" />
-                <span className={styles.onlineDot} />
+        <>
+          <div
+            className={styles.backdropOverlay}
+            onClick={() => setIsOpen(false)}
+            aria-hidden="true"
+          />
+          <div className={styles.chatWindow} role="dialog" aria-modal="true" aria-label="Meet's AI Assistant">
+            {/* Header */}
+            <div className={styles.chatHeader}>
+              <div className={styles.headerLeft}>
+                <div className={styles.avatar}>
+                  <Bot size={20} color="#ffffff" />
+                  <span className={styles.onlineDot} />
+                </div>
+                <div>
+                  <h3 className={styles.headerTitle}>
+                    Ask Me Anything About Meet <Sparkles size={15} className={styles.headerSparkle} />
+                  </h3>
+                  <p className={styles.headerSubtitle}>I can answer questions about Meet's experience, projects, and skills.</p>
+                </div>
               </div>
-              <div>
-                <h3 className={styles.headerTitle}>
-                  Ask Me Anything About Meet <Sparkles size={15} className={styles.headerSparkle} />
-                </h3>
-                <p className={styles.headerSubtitle}>I can answer questions about Meet's experience, projects, and skills.</p>
-              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className={styles.closeBtn}
+                title="Close Assistant"
+                aria-label="Close Assistant"
+              >
+                <X size={18} />
+              </button>
             </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className={styles.closeBtn}
-              aria-label="Close Assistant"
-            >
-              <X size={18} />
-            </button>
-          </div>
 
           {/* Messages Area */}
           <div className={styles.messagesContainer}>
@@ -762,7 +781,8 @@ const AIAssistant = () => {
             </button>
           </form>
         </div>
-      )}
+      </>
+    )}
     </>
   );
 };
