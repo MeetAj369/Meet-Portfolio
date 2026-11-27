@@ -7,6 +7,7 @@ import { useScrollPosition } from './hooks/useScrollPosition';
 /* Common components — loaded eagerly */
 import Navbar from './components/common/Navbar/Navbar';
 import Loader from './components/common/Loader/Loader';
+import PageTransition from './components/common/PageTransition/PageTransition';
 import ScrollProgress from './components/common/ScrollProgress/ScrollProgress';
 import BackToTop from './components/common/BackToTop/BackToTop';
 import ParticleBackground from './components/common/ParticleBackground/ParticleBackground';
@@ -87,6 +88,9 @@ function App() {
     <div className={styles.app}>
       {/* Loading screen */}
       <Loader isLoading={isLoading} />
+
+      {/* Section navigation transition veil */}
+      <PageTransition />
 
       {/* Particle background */}
       <ParticleBackground theme={theme} />

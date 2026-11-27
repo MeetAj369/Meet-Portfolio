@@ -13,6 +13,7 @@ import {
 import styles from './Skills.module.css';
 import { skillCategories } from '../../../data/skills';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
+import { handleSpotlightMove, handleSpotlightLeave } from '../../../hooks/useCardSpotlight';
 
 const CATEGORY_BADGES = {
   languages: 'Core Foundations',
@@ -83,9 +84,14 @@ const Skills = () => {
 
         {/* Dynamic Bento Ecosystem Container */}
         <div className={styles.skillsContainer}>
-          <div className={`${styles.bentoGrid} ${activeCategory !== 'all' ? styles.singleCategoryGrid : ''}`}>
+          <div key={activeCategory} className={`${styles.bentoGrid} ${activeCategory !== 'all' ? styles.singleCategoryGrid : ''}`}>
             {filteredCategories.map((category) => (
-              <div key={category.id} className={styles.bentoCard}>
+              <div
+                key={category.id}
+                className={`${styles.bentoCard} spotlight-surface`}
+                onMouseMove={handleSpotlightMove}
+                onMouseLeave={handleSpotlightLeave}
+              >
                 {/* Bento Card Header */}
                 <div className={styles.bentoHeader}>
                   <div className={styles.bentoTitleGroup}>

@@ -292,6 +292,35 @@
   color: var(--text-primary);
 }
 
+.inputIconWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.fieldIcon {
+  position: absolute;
+  left: 15px;
+  color: var(--text-tertiary);
+  pointer-events: none;
+  z-index: 2;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.fieldIconTextarea {
+  top: 15px;
+}
+
+.inputIconWrap:focus-within .fieldIcon {
+  color: var(--accent-primary);
+  transform: scale(1.08);
+}
+
+.formInputWithIcon {
+  padding-left: 44px !important;
+}
+
 .formInput, .formTextarea {
   padding: 12px 18px;
   background: rgba(255, 255, 255, 0.04);

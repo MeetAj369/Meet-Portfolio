@@ -159,21 +159,26 @@
 
 /* Liquid Glass Project Window Card */
 .projectCard {
-  background: var(--glass-bg);
+  background: radial-gradient(
+      520px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+      rgba(99, 102, 241, 0.14),
+      transparent 55%
+    ),
+    var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border-radius: var(--radius-xl);
   overflow: hidden;
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow), var(--glass-specular);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   position: relative;
   opacity: 1 !important;
   transform: translateY(0);
-  animation: cardFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: cardFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }
 
 /* Staggered cascade entrance for project cards */
@@ -256,7 +261,12 @@
 }
 
 [data-theme='light'] .projectCard {
-  background: rgba(255, 255, 255, 0.82);
+  background: radial-gradient(
+      520px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+      rgba(79, 70, 229, 0.09),
+      transparent 55%
+    ),
+    rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.95);
   box-shadow: 0 12px 35px rgba(79, 70, 229, 0.08), inset 0 1.5px 1.5px #ffffff;
 }

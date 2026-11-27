@@ -8,15 +8,20 @@ export const useScrollReveal = (options = {}) => {
     if (!element) return;
 
     let isParentRevealed = false;
+    const observeSelector = '.reveal, .reveal-left, .reveal-right, .reveal-scale';
+
+    const revealTarget = (target) => {
+      target.classList.add('revealed');
+      if (target === element) {
+        isParentRevealed = true;
+      }
+    };
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            if (entry.target === element) {
-              isParentRevealed = true;
-            }
+          if (entry.isIntersecting || entry.boundingClientRect.top < window.innerHeight) {
+            revealTarget(entry.target);
             if (options.once !== false) {
               observer.unobserve(entry.target);
             }
@@ -24,22 +29,19 @@ export const useScrollReveal = (options = {}) => {
         });
       },
       {
-        threshold: options.threshold || 0.1,
-        rootMargin: options.rootMargin || '0px 0px -50px 0px'
+        threshold: options.threshold ?? 0.06,
+        rootMargin: options.rootMargin ?? '0px 0px -24px 0px'
       }
     );
-
-    const observeSelector = '.reveal, .reveal-left, .reveal-right, .reveal-scale';
 
     if (options.children) {
       observer.observe(element);
       const children = element.querySelectorAll(observeSelector);
-      children.forEach(child => observer.observe(child));
+      children.forEach((child) => observer.observe(child));
 
-      // Observe dynamic child DOM changes (e.g. tabs/filters)
       const mutObserver = new MutationObserver(() => {
         const newChildren = element.querySelectorAll(observeSelector);
-        newChildren.forEach(child => {
+        newChildren.forEach((child) => {
           if (isParentRevealed || element.classList.contains('revealed')) {
             child.classList.add('revealed');
           } else {

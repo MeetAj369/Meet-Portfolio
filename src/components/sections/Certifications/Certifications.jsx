@@ -5,6 +5,7 @@ import { certifications } from '../../../data/certifications';
 import Modal from '../../common/Modal/Modal';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
+import { handleSpotlightMove, handleSpotlightLeave } from '../../../hooks/useCardSpotlight';
 
 const iconMap = {
   Award,
@@ -40,8 +41,10 @@ const Certifications = () => {
             return (
               <div 
                 key={cert.id || index} 
-                className={styles.certCard}
+                className={`${styles.certCard} spotlight-surface reveal stagger-${Math.min(index + 1, 6)}`}
                 onClick={() => setSelectedCert(cert)}
+                onMouseMove={handleSpotlightMove}
+                onMouseLeave={handleSpotlightLeave}
               >
                 <div className={styles.certIcon}>
                   <IconComponent size={24} />

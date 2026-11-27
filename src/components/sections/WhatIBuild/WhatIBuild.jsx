@@ -2,6 +2,7 @@ import React from 'react';
 import { Globe, ShoppingCart, Database, Cpu, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
+import { handleSpotlightMove, handleSpotlightLeave } from '../../../hooks/useCardSpotlight';
 import { scrollToSection } from '../../../utils/helpers';
 import styles from './WhatIBuild.module.css';
 
@@ -87,7 +88,12 @@ const WhatIBuild = () => {
           {BUILD_PILLARS.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
-              <div key={pillar.id} className={`${styles.pillarCard} reveal stagger-${idx + 1}`}>
+              <div
+                key={pillar.id}
+                className={`${styles.pillarCard} spotlight-surface reveal stagger-${idx + 1}`}
+                onMouseMove={handleSpotlightMove}
+                onMouseLeave={handleSpotlightLeave}
+              >
                 <div className={styles.cardHeader}>
                   <div className={styles.iconWrap}>
                     <Icon size={24} />

@@ -6,6 +6,7 @@ import { projects } from '../../../data/projects';
 import Modal from '../../common/Modal/Modal';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
+import { handleSpotlightMove, handleSpotlightLeave } from '../../../hooks/useCardSpotlight';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -76,12 +77,14 @@ const Projects = () => {
             </button>
           </div>
         ) : (
-          <div className={styles.projectsGrid}>
+          <div key={activeFilter} className={styles.projectsGrid}>
             {filteredProjects.map((project, index) => (
               <div 
                 key={project.id || index} 
-                className={styles.projectCard}
+                className={`${styles.projectCard} spotlight-surface`}
                 onClick={() => setSelectedProject(project)}
+                onMouseMove={handleSpotlightMove}
+                onMouseLeave={handleSpotlightLeave}
               >
                 {/* Developer Window Header Mockup */}
                 <div className={styles.windowHeader}>

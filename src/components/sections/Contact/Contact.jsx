@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Copy, Check, ExternalLink, Clock, Sparkles, ArrowUpRight, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Copy, Check, ExternalLink, Clock, Sparkles, ArrowUpRight, MessageSquare, User, FileText } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, WhatsappIcon } from '../../common/Icons/BrandIcons';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
+import { handleSpotlightMove, handleSpotlightLeave } from '../../../hooks/useCardSpotlight';
 import { isValidEmail } from '../../../utils/helpers';
 import { personalInfo, socialLinks } from '../../../data/personalInfo';
 import styles from './Contact.module.css';
@@ -247,60 +248,72 @@ const Contact = () => {
               <form className={styles.form} onSubmit={(e) => { e.preventDefault(); handleSendEmail('gmail'); }} noValidate>
                 <div className={styles.formGroup}>
                   <label htmlFor="name" className={styles.formLabel}>Your Name</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    name="name" 
-                    value={formData.name} 
-                    onChange={handleChange} 
-                    className={`${styles.formInput} ${errors.name ? styles.inputError : ''}`} 
-                    placeholder="e.g. Alex Morgan" 
-                    aria-invalid={!!errors.name} 
-                  />
+                  <div className={styles.inputIconWrap}>
+                    <User size={16} className={styles.fieldIcon} />
+                    <input 
+                      type="text" 
+                      id="name" 
+                      name="name" 
+                      value={formData.name} 
+                      onChange={handleChange} 
+                      className={`${styles.formInput} ${styles.formInputWithIcon} ${errors.name ? styles.inputError : ''}`} 
+                      placeholder="e.g. Alex Morgan" 
+                      aria-invalid={!!errors.name} 
+                    />
+                  </div>
                   {errors.name && <span className={styles.formError}>{errors.name}</span>}
                 </div>
                 
                 <div className={styles.formGroup}>
                   <label htmlFor="email" className={styles.formLabel}>Your Email</label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    value={formData.email} 
-                    onChange={handleChange} 
-                    className={`${styles.formInput} ${errors.email ? styles.inputError : ''}`} 
-                    placeholder="alex@example.com" 
-                    aria-invalid={!!errors.email} 
-                  />
+                  <div className={styles.inputIconWrap}>
+                    <Mail size={16} className={styles.fieldIcon} />
+                    <input 
+                      type="email" 
+                      id="email" 
+                      name="email" 
+                      value={formData.email} 
+                      onChange={handleChange} 
+                      className={`${styles.formInput} ${styles.formInputWithIcon} ${errors.email ? styles.inputError : ''}`} 
+                      placeholder="alex@example.com" 
+                      aria-invalid={!!errors.email} 
+                    />
+                  </div>
                   {errors.email && <span className={styles.formError}>{errors.email}</span>}
                 </div>
                 
                 <div className={styles.formGroup}>
                   <label htmlFor="subject" className={styles.formLabel}>Subject</label>
-                  <input 
-                    type="text" 
-                    id="subject" 
-                    name="subject" 
-                    value={formData.subject} 
-                    onChange={handleChange} 
-                    className={`${styles.formInput} ${errors.subject ? styles.inputError : ''}`} 
-                    placeholder="Job Opportunity / Project Collaboration" 
-                    aria-invalid={!!errors.subject} 
-                  />
+                  <div className={styles.inputIconWrap}>
+                    <FileText size={16} className={styles.fieldIcon} />
+                    <input 
+                      type="text" 
+                      id="subject" 
+                      name="subject" 
+                      value={formData.subject} 
+                      onChange={handleChange} 
+                      className={`${styles.formInput} ${styles.formInputWithIcon} ${errors.subject ? styles.inputError : ''}`} 
+                      placeholder="Job Opportunity / Project Collaboration" 
+                      aria-invalid={!!errors.subject} 
+                    />
+                  </div>
                   {errors.subject && <span className={styles.formError}>{errors.subject}</span>}
                 </div>
                 
                 <div className={styles.formGroup}>
                   <label htmlFor="message" className={styles.formLabel}>Message</label>
-                  <textarea 
-                    id="message" 
-                    name="message" 
-                    value={formData.message} 
-                    onChange={handleChange} 
-                    className={`${styles.formTextarea} ${errors.message ? styles.inputError : ''}`} 
-                    placeholder="Hi Meet, I came across your portfolio and would like to discuss..." 
-                    aria-invalid={!!errors.message} 
-                  />
+                  <div className={styles.inputIconWrap}>
+                    <MessageSquare size={16} className={`${styles.fieldIcon} ${styles.fieldIconTextarea}`} />
+                    <textarea 
+                      id="message" 
+                      name="message" 
+                      value={formData.message} 
+                      onChange={handleChange} 
+                      className={`${styles.formTextarea} ${styles.formInputWithIcon} ${errors.message ? styles.inputError : ''}`} 
+                      placeholder="Hi Meet, I came across your portfolio and would like to discuss..." 
+                      aria-invalid={!!errors.message} 
+                    />
+                  </div>
                   {errors.message && <span className={styles.formError}>{errors.message}</span>}
                 </div>
                 

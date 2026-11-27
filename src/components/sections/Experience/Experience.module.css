@@ -51,6 +51,16 @@
   border-radius: 50%;
   z-index: 1;
   box-shadow: 0 0 16px rgba(99, 102, 241, 0.75), 0 0 30px rgba(34, 211, 238, 0.35);
+  animation: dotPulseGlow 2.8s ease-in-out infinite;
+}
+
+@keyframes dotPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.7), 0 0 24px rgba(34, 211, 238, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.95), 0 0 40px rgba(34, 211, 238, 0.55);
+  }
 }
 
 .timelineItem:nth-child(odd) .timelineDot {

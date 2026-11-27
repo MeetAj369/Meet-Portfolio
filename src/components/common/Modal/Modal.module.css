@@ -4,27 +4,29 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  height: 100dvh;
+  background-color: rgba(4, 8, 20, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: var(--z-modal, 1000);
-  animation: fadeIn var(--transition-normal) ease-out;
+  animation: fadeIn 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .modal {
   background: var(--bg-secondary, #1e293b);
   border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));
-  border-radius: var(--radius-lg, 16px);
+  border-radius: var(--radius-xl, 24px);
   width: 90%;
-  max-width: 700px;
-  max-height: 80vh;
+  max-width: 720px;
+  max-height: 84vh;
+  max-height: 84dvh;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-lg);
-  animation: slideUp var(--transition-normal) ease-out;
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.55), var(--glass-specular);
+  animation: slideUp 0.36s cubic-bezier(0.22, 1, 0.36, 1);
   overflow: hidden;
 }
 
@@ -86,11 +88,13 @@
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(26px) scale(0.95);
+    filter: blur(6px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: blur(0);
   }
 }
 
