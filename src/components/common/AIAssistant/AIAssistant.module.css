@@ -1,4 +1,4 @@
-/* Floating Action Button: Premium Apple Liquid Glass Capsule */
+/* Floating Action Button: Fast GPU Glass Capsule */
 .fabBtn {
   position: fixed;
   bottom: 24px;
@@ -7,23 +7,18 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.88) 0%, rgba(34, 211, 238, 0.82) 100%);
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.96) 0%, rgba(14, 165, 233, 0.94) 100%);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.38);
   padding: 8px 16px 8px 10px;
   border-radius: var(--radius-full);
   cursor: pointer;
   box-shadow: 
-    0 12px 32px -4px rgba(99, 102, 241, 0.45),
-    0 4px 16px rgba(34, 211, 238, 0.25),
-    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -1.5px 1px 0 rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    0 10px 26px -4px rgba(79, 70, 229, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.5);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
   font-family: inherit;
   overflow: hidden;
-  animation: floatFab 4s ease-in-out infinite;
 }
 
 @keyframes floatFab {
@@ -217,12 +212,10 @@
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  background: rgba(4, 8, 20, 0.72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(4, 8, 20, 0.62);
   z-index: 99998;
   touch-action: none;
-  animation: backdropFade 0.25s ease-out;
+  animation: backdropFade 0.2s ease-out;
 }
 
 [data-theme='light'] .backdropOverlay {
@@ -234,7 +227,7 @@
   to { opacity: 1; }
 }
 
-/* Chat Panel Window: Pure Liquid Glass Window */
+/* Chat Panel Window */
 .chatWindow {
   position: fixed;
   bottom: 24px;
@@ -243,17 +236,15 @@
   max-width: calc(100vw - 32px);
   height: 590px;
   max-height: calc(100vh - 48px);
-  background: rgba(10, 17, 34, 0.96);
-  backdrop-filter: blur(28px) saturate(190%);
-  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  background: rgba(10, 17, 34, 0.98);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), var(--glass-specular), 0 0 35px rgba(99, 102, 241, 0.25);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.6), var(--glass-specular);
   z-index: 100000;
   overflow: hidden;
-  animation: popIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: popIn 0.26s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 [data-theme='light'] .chatWindow {
@@ -959,23 +950,23 @@
   }
 
   .fabBtn {
-    bottom: max(22px, env(safe-area-inset-bottom, 22px)) !important;
+    bottom: max(18px, env(safe-area-inset-bottom, 18px)) !important;
     right: max(16px, env(safe-area-inset-right, 16px)) !important;
     z-index: 99999 !important;
-    padding: 8px 16px 8px 10px !important;
-    gap: 8px !important;
-    border-radius: var(--radius-full) !important;
-    width: auto !important;
-    height: auto !important;
-    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.6) !important;
+    padding: 0 !important;
+    width: 48px !important;
+    height: 48px !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    box-shadow: 0 8px 22px rgba(79, 70, 229, 0.52) !important;
   }
 
   .fabIconWrap {
-    width: 28px !important;
-    height: 28px !important;
+    width: 48px !important;
+    height: 48px !important;
     border-radius: 50% !important;
-    background: rgba(255, 255, 255, 0.22) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    background: transparent !important;
+    border: none !important;
     box-shadow: none !important;
     display: flex !important;
     align-items: center !important;
@@ -983,21 +974,12 @@
   }
 
   .pulseGlow {
-    top: 2px !important;
-    right: 2px !important;
+    top: 4px !important;
+    right: 4px !important;
   }
 
-  .fabLabel {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    font-size: 0.82rem !important;
-    font-weight: 700 !important;
-    color: #ffffff !important;
-    white-space: nowrap !important;
-  }
-
+  .fabLabel,
   .fabAiBadge {
-    display: inline-flex !important;
+    display: none !important;
   }
 }

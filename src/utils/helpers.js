@@ -1,55 +1,40 @@
-// Smooth scroll to section with dynamic navbar height offset, safe clearance, and optional transition veil
+export const PAGE_ORDER = ['hero', 'about', 'skills', 'projects', 'experience', 'contact'];
+
+export const SECTION_TO_PAGE = {
+  home: { page: 'hero', anchor: null },
+  hero: { page: 'hero', anchor: null },
+  about: { page: 'about', anchor: null },
+  statistics: { page: 'about', anchor: 'statistics' },
+  education: { page: 'about', anchor: 'education' },
+  skills: { page: 'skills', anchor: null },
+  'what-i-build': { page: 'skills', anchor: 'what-i-build' },
+  projects: { page: 'projects', anchor: null },
+  experience: { page: 'experience', anchor: null },
+  certifications: { page: 'experience', anchor: 'certifications' },
+  resume: { page: 'experience', anchor: 'resume' },
+  contact: { page: 'contact', anchor: null }
+};
+
+export const resolveRouteTarget = (targetId) => {
+  const key = (targetId || 'hero').toLowerCase().replace(/^#/, '');
+  return SECTION_TO_PAGE[key] || { page: 'hero', anchor: null };
+};
+
+// Navigate seamlessly across multi-page views with optional IMG_2370.MP4 horizontal slide + clean spinner
 export const scrollToSection = (sectionId, options = {}) => {
   const { transition = true } = options;
-  const element = document.getElementById(sectionId);
-  if (!element) return;
+  const { page, anchor } = resolveRouteTarget(sectionId);
 
-  const performScroll = () => {
-    const navEl = document.querySelector('header');
-    const navHeight = navEl ? navEl.offsetHeight : (window.innerWidth <= 768 ? 64 : 72);
-    const safeClearance = 24;
-    const elementTop = element.getBoundingClientRect().top + window.scrollY;
-    const targetPosition = Math.max(0, elementTop - navHeight - safeClearance);
-
-    window.scrollTo({
-      top: targetPosition,
-      behavior: transition ? 'auto' : 'smooth'
-    });
-
-    // Trigger crisp arrival focus reveal on destination section & ensure children are revealed
-    element.classList.remove('section-arriving');
-    void element.offsetWidth;
-    element.classList.add('section-arriving');
-    element.classList.add('revealed');
-    element.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((child) => {
-      child.classList.add('revealed');
-    });
-
-    try {
-      if (window.location.hash !== `#${sectionId}`) {
-        window.history.pushState(null, '', `#${sectionId}`);
+  window.dispatchEvent(
+    new CustomEvent('portfolio:route', {
+      detail: {
+        targetId: sectionId,
+        page,
+        anchor,
+        transition
       }
-    } catch (_) {}
-  };
-
-  const prefersReducedMotion =
-    typeof window !== 'undefined' &&
-    window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const navEl = document.querySelector('header');
-  const navHeight = navEl ? navEl.offsetHeight : 72;
-  const dist = Math.abs(element.getBoundingClientRect().top - navHeight - 24);
-
-  if (transition && !prefersReducedMotion && dist > 140) {
-    window.dispatchEvent(
-      new CustomEvent('portfolio:navigate', {
-        detail: { sectionId, onApex: performScroll }
-      })
-    );
-  } else {
-    performScroll();
-  }
+    })
+  );
 };
 
 // Debounce function

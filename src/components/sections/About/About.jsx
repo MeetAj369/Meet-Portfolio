@@ -4,11 +4,7 @@ import {
   GraduationCap, 
   Mail, 
   Circle, 
-  Terminal as TerminalIcon, 
-  Zap, 
-  Award, 
-  Cpu, 
-  Database
+  Terminal as TerminalIcon
 } from 'lucide-react';
 import styles from './About.module.css';
 import { personalInfo } from '../../../data/personalInfo';
@@ -50,29 +46,6 @@ Email:    meetaj369@gmail.com`
   }
 ];
 
-const CORE_STRENGTHS = [
-  {
-    icon: Zap,
-    title: 'Full-Stack Performance',
-    description: 'Engineering responsive Next.js 16 & React 19 interfaces backed by asynchronous Python FastAPI & Node.js microservices.'
-  },
-  {
-    icon: Award,
-    title: 'Hackathon Proven',
-    description: 'Architected CareerSync at TechSprint 2.0 spanning 49+ career paths and 18 normalized PostgreSQL schemas under competition deadlines.'
-  },
-  {
-    icon: Cpu,
-    title: 'AI-Augmented Engineering',
-    description: 'Techfest @IIT Bombay certified in AI/ML; leveraging Claude AI and LLMs to accelerate developer velocity and clean code.'
-  },
-  {
-    icon: Database,
-    title: 'Relational & Schema Rigor',
-    description: 'Designing normalized, ACID-compliant database architectures across PostgreSQL and MySQL for enterprise stability.'
-  }
-];
-
 const About = () => {
   const aboutRef = useScrollReveal({ children: true });
   const [activeCmdIdx, setActiveCmdIdx] = useState(0);
@@ -86,28 +59,10 @@ const About = () => {
         </div>
 
         <div className={styles.content}>
-          {/* Left Column: Bio Narrative & Creative Strengths Grid */}
+          {/* Left Column: Concise Bio Narrative & Active R&D */}
           <div className={styles.leftColumn}>
             <div className={styles.aboutText}>
               <p>{personalInfo.about}</p>
-            </div>
-
-            {/* Creative Engineering DNA Grid */}
-            <div className={styles.strengthsGrid}>
-              {CORE_STRENGTHS.map((item, idx) => {
-                const IconComponent = item.icon;
-                return (
-                  <div key={idx} className={styles.strengthCard}>
-                    <div className={styles.strengthHeader}>
-                      <div className={styles.strengthIconWrap}>
-                        <IconComponent size={18} />
-                      </div>
-                      <h4 className={styles.strengthTitle}>{item.title}</h4>
-                    </div>
-                    <p className={styles.strengthDesc}>{item.description}</p>
-                  </div>
-                );
-              })}
             </div>
 
             {/* Live Active R&D Radar Strip */}
@@ -118,7 +73,7 @@ const About = () => {
               </div>
               <div className={styles.radarText}>
                 <span className={styles.radarLabel}>ACTIVE R&amp;D:</span>
-                <span className={styles.radarContent}>Next.js 16 App Router • Python FastAPI • Agentic AI Workflows • Liquid Glass Systems</span>
+                <span className={styles.radarContent}>Next.js 16 App Router • Python FastAPI • Agentic AI Workflows • PostgreSQL &amp; MySQL</span>
               </div>
             </div>
           </div>

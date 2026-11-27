@@ -88,13 +88,11 @@
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(26px) scale(0.95);
-    filter: blur(6px);
+    transform: translate3d(0, 20px, 0) scale3d(0.97, 0.97, 1);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
 }
 

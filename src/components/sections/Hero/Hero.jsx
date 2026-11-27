@@ -174,52 +174,49 @@ const Hero = () => {
 
   return (
     <section id="hero" className={styles.hero} aria-label="Introduction">
-      <div className={styles.orb1} aria-hidden="true" />
-      <div className={styles.orb2} aria-hidden="true" />
-      <div className={styles.orb3} aria-hidden="true" />
-      <div className={styles.orb4} aria-hidden="true" />
-
       <div className={`container ${styles.grid}`}>
         {/* LEFT */}
         <div className={styles.left}>
-          <div className={`${styles.badge} ${styles.heroReveal}`} style={{ animationDelay: '0.04s' }}>
-            <span className={styles.dot} />
-            Available for opportunities
+          <div className={styles.mobileHeaderRow}>
+            <div className={styles.mobileAvatarWrap}>
+              <picture>
+                <source srcSet="/Meet-Portfolio/uploads/Photo.webp" type="image/webp" />
+                <img
+                  src="/Meet-Portfolio/uploads/Photo.png"
+                  alt="Meet Chauhan"
+                  className={styles.mobileAvatarImg}
+                  width="64"
+                  height="64"
+                  loading="eager"
+                />
+              </picture>
+            </div>
+            <div className={`${styles.badge} ${styles.heroReveal}`} style={{ animationDelay: '0.03s' }}>
+              <span className={styles.dot} />
+              Available for Full-Stack &amp; AI Roles
+            </div>
           </div>
 
-          <p className={`${styles.greeting} ${styles.heroReveal}`} style={{ animationDelay: '0.1s' }}>
+          <p className={`${styles.greeting} ${styles.heroReveal}`} style={{ animationDelay: '0.06s' }}>
             Hi there, I'm
           </p>
-          <h1 className={`${styles.name} ${styles.heroReveal}`} style={{ animationDelay: '0.16s' }}>
+          <h1 className={`${styles.name} ${styles.heroReveal}`} style={{ animationDelay: '0.1s' }}>
             <span className="gradient-text-animated">Meet</span>{' '}Chauhan
           </h1>
 
-          <div className={`${styles.typeRow} ${styles.heroReveal}`} style={{ animationDelay: '0.22s' }}>
+          <div className={`${styles.typeRow} ${styles.heroReveal}`} style={{ animationDelay: '0.14s' }}>
             <span className={styles.typePre}>I'm a </span>
             <span className={styles.typeText}>{text}</span>
             <span className={styles.typeCursor} aria-hidden="true">|</span>
           </div>
 
-          <p className={`${styles.bio} ${styles.heroReveal}`} style={{ animationDelay: '0.28s' }}>
-            Full Stack &amp; Frontend Developer passionate about building high-performance
-            web applications, enterprise platforms, and AI-powered systems. BCA undergraduate
-            (CGPA: 8.73) at Charutar Vidya Mandal University, Anand, Gujarat.
+          <p className={`${styles.bio} ${styles.heroReveal}`} style={{ animationDelay: '0.18s' }}>
+            Full Stack &amp; AI Developer crafting scalable <strong>React 19, Next.js 16 &amp; Python FastAPI</strong> applications. BCA Honors (<strong>8.73 CGPA</strong>) at Charutar Vidya Mandal University.
           </p>
 
-          {/* Recruiter Context Banner */}
-          <div className={`${styles.currentlyBanner} ${styles.heroReveal}`} style={{ animationDelay: '0.34s' }}>
-            <div className={styles.currentlyHeader}>
-              <span className={styles.currentlyPulse} />
-              <span className={styles.currentlyTag}>CURRENT FOCUS</span>
-            </div>
-            <p className={styles.currentlyText}>
-              Building full-stack projects, strengthening <strong>ReactJS, MERN, Python &amp; backend development</strong>, and actively looking for <strong>Job opportunities</strong>.
-            </p>
-          </div>
-
-          <div className={`${styles.cta} ${styles.heroReveal}`} style={{ animationDelay: '0.4s' }}>
+          <div className={`${styles.cta} ${styles.heroReveal}`} style={{ animationDelay: '0.22s' }}>
             <button className={styles.btnPrimary} onClick={() => scrollToSection('projects', { transition: true })}>
-              <span>View Projects</span>
+              <span>Explore Projects</span>
               <ArrowRight size={17} className={styles.btnArrow} />
             </button>
             <div className={styles.secondaryActionsRow}>
@@ -232,7 +229,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className={`${styles.socials} ${styles.heroReveal}`} style={{ animationDelay: '0.46s' }}>
+          <div className={`${styles.socials} ${styles.heroReveal}`} style={{ animationDelay: '0.26s' }}>
             <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="LinkedIn">
               <LinkedinIcon size={19} />
             </a>
@@ -257,13 +254,10 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* RIGHT: 3D TILT PORTRAIT + INTERACTIVE SWIPEABLE SHOWCASE DECK */}
+        {/* RIGHT: INTERACTIVE 3D PORTRAIT + SWIPEABLE SPOTLIGHT CAROUSEL */}
         <div className={styles.right}>
           <div className={styles.showcaseWrap}>
-            {/* Ambient soft backlight */}
-            <div className={styles.ambientGlow} aria-hidden="true" />
-
-            {/* Portrait Card with interactive 3D pointer tilt */}
+            {/* Portrait Card on Desktop with 3D tilt */}
             <div
               ref={photoCardRef}
               className={styles.photoCard}
@@ -305,7 +299,7 @@ const Hero = () => {
               <span className={styles.statusText}>Full Stack Developer • Open to Work</span>
             </div>
 
-            {/* Interactive Swipeable Spotlight Carousel Deck (IMG_2370.MP4 Signature Card) */}
+            {/* Interactive Swipeable Spotlight Carousel Deck */}
             <div
               className={styles.deckContainer}
               onMouseEnter={() => setIsPaused(true)}
@@ -411,14 +405,6 @@ const Hero = () => {
           ))}
         </div>
       </div>
-
-      <button
-        onClick={() => scrollToSection('about', { transition: true })}
-        className={styles.scrollDown}
-        aria-label="Scroll down to About section"
-      >
-        <ChevronDown size={26} />
-      </button>
     </section>
   );
 };

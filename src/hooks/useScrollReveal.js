@@ -7,60 +7,50 @@ export const useScrollReveal = (options = {}) => {
     const element = ref.current;
     if (!element) return;
 
-    let isParentRevealed = false;
     const observeSelector = '.reveal, .reveal-left, .reveal-right, .reveal-scale';
 
     const revealTarget = (target) => {
       target.classList.add('revealed');
-      if (target === element) {
-        isParentRevealed = true;
+    };
+
+    // Immediately reveal elements already within viewport on initial page mount
+    const immediateCheck = (el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 60) {
+        revealTarget(el);
+        return true;
       }
+      return false;
     };
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting || entry.boundingClientRect.top < window.innerHeight) {
+          if (entry.isIntersecting || entry.boundingClientRect.top < window.innerHeight + 40) {
             revealTarget(entry.target);
-            if (options.once !== false) {
-              observer.unobserve(entry.target);
-            }
+            observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: options.threshold ?? 0.06,
-        rootMargin: options.rootMargin ?? '0px 0px -24px 0px'
+        threshold: options.threshold ?? 0.02,
+        rootMargin: options.rootMargin ?? '60px 0px 60px 0px'
       }
     );
 
     if (options.children) {
-      observer.observe(element);
+      if (!immediateCheck(element)) observer.observe(element);
       const children = element.querySelectorAll(observeSelector);
-      children.forEach((child) => observer.observe(child));
-
-      const mutObserver = new MutationObserver(() => {
-        const newChildren = element.querySelectorAll(observeSelector);
-        newChildren.forEach((child) => {
-          if (isParentRevealed || element.classList.contains('revealed')) {
-            child.classList.add('revealed');
-          } else {
-            observer.observe(child);
-          }
-        });
+      children.forEach((child) => {
+        if (!immediateCheck(child)) observer.observe(child);
       });
 
-      mutObserver.observe(element, { childList: true, subtree: true });
-
-      return () => {
-        observer.disconnect();
-        mutObserver.disconnect();
-      };
+      return () => observer.disconnect();
     } else {
-      observer.observe(element);
+      if (!immediateCheck(element)) observer.observe(element);
       return () => observer.disconnect();
     }
-  }, [options.threshold, options.rootMargin, options.once, options.children]);
+  }, [options.threshold, options.rootMargin, options.children]);
 
   return ref;
 };

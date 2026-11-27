@@ -12,19 +12,19 @@
 }
 
 .navbar.scrolled {
-  background: var(--navbar-bg);
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  background: rgba(6, 11, 23, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--glass-border);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.45), var(--glass-specular);
+  box-shadow: 0 8px 24px -10px rgba(0, 0, 0, 0.45);
 }
 
 [data-theme='light'] .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(79, 70, 229, 0.12);
-  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.08), inset 0 1px 1px #ffffff;
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.08);
 }
 
 .inner {
@@ -49,19 +49,17 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  background: rgba(13, 22, 44, 0.48);
+  background: rgba(13, 22, 44, 0.85);
   padding: 5px 8px;
   border-radius: var(--radius-full);
   border: 1px solid var(--glass-border);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  box-shadow: var(--glass-specular), 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--glass-specular), 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme='light'] .desktopNav {
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(79, 70, 229, 0.14);
-  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.06), inset 0 1px 1px #ffffff;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.06);
 }
 
 .navLink {
@@ -157,12 +155,10 @@
   height: 100vh;
   height: 100dvh;
   z-index: 100050;
-  background: rgba(4, 8, 20, 0.62);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(4, 8, 20, 0.56);
   display: flex;
   justify-content: flex-end;
-  animation: overlayFadeIn 0.25s ease forwards;
+  animation: overlayFadeIn 0.2s ease forwards;
 }
 
 [data-theme='light'] .drawerOverlay {
@@ -307,13 +303,11 @@
 @keyframes drawerCascadeIn {
   from {
     opacity: 0;
-    transform: translateX(24px);
-    filter: blur(4px);
+    transform: translate3d(20px, 0, 0);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
-    filter: blur(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 

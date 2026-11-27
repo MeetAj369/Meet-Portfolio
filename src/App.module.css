@@ -1,11 +1,211 @@
 .app {
   position: relative;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.sectionLoader {
-  min-height: 100vh;
+.mainViewport {
+  flex: 1 0 auto;
+  width: 100%;
+  overflow-x: clip;
+}
+
+.pageContainer {
+  width: 100%;
+}
+
+.subpageOffset {
+  padding-top: 76px;
+}
+
+/* Compact 4-Card Quick Page Hub on Home */
+.quickExploreSection {
+  padding: 12px 0 42px;
+}
+
+.quickExploreGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.quickCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-specular);
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.22s ease, box-shadow 0.22s ease;
+  cursor: pointer;
+}
+
+.quickCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-primary);
+  box-shadow: var(--glass-shadow-hover);
+}
+
+.quickCardTop {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.quickIconWrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(99, 102, 241, 0.14);
+  color: #38bdf8;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+[data-theme='light'] .quickIconWrap {
+  background: rgba(79, 70, 229, 0.08);
+  color: #4f46e5;
+}
+
+.quickTag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+}
+
+.quickTitle {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.quickDesc {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  margin: 0;
+  flex: 1;
+}
+
+.quickArrowRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  margin-top: 2px;
+}
+
+/* Previous / Next Page Pager Bar */
+.pagerWrap {
+  padding: 12px 0 42px;
+}
+
+.pagerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.pagerBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-specular);
+  color: var(--text-primary);
+  text-align: left;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.pagerBtn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+}
+
+.pagerBtnNext {
+  text-align: right;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.16) 0%, rgba(34, 211, 238, 0.12) 100%);
+  border-color: rgba(99, 102, 241, 0.35);
+}
+
+[data-theme='light'] .pagerBtnNext {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(8, 145, 178, 0.08) 100%);
+}
+
+.pagerBtn span {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.pagerBtn small {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.pagerBtn strong {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.pagerIndicator {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+}
+
+@media (max-width: 1024px) {
+  .quickExploreGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .subpageOffset {
+    padding-top: 66px;
+  }
+  .quickExploreGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .quickCard {
+    padding: 15px;
+  }
+  .pagerIndicator {
+    display: none;
+  }
+  .pagerBtn {
+    flex: 1;
+    padding: 11px 14px;
+    justify-content: center;
+  }
 }
