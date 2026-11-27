@@ -57,13 +57,16 @@ const Footer = () => {
 
           {/* Quick Links Column */}
           <div className={styles.footerLinksCol}>
-            <h4 className={styles.footerTitle}>Pages</h4>
+            <h4 className={styles.footerTitle}>Quick Links</h4>
             <div className={styles.footerLinks}>
               <button onClick={() => scrollToSection('hero')} className={styles.footerLink}>Home</button>
-              <button onClick={() => scrollToSection('about')} className={styles.footerLink}>About &amp; Education</button>
-              <button onClick={() => scrollToSection('skills')} className={styles.footerLink}>Skills &amp; Stack</button>
-              <button onClick={() => scrollToSection('projects')} className={styles.footerLink}>Featured Projects</button>
-              <button onClick={() => scrollToSection('experience')} className={styles.footerLink}>Experience &amp; Resume</button>
+              <button onClick={() => scrollToSection('about')} className={styles.footerLink}>About</button>
+              <button onClick={() => scrollToSection('what-i-build')} className={styles.footerLink}>What I Build</button>
+              <button onClick={() => scrollToSection('skills')} className={styles.footerLink}>Skills</button>
+              <button onClick={() => scrollToSection('projects')} className={styles.footerLink}>Projects</button>
+              <button onClick={() => scrollToSection('experience')} className={styles.footerLink}>Experience</button>
+              <button onClick={() => scrollToSection('certifications')} className={styles.footerLink}>Certifications</button>
+              <button onClick={() => scrollToSection('resume')} className={styles.footerLink}>Resume</button>
               <button onClick={() => scrollToSection('contact')} className={styles.footerLink}>Contact</button>
             </div>
           </div>

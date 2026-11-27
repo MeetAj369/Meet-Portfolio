@@ -405,6 +405,14 @@ const Hero = () => {
           ))}
         </div>
       </div>
+
+      <button
+        onClick={() => scrollToSection('about', { transition: false })}
+        className={styles.scrollDown}
+        aria-label="Scroll down to About section"
+      >
+        <ChevronDown size={24} />
+      </button>
     </section>
   );
 };

@@ -27,6 +27,9 @@ const NAV_LINKS = [
   { id: 'skills', label: 'Skills', icon: Code2 },
   { id: 'projects', label: 'Projects', icon: FolderGit2 },
   { id: 'experience', label: 'Experience', icon: Briefcase },
+  { id: 'certifications', label: 'Certifications', icon: Award },
+  { id: 'education', label: 'Education', icon: GraduationCap, mobileOnly: true },
+  { id: 'resume', label: 'Resume', icon: FileText },
   { id: 'contact', label: 'Contact', icon: Mail },
 ];
 
@@ -35,7 +38,7 @@ const Navbar = ({ theme, toggleTheme, activeSection }) => {
   const [isClosing, setIsClosing] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const desktopLinks = NAV_LINKS;
+  const desktopLinks = NAV_LINKS.filter((l) => !l.mobileOnly);
 
   const openMenu = () => {
     setIsClosing(false);

@@ -1,40 +1,58 @@
-export const PAGE_ORDER = ['hero', 'about', 'skills', 'projects', 'experience', 'contact'];
-
-export const SECTION_TO_PAGE = {
-  home: { page: 'hero', anchor: null },
-  hero: { page: 'hero', anchor: null },
-  about: { page: 'about', anchor: null },
-  statistics: { page: 'about', anchor: 'statistics' },
-  education: { page: 'about', anchor: 'education' },
-  skills: { page: 'skills', anchor: null },
-  'what-i-build': { page: 'skills', anchor: 'what-i-build' },
-  projects: { page: 'projects', anchor: null },
-  experience: { page: 'experience', anchor: null },
-  certifications: { page: 'experience', anchor: 'certifications' },
-  resume: { page: 'experience', anchor: 'resume' },
-  contact: { page: 'contact', anchor: null }
-};
-
-export const resolveRouteTarget = (targetId) => {
-  const key = (targetId || 'hero').toLowerCase().replace(/^#/, '');
-  return SECTION_TO_PAGE[key] || { page: 'hero', anchor: null };
-};
-
-// Navigate seamlessly across multi-page views with optional IMG_2370.MP4 horizontal slide + clean spinner
+// Smooth scroll to section with dynamic navbar height offset, safe clearance, and smooth transition veil on long jumps
 export const scrollToSection = (sectionId, options = {}) => {
   const { transition = true } = options;
-  const { page, anchor } = resolveRouteTarget(sectionId);
+  const cleanId = (sectionId || 'hero').toLowerCase().replace(/^#/, '');
+  const targetId = cleanId === 'home' ? 'hero' : cleanId;
+  const element = document.getElementById(targetId);
+  if (!element) return;
 
-  window.dispatchEvent(
-    new CustomEvent('portfolio:route', {
-      detail: {
-        targetId: sectionId,
-        page,
-        anchor,
-        transition
+  const performScroll = (smoothFallback = false) => {
+    const navEl = document.querySelector('header');
+    const navHeight = navEl ? navEl.offsetHeight : (window.innerWidth <= 768 ? 64 : 72);
+    const safeClearance = 18;
+    const elementTop = element.getBoundingClientRect().top + window.scrollY;
+    const targetPosition = Math.max(0, elementTop - navHeight - safeClearance);
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: smoothFallback ? 'smooth' : 'auto'
+    });
+
+    // Trigger crisp arrival focus transition & guarantee children are revealed
+    element.classList.remove('section-arriving');
+    void element.offsetWidth;
+    element.classList.add('section-arriving');
+    element.classList.add('revealed');
+    element.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((child) => {
+      child.classList.add('revealed');
+    });
+
+    try {
+      const hashStr = `#${targetId}`;
+      if (window.location.hash !== hashStr) {
+        window.history.pushState(null, '', hashStr);
       }
-    })
-  );
+    } catch (_) {}
+  };
+
+  const prefersReducedMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const navEl = document.querySelector('header');
+  const navHeight = navEl ? navEl.offsetHeight : 72;
+  const dist = Math.abs(element.getBoundingClientRect().top - navHeight - 18);
+
+  if (transition && !prefersReducedMotion && dist > 320) {
+    window.dispatchEvent(
+      new CustomEvent('portfolio:navigate', {
+        detail: { sectionId: targetId, onApex: () => performScroll(false) }
+      })
+    );
+  } else {
+    performScroll(true);
+  }
 };
 
 // Debounce function
