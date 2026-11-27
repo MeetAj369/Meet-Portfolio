@@ -80,7 +80,7 @@ const SHOWCASE_SLIDES = [
     metric: 'SSE Token Streaming • Claude AI • IIT Bombay AI/ML Certified',
     accent: '#38bdf8',
     icons: [
-      { label: 'Claude AI', src: 'https://cdn.simpleicons.org/anthropic/CC9B7A' },
+      { label: 'Python AI', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
       { label: 'TensorFlow', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg' },
       { label: 'FastAPI', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg' },
       { label: 'TypeScript', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
