@@ -32,7 +32,8 @@ export const skillCategories = [
     icon: 'Server',
     skills: [
       { name: 'FastAPI', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg' },
-      { name: 'NodeJS', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
+      { name: 'NodeJS', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
+      { name: 'Express.js', level: 86, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg' },
       { name: 'REST APIs & JSON', level: 92, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
       { name: 'SQLAlchemy', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
       { name: 'ASP.Net', level: 78, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg' }
@@ -43,6 +44,7 @@ export const skillCategories = [
     name: 'Databases',
     icon: 'Database',
     skills: [
+      { name: 'MongoDB', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
       { name: 'PostgreSQL', level: 88, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
       { name: 'MySQL', level: 95, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
       { name: 'SQLite', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg' },

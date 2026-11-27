@@ -15,27 +15,27 @@ const TERMINAL_COMMANDS = [
     cmd: 'meet --whoami',
     output: `{
   "name": "Meet Chauhan",
-  "role": "Full Stack & Frontend Dev",
-  "education": "CVMU",
+  "role": "Full Stack & AI Developer",
+  "education": "CVMU (BCA)",
   "cgpa": "8.73 / 10.0",
-  "stack": ["ReactJS", "NodeJS", "Python"]
+  "stack": ["MERN", "React 19", "Python FastAPI"]
 }`
   },
   {
     cmd: 'meet --stack',
-    output: `[Frontend]  ReactJS, Next.js 16, TypeScript
+    output: `[Frontend]  React 19, Next.js 16, TypeScript
             Tailwind CSS 4, HTML5/CSS3
-[Backend]   Python FastAPI, NodeJS, PHP
-            REST APIs, JSON
-[Database]  PostgreSQL, MySQL, SQLite
-[Tools]     Git, GitHub, VS Code, Claude AI`
+[Backend]   Node.js, Express, FastAPI, PHP
+            SSE Streaming, REST APIs, JWT
+[Database]  MongoDB, PostgreSQL, MySQL
+[AI Stack]  Gemini API, Claude AI, RAG Vector`
   },
   {
-    cmd: 'meet --hackathon',
-    output: `Event:    TechSprint 2.0 Hackathon
-Project:  CareerSync — AI Career Platform
-Scope:    49+ career paths & assessments
-Stack:    Next.js 16 + FastAPI + PostgreSQL`
+    cmd: 'meet --projects',
+    output: `Flagship: GenOS — 11-Era MERN + AI OS (Live)
+Hackathon: CareerSync — 49+ Career Paths (Next+FastAPI)
+Enterprise: HP TechPulse — QR Passports & Health Engine
+Portal:   HP Mobile Store & Expense Tracker`
   },
   {
     cmd: 'meet --status',

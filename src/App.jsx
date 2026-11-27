@@ -42,16 +42,16 @@ const QUICK_EXPLORE_CARDS = [
   {
     id: 'projects',
     icon: FolderGit2,
-    tag: '06 SYSTEMS',
+    tag: '07 SYSTEMS',
     title: 'Featured Projects',
-    desc: 'CareerSync AI, HP TechPulse, Mobile Store POS & Finance Ledger'
+    desc: 'GenOS (Live MERN+AI), CareerSync, HP TechPulse, Mobile Store & Ledger'
   },
   {
     id: 'skills',
     icon: Code2,
-    tag: 'FULL STACK',
+    tag: 'MERN & PYTHON',
     title: 'Skills & Architecture',
-    desc: 'React 19, Next.js 16, Python FastAPI, PostgreSQL & MySQL'
+    desc: 'React 19, Next.js 16, Node.js, MongoDB, FastAPI & PostgreSQL'
   },
   {
     id: 'about',

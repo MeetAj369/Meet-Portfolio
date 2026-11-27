@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070a18" />
+      <stop offset="50%" stop-color="#17153b" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+    <radialGradient id="glowGen" cx="55%" cy="38%" r="65%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.34" />
+      <stop offset="55%" stop-color="#c084fc" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="textGradGen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c8cff" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+    <filter id="shadowGen" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.52" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="url(#bgGen)" />
+  <rect width="800" height="420" fill="url(#glowGen)" />
+
+  <!-- Subtle Chrono Grid -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="70" x2="800" y2="70" />
+    <line x1="0" y1="140" x2="800" y2="140" />
+    <line x1="0" y1="210" x2="800" y2="210" />
+    <line x1="0" y1="280" x2="800" y2="280" />
+    <line x1="0" y1="350" x2="800" y2="350" />
+    <line x1="160" y1="0" x2="160" y2="420" />
+    <line x1="320" y1="0" x2="320" y2="420" />
+    <line x1="480" y1="0" x2="480" y2="420" />
+    <line x1="640" y1="0" x2="640" y2="420" />
+  </g>
+
+  <!-- Window Top Bar -->
+  <rect x="40" y="24" width="720" height="36" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" />
+  <circle cx="62" cy="42" r="5" fill="#ef4444" />
+  <circle cx="78" cy="42" r="5" fill="#f59e0b" />
+  <circle cx="94" cy="42" r="5" fill="#10b981" />
+  <text x="120" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">GenOS.jsx — MERN + AI Generational Intelligence OS (1883–2069)</text>
+
+  <!-- Live Badge -->
+  <rect x="560" y="30" width="188" height="24" rx="12" fill="rgba(16, 185, 129, 0.2)" stroke="rgba(16, 185, 129, 0.6)" />
+  <circle cx="575" cy="42" r="4" fill="#10b981" />
+  <text x="586" y="46" font-family="-apple-system, sans-serif" font-size="10.5" fill="#34d399" font-weight="700">● LIVE WORKING APP</text>
+
+  <!-- Main Card -->
+  <g filter="url(#shadowGen)">
+    <rect x="50" y="80" width="700" height="290" rx="16" fill="rgba(12, 16, 38, 0.8)" stroke="rgba(124, 140, 255, 0.38)" stroke-width="1.2" />
+    <rect x="50" y="80" width="700" height="2" fill="url(#textGradGen)" />
+  </g>
+
+  <!-- GenOS Chrono-Orbital Emblem + Headline -->
+  <g transform="translate(85, 115)">
+    <rect x="0" y="0" width="60" height="60" rx="14" fill="rgba(124, 140, 255, 0.14)" stroke="rgba(124, 140, 255, 0.45)" stroke-width="1.5" />
+    <circle cx="30" cy="30" r="20" fill="none" stroke="url(#textGradGen)" stroke-width="2" stroke-dasharray="32 10 8 10" stroke-linecap="round" />
+    <circle cx="30" cy="30" r="13" fill="rgba(15, 23, 42, 0.9)" stroke="#c084fc" stroke-width="1.3" />
+    <path d="M24.5 24 C27.5 21, 32.5 21, 35.5 24 C37 25.5, 36 28, 30 30 C24 32, 23 34.5, 24.5 36 C27.5 39, 32.5 39, 35.5 36 L35.5 31.5 L31 31.5" fill="none" stroke="url(#textGradGen)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="30" cy="30" r="2" fill="#38bdf8" />
+
+    <text x="76" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800" fill="url(#textGradGen)" letter-spacing="-0.5">GenOS</text>
+    <text x="76" y="52" font-family="-apple-system, sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">Generational Intelligence &amp; Chrono-Cultural OS (ChronoShift + CuspLab)</text>
+  </g>
+
+  <!-- Key Metrics Grid (Zero overlap layout) -->
+  <g transform="translate(85, 205)">
+    <rect x="0" y="0" width="198" height="68" rx="10" fill="rgba(30, 41, 59, 0.72)" stroke="rgba(255,255,255,0.08)" />
+    <text x="14" y="24" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8" font-weight="600">CHRONO SPAN</text>
+    <text x="184" y="24" text-anchor="end" font-family="-apple-system, sans-serif" font-size="10.5" fill="#7dd3fc" font-weight="600">1883–2069</text>
+    <text x="14" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="21" fill="#38bdf8" font-weight="800">11 Eras</text>
+
+    <rect x="214" y="0" width="200" height="68" rx="10" fill="rgba(30, 41, 59, 0.72)" stroke="rgba(255,255,255,0.08)" />
+    <text x="228" y="24" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8" font-weight="600">AI ARENA</text>
+    <text x="400" y="24" text-anchor="end" font-family="-apple-system, sans-serif" font-size="10.5" fill="#10b981" font-weight="600">SSE Stream</text>
+    <text x="228" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" fill="#34d399" font-weight="800">Council of 11</text>
+
+    <rect x="430" y="0" width="200" height="68" rx="10" fill="rgba(30, 41, 59, 0.72)" stroke="rgba(255,255,255,0.08)" />
+    <text x="444" y="24" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8" font-weight="600">MERN SCHEMA</text>
+    <text x="616" y="24" text-anchor="end" font-family="-apple-system, sans-serif" font-size="10.5" fill="#c084fc" font-weight="600">MongoDB</text>
+    <text x="444" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="21" fill="#a855f7" font-weight="800">6 Models</text>
+  </g>
+
+  <!-- Tech Stack Tags Footer -->
+  <g transform="translate(85, 300)">
+    <rect x="0" y="0" width="90" height="24" rx="12" fill="rgba(56, 189, 248, 0.14)" stroke="rgba(56, 189, 248, 0.35)" />
+    <text x="14" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#7dd3fc" font-weight="600">React 19</text>
+
+    <rect x="100" y="0" width="128" height="24" rx="12" fill="rgba(99, 102, 241, 0.15)" stroke="rgba(99, 102, 241, 0.35)" />
+    <text x="114" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#a5b4fc" font-weight="600">Node.js + Express</text>
+
+    <rect x="238" y="0" width="98" height="24" rx="12" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.35)" />
+    <text x="252" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#6ee7b7" font-weight="600">MongoDB</text>
+
+    <rect x="346" y="0" width="125" height="24" rx="12" fill="rgba(192, 132, 252, 0.15)" stroke="rgba(192, 132, 252, 0.35)" />
+    <text x="360" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#e9d5ff" font-weight="600">Gemini / OpenAI</text>
+
+    <rect x="481" y="0" width="115" height="24" rx="12" fill="rgba(56, 189, 248, 0.14)" stroke="rgba(56, 189, 248, 0.35)" />
+    <text x="495" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#7dd3fc" font-weight="600">Tailwind CSS 4</text>
+  </g>
+</svg>

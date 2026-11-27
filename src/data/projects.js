@@ -1,6 +1,34 @@
 export const projects = [
   {
     id: 1,
+    title: 'GenOS — Generational Intelligence & Chrono-Cultural OS',
+    fileName: 'GenOS.jsx',
+    codeSnippet: `// ChronoShift + CuspLab Unified MERN + AI Engine
+const debate = await genOs.streamCouncil({
+  eras: ['1989 CRT', 'Gen Z', '2065 Holo'],
+  span: '1883-2069 (186 years)',
+  model: 'Gemini / Smart Era Vector RAG'
+});`,
+    description: 'Architected a full-stack MERN + AI generational intelligence platform uniting ChronoShift and CuspLab to explore 11 human generations across 186 years (1883–2069, from Lost Generation through Generation Delta). Features the ChronoShift 11-era live CSS design token & texture engine, a real-time SSE AI Debate Arena (Council of 11), Cross-Era Message Translator (1918 Telegraph to 2062 Shared Node), CuspLab 6D Behavioral DNA Profiler with SVG Radar charts and MongoDB $facet analytics, Policy Stress-Tester, and 2025–2069 Future Scenario Lab.',
+    shortDescription: 'Full-stack MERN + AI platform exploring 11 generations (1883–2069) with live 11-era theme switching, SSE AI debates, 6D DNA radar profiler & cross-era translator.',
+    technologies: ['React 19', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS 4', 'SSE Streaming', 'Gemini AI'],
+    features: [
+      'ChronoShift 11-Era UI Engine dynamically switching CSS tokens, fonts & textures (1890s broadsheet to 2065 holographic HUD)',
+      'Chrono-Explorer & Pew/McCrindle cusp overlap classifier across 186 years (1883–2069) with semantic vector search',
+      'Council of 11 real-time Server-Sent Events (SSE) AI Debate Arena with moderator bridge synthesis & upvotes',
+      'Cross-Era Message Translator converting pitches into era-native formats (1918 Telegraph, 1997 Email, 2062 Node)',
+      'CuspLab 8-scenario Behavioral DNA Profiler with SVG Radar Charts & live MongoDB $facet analytics',
+      'Message & Policy Stress-Tester plus 2025–2069 Future Scenario Lab for Gen Beta, Gamma & Delta cohorts',
+      'Express REST APIs secured with Zod validation, JWT + bcryptjs, Helmet, Rate Limiting & hybrid Gemini/RAG fallback'
+    ],
+    github: 'https://github.com/MeetAj369/GenOS',
+    liveDemo: 'https://meetaj369.github.io/GenOS/',
+    image: '/Meet-Portfolio/uploads/banner-genos.svg',
+    featured: true,
+    category: 'AI / Full Stack'
+  },
+  {
+    id: 2,
     title: 'CareerSync — AI Career Guidance Platform',
     fileName: 'CareerSync.tsx',
     codeSnippet: `const careerSync = new AIPlatform({
@@ -27,7 +55,7 @@ await careerSync.matchMentor(assessment);`,
     category: 'AI / Full Stack'
   },
   {
-    id: 2,
+    id: 3,
     title: 'HP TechPulse — Enterprise IT Asset Lifecycle & Gadget Health Intelligence',
     fileName: 'gadget_passport.php',
     codeSnippet: `function calculate_health_score($conn, $gadget_id) {
@@ -58,7 +86,7 @@ await careerSync.matchMentor(assessment);`,
     category: 'Enterprise / Full Stack'
   },
   {
-    id: 3,
+    id: 4,
     title: 'HP Mobile Store — Full-Stack E-Commerce & Retail POS Platform',
     fileName: 'invoice.php',
     codeSnippet: `// Pure PHP PDF Tax Invoice & POS Billing Engine
@@ -84,7 +112,7 @@ $pdf->drawInvoice($order, $items, $grand_total, $gst_18);`,
     category: 'E-Commerce / Full Stack'
   },
   {
-    id: 4,
+    id: 5,
     title: 'HP Expense Tracker — Financial Intelligence & Budgeting Platform',
     fileName: 'dashboard.php',
     codeSnippet: `// Dynamic Monthly Spending Summary & Budget Calculation
@@ -113,7 +141,7 @@ $analytics = $stmt->fetchAll(PDO::FETCH_ASSOC);`,
     category: 'Financial / Full Stack'
   },
   {
-    id: 5,
+    id: 6,
     title: 'AI Chat Assistant',
     fileName: 'ChatAssistant.jsx',
     codeSnippet: `// Real-Time Server-Sent Events (SSE) Streaming Engine
@@ -146,21 +174,21 @@ while (true) {
     category: 'AI / Full Stack'
   },
   {
-    id: 6,
+    id: 7,
     title: 'Interactive Liquid Glass Portfolio',
     fileName: 'PortfolioShowcase.jsx',
-    codeSnippet: `// 2026 Liquid Glass Portfolio Engine
-import { ParticleAurora, ScrollReveal } from './components';
+    codeSnippet: `// Multi-View Animated Portfolio Architecture
+import { PageTransition, ShowcaseDeck } from './components';
 const theme = useTheme();
-export default function Portfolio() { return <LiquidGlassUI />; }`,
-    description: 'A personal portfolio engineered with React 19 featuring dark/light adaptive Liquid Glassmorphism, dynamic aurora particle canvas, custom interactive terminal, and responsive UI architecture.',
-    shortDescription: 'Modern interactive portfolio with Liquid Glassmorphism, dynamic aurora canvas & responsive design.',
+export default function Portfolio() { return <AnimatedPortfolio />; }`,
+    description: 'A personal portfolio engineered with React 19 featuring dark/light adaptive theming, zero-lag multi-page slide transitions, custom interactive CLI terminal, interactive AI assistant, and responsive UI across desktop and mobile.',
+    shortDescription: 'Fast multi-page interactive portfolio with slide transitions, AI assistant, CLI & responsive mobile UI.',
     technologies: ['React 19', 'Vite', 'CSS Modules', 'JavaScript', 'Liquid Glass'],
     features: [
-      'Modern 2026 Liquid Glassmorphism with specular inner highlights',
-      'Dynamic 4-orb liquid aurora background with mouse parallax',
+      'Hardware-accelerated multi-page horizontal slide transitions',
+      'Interactive right slide-in mobile navigation drawer with portal isolation',
       'Interactive developer terminal simulating Unix shell commands',
-      'Fully responsive, mobile-optimized experience across all devices'
+      'Built-in conversational AI assistant (Ask Meet’s AI) with voice I/O'
     ],
     github: 'https://github.com/MeetAj369/Meet-Portfolio',
     liveDemo: 'https://meetaj369.github.io/Meet-Portfolio/',

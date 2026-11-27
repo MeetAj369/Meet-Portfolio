@@ -16,7 +16,7 @@ export const experiences = [
     organization: 'Independent & Client Projects',
     period: '2024 — Present',
     location: 'Anand, Gujarat, India',
-    description: 'Designed and deployed enterprise-grade systems including HP TechPulse (centralizing devices, users, tickets, real-time Device Health Scores & WDV asset depreciation), HP Mobile Selling System (inventory & billing automation), and HP Expense Tracker.',
+    description: 'Designed and deployed flagship MERN, AI, and enterprise web platforms including GenOS (live 11-era Generational Intelligence OS on MongoDB, Express, React 19 & SSE AI debates), HP TechPulse (IT asset lifecycle & QR Gadget Passports), HP Mobile Store POS, and HP Expense Tracker.',
     type: 'project',
     icon: 'Code2',
     current: true

@@ -27,6 +27,22 @@ import { scrollToSection } from '../../../utils/helpers';
 
 const SHOWCASE_SLIDES = [
   {
+    id: 'genos',
+    badge: 'LIVE MERN + AI FLAGSHIP',
+    title: 'GenOS — Generational Intelligence OS',
+    metric: '1883–2069 • 11-Era Live Theme Engine • SSE AI Council & MongoDB',
+    accent: '#7c8cff',
+    icons: [
+      { label: 'React 19', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+      { label: 'Node.js', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
+      { label: 'Express', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg' },
+      { label: 'MongoDB', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
+      { label: 'Tailwind CSS', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' }
+    ],
+    ctaLabel: 'Explore GenOS',
+    target: 'projects'
+  },
+  {
     id: 'careersync',
     badge: 'HACKATHON FLAGSHIP',
     title: 'CareerSync — AI Career Platform',
@@ -72,33 +88,17 @@ const SHOWCASE_SLIDES = [
     ],
     ctaLabel: 'See Live Demo',
     target: 'projects'
-  },
-  {
-    id: 'ai-stack',
-    badge: 'AI-NATIVE WORKFLOWS',
-    title: 'Modern AI & LLM Engineering',
-    metric: 'SSE Token Streaming • Claude AI • IIT Bombay AI/ML Certified',
-    accent: '#38bdf8',
-    icons: [
-      { label: 'Python AI', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
-      { label: 'TensorFlow', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg' },
-      { label: 'FastAPI', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg' },
-      { label: 'TypeScript', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
-      { label: 'Node.js', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' }
-    ],
-    ctaLabel: 'Explore Stack',
-    target: 'skills'
   }
 ];
 
 const MARQUEE_ITEMS = [
+  { icon: Sparkles, label: 'GenOS Live (MERN + AI)' },
   { icon: Code2, label: 'React 19 & Next.js 16' },
   { icon: Rocket, label: 'TechSprint 2.0 Hackathon' },
   { icon: GraduationCap, label: '8.73 / 10 CGPA @ CVMU' },
   { icon: Terminal, label: 'Python FastAPI & Node.js' },
   { icon: Award, label: 'IIT Bombay AI & ML Certified' },
-  { icon: Database, label: 'PostgreSQL & MySQL Schemas' },
-  { icon: Sparkles, label: 'Anthropic Claude AI Stack' },
+  { icon: Database, label: 'MongoDB, PostgreSQL & MySQL' },
   { icon: ShieldCheck, label: 'Available for Internships & Jobs' }
 ];
 
@@ -211,7 +211,7 @@ const Hero = () => {
           </div>
 
           <p className={`${styles.bio} ${styles.heroReveal}`} style={{ animationDelay: '0.18s' }}>
-            Full Stack &amp; AI Developer crafting scalable <strong>React 19, Next.js 16 &amp; Python FastAPI</strong> applications. BCA Honors (<strong>8.73 CGPA</strong>) at Charutar Vidya Mandal University.
+            Full Stack &amp; AI Developer crafting scalable <strong>MERN, React 19, Next.js 16 &amp; Python FastAPI</strong> applications. BCA Honors (<strong>8.73 CGPA</strong>) at Charutar Vidya Mandal University.
           </p>
 
           <div className={`${styles.cta} ${styles.heroReveal}`} style={{ animationDelay: '0.22s' }}>

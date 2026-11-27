@@ -15,11 +15,11 @@ const BUILD_PILLARS = [
     description: 'Responsive, fast, and accessible single-page web applications with modern component architecture, state management, and intuitive UX.',
     capabilities: [
       'React 19, Next.js 16 & Vite frontend engineering',
-      'Apple Liquid Glass design systems & adaptive theming',
+      'Dynamic multi-era theming & Apple Liquid Glass UI systems',
       'Mobile-first responsive layouts across all device viewports',
       'Per-tab JWT session management & secure API routing'
     ],
-    proofProject: 'CareerSync & Meet Portfolio',
+    proofProject: 'GenOS (Live) & CareerSync',
     proofTarget: 'projects',
     tech: ['React 19', 'Next.js 16', 'TypeScript', 'Tailwind CSS 4', 'Vite']
   },
@@ -62,14 +62,14 @@ const BUILD_PILLARS = [
     icon: Cpu,
     description: 'High-throughput asynchronous backends, AI/LLM integrations, automated document processing, and background calculation engines.',
     capabilities: [
-      'Python FastAPI asynchronous microservices with Swagger documentation',
-      'Real-time Server-Sent Events (SSE) AI token streaming',
-      'Automated resume & document export engine in Word (.docx) & PDF',
-      'Multi-tier AI mentor fallback and intelligent assessment matching'
+      'Node.js + Express & Python FastAPI microservices with SSE streaming',
+      'Hybrid Gemini/Claude LLM orchestration & vector RAG fallbacks',
+      'MongoDB $facet analytics, 6D DNA radar scoring & automated Word/PDF exports',
+      'Zod request validation, Helmet security & multi-tier AI routing'
     ],
-    proofProject: 'CareerSync AI Engine & AI Chat Assistant',
+    proofProject: 'GenOS AI & CareerSync',
     proofTarget: 'projects',
-    tech: ['Python 3.12', 'FastAPI', 'Claude AI', 'SSE Streaming', 'C Engine']
+    tech: ['Node.js / Express', 'MongoDB', 'FastAPI', 'Gemini / Claude AI', 'SSE']
   }
 ];
 

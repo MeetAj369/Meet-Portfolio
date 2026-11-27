@@ -148,11 +148,11 @@ const Skills = () => {
           </div>
           <div className={styles.footerHighlight}>
             <CheckCircle2 size={16} className={styles.highlightIcon} />
-            <span>Full-Stack Scalability with React 19 &amp; Python FastAPI</span>
+            <span>MERN Stack, Next.js 16 &amp; Python FastAPI Scalability</span>
           </div>
           <div className={styles.footerHighlight}>
             <CheckCircle2 size={16} className={styles.highlightIcon} />
-            <span>Relational Data Normalization &amp; Architecture</span>
+            <span>MongoDB, PostgreSQL &amp; MySQL Data Architecture</span>
           </div>
         </div>
       </div>

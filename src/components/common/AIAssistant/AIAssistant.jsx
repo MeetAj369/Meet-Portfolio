@@ -18,10 +18,10 @@ import { personalInfo } from '../../../data/personalInfo';
 import styles from './AIAssistant.module.css';
 
 const QUICK_PROMPTS = [
+  { label: "🌐 GenOS (MERN + AI Live)", query: "Tell me about GenOS — his live generational intelligence platform." },
+  { label: "🚀 CareerSync (Hackathon)", query: "What did Meet build in the TechSprint 2.0 Hackathon?" },
   { label: "💡 Why Hire Meet?", query: "Why should we hire Meet for a Full-Stack developer role?" },
-  { label: "🚀 TechSprint 2.0 Hackathon", query: "What did Meet build in the TechSprint 2.0 Hackathon?" },
-  { label: "💻 Key Projects (CareerSync)", query: "Tell me about his key projects like CareerSync and HP TechPulse." },
-  { label: "🛠️ Tech Stack & Skills", query: "What are his strongest database & backend skills?" },
+  { label: "🛠️ Tech Stack & MERN/Python", query: "What are his strongest database & backend skills?" },
   { label: "📄 Download Resume (PDF)", query: "Where can I view & download Meet's verified Resume?" },
   { label: "🎓 Education & CGPA", query: "What is Meet's academic history & CGPA?" },
   { label: "📬 Contact & Availability", query: "How can I contact Meet or check his job availability?" }
@@ -38,10 +38,10 @@ const getAIResponse = (query) => {
 
   if (isGreeting) {
     return {
-      text: `Hello there! 👋 How can I help you today?\n\nI'm Meet's personal AI assistant. I can answer questions about his software engineering background, full-stack projects (like CareerSync or HP TechPulse), his tech stack (React, Next.js, Python FastAPI), his education at CVMU, or how to get in touch!`,
+      text: `Hello there! 👋 How can I help you today?\n\nI'm Meet's personal AI assistant. I can walk you through his latest live MERN + AI platform (**GenOS**), **CareerSync** (TechSprint 2.0), **HP TechPulse**, his stack (**React 19, MERN, Next.js 16, Python FastAPI**), or how to get in touch!`,
       actions: [
-        { label: 'View Key Projects', onClick: () => scrollToSection('projects') },
-        { label: 'Explore Skills', onClick: () => scrollToSection('skills') },
+        { label: 'Open Live GenOS App', url: 'https://meetaj369.github.io/GenOS/' },
+        { label: 'View All Projects', onClick: () => scrollToSection('projects') },
         { label: 'Download Resume (PDF)', url: personalInfo.resumePath, download: true }
       ]
     };
@@ -168,10 +168,11 @@ const getAIResponse = (query) => {
     };
   }
 
-  if (q.includes('database') || q.includes('sql') || q.includes('postgres') || q.includes('mysql') || q.includes('backend')) {
+  if (q.includes('database') || q.includes('sql') || q.includes('postgres') || q.includes('mysql') || q.includes('mongodb') || q.includes('mern') || q.includes('backend')) {
     return {
-      text: `Meet has strong expertise in relational database architecture and data modeling:\n\n• **Databases**: PostgreSQL, MySQL, and SQLite.\n• **Normalization**: Proven ability to design clean 3NF relational schemas (e.g. 18 normalized tables for CareerSync).\n• **ACID & CRUD**: Complex SQL queries, indexes, automated migrations with SQLAlchemy, and secure transaction workflows.`,
+      text: `Meet has strong full-stack database and backend architecture skills:\n\n• **MERN & NoSQL**: Architected **GenOS** using **MongoDB & Mongoose** (6 models, \`$facet\` analytics) with Node.js + Express REST APIs, Zod validation, JWT auth & SSE streaming.\n• **Relational SQL**: **PostgreSQL** (18 normalized tables in CareerSync via SQLAlchemy), **MySQL** (14 tables in HP TechPulse), and SQLite.\n• **Python & PHP Backends**: Async **FastAPI** microservices and OOP PHP/PDO systems.`,
       actions: [
+        { label: 'Open Live GenOS App', url: 'https://meetaj369.github.io/GenOS/' },
         { label: 'View Database Skills', onClick: () => scrollToSection('skills') }
       ]
     };
@@ -205,6 +206,26 @@ const getAIResponse = (query) => {
       actions: [
         { label: 'Download Verified CV (PDF)', url: personalInfo.resumePath, download: true },
         { label: 'View Education Section', onClick: () => scrollToSection('education') }
+      ]
+    };
+  }
+
+  // 7b. GenOS (Generational Intelligence & Chrono-Cultural OS)
+  if (
+    q.includes('genos') ||
+    q.includes('chronoshift') ||
+    q.includes('cusplab') ||
+    q.includes('generational') ||
+    q.includes('1883') ||
+    q.includes('2069') ||
+    q.includes('council of 11')
+  ) {
+    return {
+      text: `🌐 **GenOS — Generational Intelligence & Chrono-Cultural OS (Live Flagship)**:\n\n• **Overview**: Unites **ChronoShift + CuspLab** into a full-stack **MERN + AI** platform exploring **11 human generations across 186 years (1883–2069)**.\n• **ChronoShift 11-Era Engine**: Dynamically transforms CSS design tokens, typography, and textures across 11 eras (from 1890s broadsheet to 2065 holographic HUD).\n• **Council of 11 & Translator**: Real-time SSE AI debate arena between generations plus Cross-Era Message Translator (1918 Telegraph -> 2062 Shared Node).\n• **CuspLab DNA & Stress-Tester**: 6D behavioral DNA profiler with SVG Radar Charts, MongoDB \`$facet\` analytics, Policy Stress-Tester & 2025–2069 Future Scenario Lab.\n• **Stack**: React 19, Node.js, Express, MongoDB, Tailwind v4, Gemini/OpenAI + local RAG fallback.`,
+      actions: [
+        { label: 'Open Live GenOS App', url: 'https://meetaj369.github.io/GenOS/' },
+        { label: 'View GitHub Repo', url: 'https://github.com/MeetAj369/GenOS' },
+        { label: 'View in Projects', onClick: () => scrollToSection('projects') }
       ]
     };
   }
@@ -300,11 +321,10 @@ const getAIResponse = (query) => {
     q.includes('app')
   ) {
     return {
-      text: `💻 **Meet's Key Engineering Projects**:\n\n1. **CareerSync**: AI Career Navigation Platform (Next.js 16, React 19, FastAPI, PostgreSQL, 49+ career paths).\n2. **AI Chat Assistant**: Intelligent real-time LLM token streaming & multi-model interface with voice input.\n3. **HP TechPulse**: Enterprise IT Asset Lifecycle & Gadget Health platform with digital QR Passports, 0–100 health scoring & WDV depreciation.\n4. **HP Mobile Store**: Full-stack retail e-commerce portal with 25+ smartphone catalog, POS checkout & automated PDF GST invoicing.\n5. **HP Expense Tracker**: Financial tracking application for budgets, expense categorization & ledger analytics.`,
+      text: `💻 **Meet's Key Engineering Projects**:\n\n1. **GenOS (Live App)**: Full-stack MERN + AI Generational Intelligence OS spanning 11 eras (1883–2069), SSE AI debates & 6D DNA radar profiler.\n2. **CareerSync**: AI Career Navigation Platform (Next.js 16, React 19, FastAPI, PostgreSQL, 49+ career paths).\n3. **HP TechPulse**: Enterprise IT Asset Lifecycle & Gadget Health platform with digital QR Passports & WDV depreciation.\n4. **HP Mobile Store**: Full-stack retail e-commerce portal with 25+ smartphone catalog & automated PDF GST invoicing.\n5. **HP Expense Tracker & AI Chat Assistant**: Finance intelligence ledger & real-time SSE AI chat.`,
       actions: [
+        { label: 'Open Live GenOS App', url: 'https://meetaj369.github.io/GenOS/' },
         { label: 'View All Featured Projects', onClick: () => scrollToSection('projects') },
-        { label: 'HP Expense Tracker Live', url: 'https://meetaj369.github.io/HP-Expense-Tracker/' },
-        { label: 'HP Mobile Store Live', url: 'https://meetaj369.github.io/HP_MobileStore_Final/' },
         { label: 'GitHub Repositories', url: personalInfo.github }
       ]
     };

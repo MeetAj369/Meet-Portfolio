@@ -10,15 +10,15 @@ export const personalInfo = {
   github: 'https://github.com/MeetAj369',
   portfolio: 'https://meetaj369.github.io/Meet-Portfolio/',
   resumePath: '/Meet-Portfolio/uploads/Meet_Chauhan_Resume.pdf',
-  about: `Tech-enthusiastic BCA undergraduate with hands-on experience in Full Stack Web Development across front-end and back-end technologies including ReactJS, NodeJS, Python, JavaScript, TypeScript, HTML, CSS, PHP, SQL, and MySQL. Proven ability to design, build, and debug scalable web applications through academic hackathons and real-world projects. Holds certifications in AI, Machine Learning, and Data Science. Eager to leverage strong problem-solving skills and a collaborative mindset to contribute to a results-driven software engineering team.`,
+  about: `Tech-enthusiastic BCA undergraduate with hands-on experience in Full Stack Web Development across MERN (MongoDB, Express, ReactJS, NodeJS), Next.js, Python FastAPI, TypeScript, PHP, and PostgreSQL/MySQL. Proven ability to architect, build, and deploy scalable AI and enterprise web applications such as GenOS, CareerSync, and HP TechPulse. Holds certifications in AI, Machine Learning, and Data Science.`,
   roles: [
     'Full Stack Developer',
-    'Frontend Developer (ReactJS)',
-    'NodeJS & Python Developer',
-    'FastAPI & Backend Engineer',
-    'AI / ML Enthusiast'
+    'MERN & Next.js Engineer',
+    'ReactJS & Frontend Developer',
+    'Python & FastAPI Developer',
+    'AI Systems Builder'
   ],
-  currentlyLearning: ['Next.js 16', 'React 19', 'FastAPI', 'Tailwind CSS 4', 'PostgreSQL', 'AI/ML'],
+  currentlyLearning: ['React 19', 'Next.js 16', 'MongoDB & Express', 'FastAPI', 'Tailwind CSS 4', 'AI/ML'],
   education: {
     degree: 'Bachelor of Computer Applications (BCA)',
     institution: 'Charutar Vidya Mandal University',
