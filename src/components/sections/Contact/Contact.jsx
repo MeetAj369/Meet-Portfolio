@@ -293,7 +293,7 @@ const Contact = () => {
                       value={formData.subject} 
                       onChange={handleChange} 
                       className={`${styles.formInput} ${styles.formInputWithIcon} ${errors.subject ? styles.inputError : ''}`} 
-                      placeholder="Job Opportunity / Project Collaboration" 
+                      placeholder="e.g. Job Role / Collaboration" 
                       aria-invalid={!!errors.subject} 
                     />
                   </div>
