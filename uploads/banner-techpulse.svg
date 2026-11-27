@@ -70,22 +70,22 @@
   <!-- Key Metrics Grid -->
   <g transform="translate(85, 205)">
     <!-- Metric 1: Health Score -->
-    <rect x="0" y="0" width="195" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
-    <text x="16" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">DYNAMIC HEALTH SCORE</text>
-    <text x="16" y="52" font-family="monospace" font-size="22" fill="#34d399" font-weight="800">96 / 100</text>
-    <text x="122" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#10b981">Excellent</text>
+    <rect x="0" y="0" width="198" height="68" rx="10" fill="rgba(30, 41, 59, 0.72)" stroke="rgba(255,255,255,0.08)" />
+    <text x="14" y="24" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8" font-weight="600">HEALTH SCORE</text>
+    <text x="184" y="24" text-anchor="end" font-family="-apple-system, sans-serif" font-size="10.5" fill="#10b981" font-weight="600">Excellent</text>
+    <text x="14" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="21" fill="#34d399" font-weight="800">96 / 100</text>
 
     <!-- Metric 2: Gadget Passports -->
-    <rect x="210" y="0" width="205" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
-    <text x="226" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">DIGITAL PASSPORT™</text>
-    <text x="226" y="52" font-family="monospace" font-size="22" fill="#38bdf8" font-weight="800">QR + PDF</text>
-    <text x="330" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b">FPDF Engine</text>
+    <rect x="214" y="0" width="200" height="68" rx="10" fill="rgba(30, 41, 59, 0.72)" stroke="rgba(255,255,255,0.08)" />
+    <text x="228" y="24" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8" font-weight="600">PASSPORT™</text>
+    <text x="400" y="24" text-anchor="end" font-family="-apple-system, sans-serif" font-size="10.5" fill="#7dd3fc" font-weight="600">FPDF Engine</text>
+    <text x="228" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="21" fill="#38bdf8" font-weight="800">QR + PDF</text>
 
     <!-- Metric 3: Database & RBAC -->
-    <rect x="430" y="0" width="200" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
-    <text x="446" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">DATABASE SCHEMA</text>
-    <text x="446" y="52" font-family="monospace" font-size="22" fill="#a855f7" font-weight="800">14 Tables</text>
-    <text x="548" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8">MySQL</text>
+    <rect x="430" y="0" width="200" height="68" rx="10" fill="rgba(30, 41, 59, 0.72)" stroke="rgba(255,255,255,0.08)" />
+    <text x="444" y="24" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8" font-weight="600">SCHEMA DESIGN</text>
+    <text x="616" y="24" text-anchor="end" font-family="-apple-system, sans-serif" font-size="10.5" fill="#c084fc" font-weight="600">MySQL</text>
+    <text x="444" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="21" fill="#a855f7" font-weight="800">14 Tables</text>
   </g>
 
   <!-- Tags Footer -->

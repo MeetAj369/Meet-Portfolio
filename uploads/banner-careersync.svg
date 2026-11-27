@@ -70,22 +70,22 @@
   <!-- Metrics / Features Floating Grid -->
   <g transform="translate(85, 205)">
     <!-- Metric 1: 49 Paths -->
-    <rect x="0" y="0" width="185" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
-    <text x="16" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">CAREER PATHWAYS</text>
-    <text x="16" y="52" font-family="monospace" font-size="22" fill="#38bdf8" font-weight="800">49 Paths</text>
-    <text x="110" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b">11 Fields</text>
+    <rect x="0" y="0" width="198" height="68" rx="10" fill="rgba(30, 41, 59, 0.72)" stroke="rgba(255,255,255,0.08)" />
+    <text x="14" y="24" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8" font-weight="600">CAREER PATHWAYS</text>
+    <text x="184" y="24" text-anchor="end" font-family="-apple-system, sans-serif" font-size="10.5" fill="#7dd3fc" font-weight="600">11 Fields</text>
+    <text x="14" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="21" fill="#38bdf8" font-weight="800">49+ Paths</text>
 
     <!-- Metric 2: Matching Engine -->
-    <rect x="200" y="0" width="205" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
-    <text x="216" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">AI MATCH ACCURACY</text>
-    <text x="216" y="52" font-family="monospace" font-size="22" fill="#34d399" font-weight="800">98.4%</text>
-    <text x="295" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#10b981">Optimal Fit</text>
+    <rect x="214" y="0" width="200" height="68" rx="10" fill="rgba(30, 41, 59, 0.72)" stroke="rgba(255,255,255,0.08)" />
+    <text x="228" y="24" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8" font-weight="600">MATCH ACCURACY</text>
+    <text x="400" y="24" text-anchor="end" font-family="-apple-system, sans-serif" font-size="10.5" fill="#10b981" font-weight="600">Optimal Fit</text>
+    <text x="228" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="21" fill="#34d399" font-weight="800">98.4%</text>
 
     <!-- Metric 3: Architecture -->
-    <rect x="420" y="0" width="210" height="68" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(255,255,255,0.08)" />
-    <text x="436" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="600">RELATIONAL SCHEMA</text>
-    <text x="436" y="52" font-family="monospace" font-size="22" fill="#a855f7" font-weight="800">18 Tables</text>
-    <text x="542" y="52" font-family="-apple-system, sans-serif" font-size="11" fill="#94a3b8">PostgreSQL</text>
+    <rect x="430" y="0" width="200" height="68" rx="10" fill="rgba(30, 41, 59, 0.72)" stroke="rgba(255,255,255,0.08)" />
+    <text x="444" y="24" font-family="-apple-system, sans-serif" font-size="10" fill="#94a3b8" font-weight="600">SCHEMA DESIGN</text>
+    <text x="616" y="24" text-anchor="end" font-family="-apple-system, sans-serif" font-size="10.5" fill="#c084fc" font-weight="600">PostgreSQL</text>
+    <text x="444" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="21" fill="#a855f7" font-weight="800">18 Tables</text>
   </g>
 
   <!-- Tech Stack Pill Tags Footer -->
