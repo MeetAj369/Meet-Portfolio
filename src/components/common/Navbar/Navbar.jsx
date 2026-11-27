@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import {
   Menu,
   X,
@@ -159,8 +160,8 @@ const Navbar = ({ theme, toggleTheme, activeSection }) => {
         </div>
       </div>
 
-      {/* Right Slide-In Mobile Navigation Drawer (Inspired by modern app drawer choreography) */}
-      {menuOpen && (
+      {/* Right Slide-In Mobile Navigation Drawer rendered via Portal to escape header stacking context */}
+      {menuOpen && createPortal(
         <div
           className={`${styles.drawerOverlay} ${isClosing ? styles.drawerOverlayClosing : ''}`}
           onClick={closeMenu}
@@ -241,7 +242,8 @@ const Navbar = ({ theme, toggleTheme, activeSection }) => {
               </a>
             </div>
           </aside>
-        </div>
+        </div>,
+        document.body
       )}
     </header>
   );
